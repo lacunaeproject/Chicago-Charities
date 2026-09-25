@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GiveChi · Mockup A</title>
+<style>
+@font-face { font-family: 'League Gothic'; src: url('../fonts/league-gothic-latin.woff2') format('woff2'); font-weight: 400; font-stretch: 75% 100%; }
+@font-face { font-family: 'Geist'; src: url('../fonts/geist-latin.woff2') format('woff2'); font-weight: 100 900; }
+:root {
+  --ink: #0B1C2C; --ink-2: #4B5D6E; --ink-3: #6B7C8C;
+  --bg: #FFFFFF; --wash: #F2F7FB; --wash-2: #E6F1F8; --line: #E2EAF1;
+  --blue: #41B6E6; --blue-deep: #0A6C98; --blue-ink: #06324A; --red: #E4002B; --caution: #B31124;
+  --green: #1E6B3A; --green-bg: #E3F4E8;
+  --r-lg: 24px; --r-md: 16px; --r-sm: 10px;
+  --shadow: 0 1px 2px rgba(11,28,44,.06), 0 8px 24px rgba(11,28,44,.06);
+  --shadow-lg: 0 2px 4px rgba(11,28,44,.05), 0 24px 48px -12px rgba(11,28,44,.14);
+  --sans: 'Geist', system-ui, sans-serif; --display: 'League Gothic', 'Arial Narrow', sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--bg); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+/* nav */
+.nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand-word { font-family: var(--display); font-size: 34px; line-height: 1; letter-spacing: .01em; }
+.brand-stars { display: inline-flex; gap: 3px; }
+.brand-stars svg { width: 11px; height: 11px; fill: var(--red); }
+.nav-links { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 500; color: var(--ink-2); }
+.nav-links a { text-decoration: none; }
+.pill-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); font: 600 15px/1 var(--sans); }
+.pill-btn .n { display: inline-grid; place-items: center; min-width: 22px; height: 22px; border-radius: 11px; background: var(--wash-2); font-size: 13px; }
+
+/* hero */
+.hero { position: relative; background: linear-gradient(180deg, var(--wash) 0%, #fff 100%); padding: 64px 0 40px; overflow: hidden; }
+.hero::before, .hero::after { content: ""; position: absolute; left: 0; right: 0; height: 6px; background: var(--blue); }
+.hero::before { top: 0; }
+.hero::after { top: 14px; opacity: .35; }
+.hero-title { font-family: var(--display); font-weight: 400; font-size: clamp(56px, 6.2vw, 92px); line-height: .92; letter-spacing: .005em; margin: 0; }
+.hero-title span { color: var(--blue-deep); }
+.hero-sub { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 36ch; margin: 20px 0 0; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: end; }
+
+/* sentence builder */
+.builder { background: #fff; border-radius: var(--r-lg); box-shadow: var(--shadow-lg); padding: 32px; }
+.builder-q { font-size: 25px; line-height: 1.55; font-weight: 500; letter-spacing: -.015em; margin: 0; }
+.slot { position: relative; display: inline-block; }
+.slot select { appearance: none; font: 650 25px/1.2 var(--sans); letter-spacing: -.015em; color: var(--blue-deep); background: var(--wash); border: 0; border-radius: 12px; padding: 4px 38px 6px 14px; cursor: pointer; }
+.slot::after { content: ""; position: absolute; right: 14px; top: 50%; width: 9px; height: 9px; border-right: 2.5px solid var(--blue-deep); border-bottom: 2.5px solid var(--blue-deep); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
+.builder-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.builder-count { font-size: 15px; color: var(--ink-2); }
+.builder-count b { color: var(--ink); }
+.cta { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 24px; border-radius: 999px; border: 0; background: var(--ink); color: #fff; font: 600 16px/1 var(--sans); cursor: pointer; }
+
+/* results */
+.results { padding-top: 56px; padding-bottom: 24px; }
+.results-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
+.results-head h2 { font-size: 32px; line-height: 1.15; letter-spacing: -.025em; font-weight: 720; margin: 0; }
+.results-head p { margin: 0; color: var(--ink-2); font-size: 15px; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 24px; display: flex; flex-direction: column; box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s; }
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.rank { font-family: var(--display); font-size: 22px; color: var(--blue-deep); }
+.tag { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; font-size: 13px; font-weight: 600; background: var(--wash); color: var(--ink-2); }
+.tag.ev-3 { background: var(--green-bg); color: var(--green); }
+.tag.ev-2 { background: #EAF4EE; color: #2B6A43; }
+.card h3 { font-size: 22px; line-height: 1.25; letter-spacing: -.015em; font-weight: 680; margin: 18px 0 6px; }
+.card .does { color: var(--ink-2); font-size: 16px; margin: 0; }
+.fit { display: flex; gap: 10px; align-items: flex-start; margin: 18px 0 0; padding: 12px 14px; background: var(--wash); border-radius: var(--r-sm); font-size: 15px; line-height: 1.4; font-weight: 550; }
+.fit svg { flex: none; width: 18px; height: 18px; margin-top: 1px; }
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0 0; }
+.stat b { display: block; font-family: var(--display); font-weight: 400; font-size: 40px; line-height: 1; letter-spacing: .01em; }
+.stat span { font-size: 14px; color: var(--ink-3); }
+.caution { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 14px; font-weight: 600; color: var(--caution); }
+.caution::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--caution); }
+.card-actions { display: flex; gap: 10px; margin-top: auto; padding-top: 22px; }
+.btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; border-radius: 999px; font: 600 15px/1 var(--sans); text-decoration: none; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; }
+.btn-primary { background: var(--blue); border-color: var(--blue); color: var(--blue-ink); }
+
+/* browse */
+.browse { padding-top: 48px; padding-bottom: 72px; }
+.browse h2 { font-size: 24px; letter-spacing: -.02em; font-weight: 700; margin: 0 0 16px; }
+.causes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.cause { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-radius: var(--r-md); background: var(--wash); text-decoration: none; font-weight: 600; font-size: 16px; transition: background .15s; }
+.cause:hover { background: var(--wash-2); }
+.cause span { font-family: var(--display); font-size: 28px; font-weight: 400; color: var(--blue-deep); }
+.trust { display: flex; gap: 32px; justify-content: center; padding: 22px 0; border-top: 1px solid var(--line); color: var(--ink-2); font-size: 15px; }
+.trust b { color: var(--ink); font-weight: 650; }
+
+@media (max-width: 900px) {
+  .results-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .hero { padding: 40px 0 24px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  .builder { padding: 22px; }
+  .builder-q, .slot select { font-size: 21px; }
+  .cards { grid-template-columns: 1fr; }
+  .causes { grid-template-columns: 1fr 1fr; }
+  .nav-links a { display: none; }
+  .trust { flex-direction: column; gap: 6px; align-items: center; }
+  .builder-foot { flex-direction: column; align-items: stretch; gap: 14px; }
+  .cta { justify-content: center; }
+}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="#"><span class="brand-word">GiveChi</span><span class="brand-stars" id="stars"></span></a>
+  <nav class="nav-links"><a href="#">How we check</a><a href="#">All 39 charities</a><button class="pill-btn">Saved <span class="n">0</span></button></nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="hero-title">Give to Chicago.<br><span>Know where it goes.</span></h1>
+      <p class="hero-sub">Tell us what you care about. We’ll show you three checked charities that fit, with every caution left in.</p>
+    </div>
+    <form class="builder" id="builder">
+      <p class="builder-q">I want to help with
+        <span class="slot"><select id="cause"></select></span>
+        and I care most about
+        <span class="slot"><select id="priority"></select></span>
+        near <span class="slot"><select id="hood"></select></span>.
+      </p>
+      <div class="builder-foot">
+        <span class="builder-count" id="count"></span>
+        <button class="cta" type="button">Show my matches <span aria-hidden="true">→</span></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="wrap results">
+  <div class="results-head"><h2 id="rh">Your best three</h2><p>Ranked by what you picked. Tap a card for the full record.</p></div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section class="wrap browse">
+  <h2>Or browse by cause</h2>
+  <div class="causes" id="causes"></div>
+</section>
+<div class="wrap trust"><span><b>39</b> Chicago charities</span><span>Checked <b>Sept 20, 2026</b> against IRS filings</span><span><b>No cut</b> taken, ever</span></div>
+
+<script type="module">
+import { load, PRIORITIES, match, reason, money, CAUTION, stars } from './shared.js';
+const d = await load();
+document.getElementById('stars').innerHTML = stars();
+const $ = (id) => document.getElementById(id);
+$('cause').innerHTML = '<option value="">any cause</option>' + d.causes.map(c => `<option value="${c.id}">${c.short.toLowerCase()}</option>`).join('');
+$('priority').innerHTML = PRIORITIES.map(p => `<option value="${p.id}">${p.label.toLowerCase()}</option>`).join('');
+const hoods = [...new Set(d.orgs.flatMap(o => o.hoods))].sort();
+$('hood').innerHTML = '<option value="">anywhere</option>' + hoods.map(h => `<option>${h}</option>`).join('');
+const params = new URLSearchParams(location.search);
+if (params.get('cause')) $('cause').value = params.get('cause');
+if (params.get('p')) $('priority').value = params.get('p');
+const check = '<svg viewBox="0 0 20 20" fill="none" stroke="#0A6C98" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg>';
+function render() {
+  const q = { cause: $('cause').value || null, priority: $('priority').value, hood: $('hood').value || null };
+  const all = match(d.orgs, q);
+  $('count').innerHTML = `<b>${all.length}</b> charities fit so far`;
+  $('cards').innerHTML = all.slice(0, 3).map((o, i) => {
+    const t = d.tiers[o.ev]; const cautions = o.flags.filter(f => CAUTION.has(f));
+    return `<article class="card">
+      <div class="card-top"><span class="rank">No. ${i + 1}</span><span class="tag ev-${t.rank}">${t.label}</span></div>
+      <h3>${o.name}</h3><p class="does">${o.short}</p>
+      <p class="fit">${check}<span>${reason(o, q.priority, d.tiers)}</span></p>
+      <div class="stats">
+        <div class="stat"><b>${o.ratio == null ? '—' : o.ratio.toFixed(1) + '%'}</b><span>to programs</span></div>
+        <div class="stat"><b>${money(o.exp) || '—'}</b><span>spent a year</span></div>
+      </div>
+      ${cautions.length ? `<span class="caution">${cautions.length} caution${cautions.length > 1 ? 's' : ''} to read</span>` : ''}
+      <div class="card-actions"><a class="btn btn-primary" href="${o.donate}">Donate ↗</a><button class="btn">Save</button></div>
+    </article>`;
+  }).join('');
+  const p = PRIORITIES.find(p => p.id === q.priority);
+  $('rh').textContent = `Your best three for ${p.label.toLowerCase()}`;
+}
+$('causes').innerHTML = d.causes.map(c => `<a class="cause" href="#">${c.short}<span>${d.orgs.filter(o => o.cause === c.id).length}</span></a>`).join('');
+['cause', 'priority', 'hood'].forEach(id => $(id).addEventListener('change', render));
+render();
+</script>
+</body>
+</html>

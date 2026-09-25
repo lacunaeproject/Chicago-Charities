@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GiveChi · Mockup B</title>
+<style>
+@font-face { font-family: 'League Gothic'; src: url('../fonts/league-gothic-latin.woff2') format('woff2'); font-weight: 400; font-stretch: 75% 100%; }
+@font-face { font-family: 'Geist'; src: url('../fonts/geist-latin.woff2') format('woff2'); font-weight: 100 900; }
+:root {
+  --ink: #0B1C2C; --ink-2: #4B5D6E; --ink-3: #6B7C8C;
+  --bg: #F4F7FA; --panel: #FFFFFF; --line: #E2EAF1; --wash: #EDF4F9;
+  --blue: #41B6E6; --blue-deep: #0A6C98; --blue-ink: #06324A; --blue-soft: #DDF1FB;
+  --red: #E4002B; --caution: #B31124; --green: #1E6B3A; --green-bg: #E3F4E8;
+  --sans: 'Geist', system-ui, sans-serif; --display: 'League Gothic', 'Arial Narrow', sans-serif;
+  --shadow: 0 1px 2px rgba(11,28,44,.05), 0 10px 30px -8px rgba(11,28,44,.10);
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--bg); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.app { display: grid; grid-template-columns: 420px 1fr; min-height: 100vh; background: linear-gradient(90deg, #fff 420px, var(--bg) 420px); }
+
+/* left: the picker */
+.side { position: sticky; top: 0; height: 100vh; overflow: auto; background: var(--panel); border-right: 1px solid var(--line); padding: 28px 32px 32px; display: flex; flex-direction: column; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-word { font-family: var(--display); font-size: 30px; line-height: 1; }
+.flag { display: grid; gap: 3px; width: 34px; }
+.flag i { display: block; height: 4px; border-radius: 2px; background: var(--blue); }
+.flag .s { display: flex; justify-content: space-between; padding: 0 1px; }
+.flag svg { width: 7px; height: 7px; fill: var(--red); }
+.side h1 { font-size: 34px; line-height: 1.1; letter-spacing: -.03em; font-weight: 740; margin: 36px 0 8px; }
+.side h1 span { color: var(--blue-deep); }
+.side .lede { color: var(--ink-2); margin: 0 0 28px; font-size: 16px; }
+.step { padding: 20px 0; border-top: 1px solid var(--line); }
+.step-h { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; font-size: 16px; font-weight: 650; }
+.step-n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--blue-soft); color: var(--blue-deep); font: 700 13px/1 var(--sans); }
+.step.done .step-n { background: var(--blue); color: var(--blue-ink); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font: 550 14px/1 var(--sans); color: var(--ink); cursor: pointer; transition: all .15s; }
+.chip:hover { border-color: var(--blue); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.opts { display: grid; gap: 8px; }
+.opt { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line); background: #fff; cursor: pointer; text-align: left; font: inherit; color: inherit; transition: all .15s; }
+.opt:hover { border-color: var(--blue); }
+.opt .dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #B9C7D3; margin-top: 1px; }
+.opt b { display: block; font-size: 15px; font-weight: 650; }
+.opt small { display: block; font-size: 13.5px; color: var(--ink-3); }
+.opt[aria-pressed="true"] { border-color: var(--blue-deep); background: var(--wash); box-shadow: inset 0 0 0 1px var(--blue-deep); }
+.opt[aria-pressed="true"] .dot { border: 6px solid var(--blue-deep); }
+select { width: 100%; height: 46px; border-radius: 12px; border: 1px solid var(--line); padding: 0 14px; font: 500 15px var(--sans); color: var(--ink); background: #fff; }
+.side-foot { margin-top: auto; padding-top: 20px; font-size: 13.5px; color: var(--ink-3); }
+
+/* right: results */
+.main { padding: 28px 48px 64px; }
+.topbar { display: flex; justify-content: flex-end; gap: 12px; }
+.ghost { height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font: 600 14px/1 var(--sans); color: var(--ink); }
+.res-h { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin: 36px 0 22px; }
+.res-h h2 { font-size: 30px; letter-spacing: -.025em; line-height: 1.15; font-weight: 720; margin: 0; }
+.res-h h2 em { font-style: normal; color: var(--blue-deep); }
+.res-h p { margin: 0; color: var(--ink-2); font-size: 15px; white-space: nowrap; }
+.big { display: grid; grid-template-columns: 1.3fr 1fr; background: var(--panel); border-radius: 24px; box-shadow: var(--shadow); overflow: hidden; }
+.big-body { padding: 32px; }
+.best { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 650; color: var(--blue-deep); }
+.best svg { width: 14px; height: 14px; fill: var(--red); }
+.big h3 { font-size: 30px; line-height: 1.12; letter-spacing: -.025em; font-weight: 720; margin: 10px 0 8px; }
+.big .why { font-size: 17px; line-height: 1.55; color: var(--ink-2); margin: 0; max-width: 46ch; }
+.big-side { background: linear-gradient(160deg, #EAF6FC, #F7FBFD); padding: 32px; display: flex; flex-direction: column; gap: 18px; border-left: 1px solid var(--line); }
+.fig b { display: block; font-family: var(--display); font-weight: 400; font-size: 56px; line-height: .95; }
+.fig span { font-size: 14px; color: var(--ink-2); }
+.tag { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; font-size: 13px; font-weight: 650; background: #fff; color: var(--ink-2); border: 1px solid var(--line); }
+.tag.ev-3 { background: var(--green-bg); color: var(--green); border-color: transparent; }
+.tag.ev-2 { background: #EAF4EE; color: #2B6A43; border-color: transparent; }
+.acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.acts .btn { white-space: nowrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border-radius: 999px; font: 650 15px/1 var(--sans); border: 1px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; }
+.btn-p { background: var(--ink); color: #fff; border-color: var(--ink); }
+.caution { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 650; color: var(--caution); margin-top: 16px; }
+.caution::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.mid { background: var(--panel); border-radius: 20px; box-shadow: var(--shadow); padding: 24px; display: flex; flex-direction: column; }
+.mid .n { font-family: var(--display); font-size: 20px; color: var(--ink-3); }
+.mid h3 { font-size: 21px; letter-spacing: -.015em; font-weight: 680; margin: 6px 0 4px; line-height: 1.25; }
+.mid p { margin: 0; color: var(--ink-2); font-size: 15px; }
+.mid .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 18px; }
+.mid .fit { font-size: 14px; font-weight: 600; color: var(--blue-deep); }
+.more-h { font-size: 18px; font-weight: 700; letter-spacing: -.01em; margin: 40px 0 10px; }
+.list { background: var(--panel); border-radius: 20px; box-shadow: var(--shadow); }
+.li { display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: center; padding: 16px 22px; border-top: 1px solid var(--line); }
+.li:first-child { border-top: 0; }
+.li b { font-weight: 650; }
+.li small { display: block; color: var(--ink-3); font-size: 14px; }
+.li .num { font-family: var(--display); font-size: 26px; text-align: right; min-width: 90px; }
+.li .num small { font-family: var(--sans); font-size: 12.5px; }
+
+@media (max-width: 1000px) {
+  .app { grid-template-columns: 1fr; background: var(--bg); }
+  .side { position: static; height: auto; padding: 20px; }
+  .side h1 { font-size: 28px; margin-top: 24px; }
+  .main { padding: 8px 16px 48px; }
+  .topbar { display: none; }
+  .res-h { flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 12px; }
+  .big { grid-template-columns: 1fr; }
+  .big-side { border-left: 0; border-top: 1px solid var(--line); flex-direction: row; flex-wrap: wrap; }
+  .fig b { font-size: 44px; }
+  .duo { grid-template-columns: 1fr; }
+  .li { grid-template-columns: 1fr auto; }
+  .li .num:last-child { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><span class="flag"><i></i><span class="s" id="fstars"></span><i></i></span><span class="brand-word">GiveChi</span></div>
+    <h1>Find a Chicago charity <span>you can trust.</span></h1>
+    <p class="lede">Three quick choices. Every result is checked against its IRS filings.</p>
+    <div class="step" id="s1"><p class="step-h"><span class="step-n">1</span>What do you want to help with?</p><div class="chips" id="causes"></div></div>
+    <div class="step" id="s2"><p class="step-h"><span class="step-n">2</span>What matters most to you?</p><div class="opts" id="prios"></div></div>
+    <div class="step" id="s3"><p class="step-h"><span class="step-n">3</span>Near a neighborhood? <span style="font-weight:450;color:var(--ink-3)">Optional</span></p><select id="hood"></select></div>
+    <p class="side-foot">39 charities · checked Sept 20, 2026 · GiveChi takes no cut</p>
+  </aside>
+  <main class="main">
+    <div class="topbar"><button class="ghost">How we check</button><button class="ghost">Browse all 39</button><button class="ghost">Saved · 0</button></div>
+    <div class="res-h"><h2 id="rh"></h2><p id="rc"></p></div>
+    <div id="top"></div>
+    <div class="duo" id="duo"></div>
+    <p class="more-h" id="mh"></p>
+    <div class="list" id="list"></div>
+  </main>
+</div>
+<script type="module">
+import { load, PRIORITIES, match, reason, money, CAUTION, STAR, stars } from './shared.js';
+const d = await load();
+const $ = (id) => document.getElementById(id);
+$('fstars').innerHTML = stars();
+const params = new URLSearchParams(location.search);
+const q = { cause: params.get('cause') ?? 'housing', priority: params.get('p') ?? 'steady', hood: null };
+const hoods = [...new Set(d.orgs.flatMap(o => o.hoods))].sort();
+$('hood').innerHTML = '<option value="">Anywhere in Chicago</option>' + hoods.map(h => `<option>${h}</option>`).join('');
+$('hood').onchange = (e) => { q.hood = e.target.value || null; render(); };
+const caut = (o) => o.flags.filter(f => CAUTION.has(f)).length;
+function render() {
+  $('causes').innerHTML = [{ id: '', short: 'Any cause' }, ...d.causes].map(c => `<button class="chip" data-c="${c.id}" aria-pressed="${(q.cause || '') === c.id}">${c.short}</button>`).join('');
+  $('prios').innerHTML = PRIORITIES.map(p => `<button class="opt" data-p="${p.id}" aria-pressed="${q.priority === p.id}"><span class="dot"></span><span><b>${p.label}</b><small>${p.hint}</small></span></button>`).join('');
+  $('s1').classList.toggle('done', !!q.cause); $('s2').classList.add('done'); $('s3').classList.toggle('done', !!q.hood);
+  const all = match(d.orgs, q); const [a, ...rest] = all;
+  const cause = d.causes.find(c => c.id === q.cause); const p = PRIORITIES.find(x => x.id === q.priority);
+  $('rh').innerHTML = `Best for <em>${p.label.toLowerCase()}</em>${cause ? ' in ' + cause.short.toLowerCase() : ''}`;
+  $('rc').textContent = `${all.length} match${all.length === 1 ? '' : 'es'}`;
+  const t = d.tiers[a.ev];
+  $('top').innerHTML = `<article class="big"><div class="big-body">
+      <span class="best">${STAR} Best fit · ${reason(a, q.priority, d.tiers)}</span>
+      <h3>${a.name}</h3><p class="why">${a.why}</p>
+      ${caut(a) ? `<span class="caution">${caut(a)} caution${caut(a) > 1 ? 's' : ''} worth reading</span>` : ''}
+      <div class="acts"><a class="btn btn-p" href="${a.donate}">Donate ↗</a><button class="btn">Read the record</button><button class="btn">Save</button></div>
+    </div><div class="big-side">
+      <div class="fig"><b>${a.ratio == null ? '—' : a.ratio.toFixed(1) + '%'}</b><span>of spending reaches programs</span></div>
+      <div class="fig"><b>${money(a.exp) || '—'}</b><span>spent a year</span></div>
+      <div><span class="tag ev-${t.rank}">${t.label} evidence</span></div>
+    </div></article>`;
+  $('duo').innerHTML = rest.slice(0, 2).map((o, i) => `<article class="mid"><span class="n">No. ${i + 2}</span><h3>${o.name}</h3><p>${o.short}</p>
+      <div class="row"><span class="fit">${reason(o, q.priority, d.tiers)}</span><a class="btn btn-p" href="${o.donate}">Donate ↗</a></div></article>`).join('');
+  const more = rest.slice(2);
+  $('mh').textContent = more.length ? `${more.length} more that fit` : '';
+  $('list').style.display = more.length ? '' : 'none';
+  $('list').innerHTML = more.map(o => `<div class="li"><span><b>${o.name}</b><small>${o.short}</small></span>
+      <span class="num">${o.ratio == null ? '—' : o.ratio.toFixed(1) + '%'}<small>to programs</small></span><span class="num">${money(o.exp) || '—'}<small>a year</small></span></div>`).join('');
+  document.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { q.cause = b.dataset.c || null; render(); });
+  document.querySelectorAll('[data-p]').forEach(b => b.onclick = () => { q.priority = b.dataset.p; render(); });
+}
+render();
+</script>
+</body>
+</html>

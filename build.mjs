@@ -1,0 +1,229 @@
+/* BUILD: pre-renders index.html. Without script the page is complete: the
+   question and its tiles, all 39 charities grouped by cause with working
+   Donate links, and how they were checked. With script, js/app.js turns the
+   same page into views (home, results, all, how) and adds the details and
+   saved panels.
+
+   Run: node build.mjs */
+
+import { writeFileSync } from 'node:fs';
+import {
+  ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT,
+  esc, money, longDate, inCause, icon, stars, row, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
+} from './js/core.js';
+
+const N = ORGS.length;
+const VERIFIED = longDate(VERIFIED_AS_OF);
+const DESCRIPTION = SITE.description.replace('{count}', N);
+const sortKey = (o) => o.name.replace(/^(The|A)\s+/i, '').toLowerCase();
+
+/* FAQ tokens, filled from the data so the copy cannot drift. */
+const FYS = [...new Set(ORGS.map((o) => o.financials && o.financials.fiscalYear).filter(Boolean))];
+const fyCount = (fy) => ORGS.filter((o) => o.financials && o.financials.fiscalYear === fy).length;
+const WORD = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
+const word = (n) => WORD[n] || String(n);
+const fill = (t) => t
+  .replace(/\{\{verified\}\}/g, VERIFIED)
+  .replace(/\{\{fy(\d{4})\}\}/g, (_, y) => word(fyCount('FY' + y)));
+for (const f of FAQ) if (/\{\{/.test(fill(f.a))) throw new Error('Unfilled FAQ token: ' + f.q);
+if (!SITE.contact) console.warn('meta.js SITE.contact is empty: the Corrections line has no address.');
+
+/* --- the home view -------------------------------------------------------- */
+
+const tiles = CAUSES.map((c) => `
+        <li><a class="tile" href="#all-${c.id}" data-cause="${c.id}" style="view-transition-name: cause-${c.id}">
+          ${icon(c.id)}<span><span class="tile-t">${esc(c.short)}</span><span class="tile-n">${inCause(c.id).length} charities</span></span>
+        </a></li>`).join('');
+
+const home = `
+  <section class="view view-home" id="home" data-view="home" aria-labelledby="home-h">
+    <div class="sky">
+      <div class="wrap splash">
+        <p class="promise">${N} Chicago charities, checked against their filings</p>
+        <h1 class="q" id="home-h" tabindex="-1">What do you want your gift to <em>help with?</em></h1>
+        <ul class="tiles">${tiles}
+        </ul>
+        <p class="unsure"><a class="link" href="#all" data-cause="any">Not sure yet? Show me the strongest evidence across every cause</a></p>
+      </div>
+    </div>
+    <div class="wrap trust">
+      <div><p class="trust-n">${N}</p><p class="trust-t">charities, each checked against its IRS filings and Charity Navigator record</p></div>
+      <div><p class="trust-n">${esc(money(TOTAL_SPEND))}</p><p class="trust-t">spent a year between them, from a food bank to a single neighborhood pantry</p></div>
+      <div><p class="trust-n">0%</p><p class="trust-t">taken by GiveChi. Every Donate button goes straight to the charity</p></div>
+    </div>
+  </section>`;
+
+/* --- the results view: script-only, filled by app.js ------------------------ */
+
+const fit = `
+  <section class="view view-fit js-only" id="fit" data-view="fit" aria-labelledby="fit-h" hidden>
+    <div class="sky sky-fill"><div class="wrap" id="fit-body"></div></div>
+  </section>`;
+
+/* --- the full list ------------------------------------------------------------ */
+
+const groups = CAUSES.map((c) => {
+  const orgs = ORGS.filter((o) => o.primaryCause === c.id).sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
+  return `
+      <section class="group" id="all-${c.id}" aria-labelledby="g-${c.id}">
+        <h2 class="group-h" id="g-${c.id}">${icon(c.id, 'ico ico-sm')}${esc(c.label)} <span class="group-n">${orgs.length}</span></h2>
+        <ul class="rows">${orgs.map(row).join('')}</ul>
+      </section>`;
+}).join('');
+
+const all = `
+  <section class="view view-all" id="all" data-view="all" aria-labelledby="all-h">
+    <div class="wrap">
+      <h1 class="view-h" id="all-h" tabindex="-1">All ${N} charities.</h1>
+      <p class="view-sub">Every charity here was checked on ${esc(VERIFIED)}. Open one for why it matters, its numbers and every caution.</p>
+      <div class="refine js-only" id="all-refine"></div>
+      <div id="all-list">${groups}
+      </div>
+      <p class="all-empty js-only" id="all-empty" hidden></p>
+    </div>
+  </section>`;
+
+/* --- how we check ---------------------------------------------------------------- */
+
+const tierList = Object.values(EVIDENCE_TIERS).sort((a, b) => b.rank - a.rank).map((t) =>
+  `<li><span class="ev ev-${t.rank}">${esc(t.label)}</span><p>${esc(t.gloss)}</p></li>`).join('');
+
+const how = `
+  <section class="view view-how" id="how" data-view="how" aria-labelledby="how-h">
+    <div class="wrap narrow">
+      <h1 class="view-h" id="how-h" tabindex="-1">How we check.</h1>
+      <p class="lede">Each charity was checked on ${esc(VERIFIED)} against its IRS Form 990, its Charity Navigator record and its own reports, and every donation link was opened to confirm it works. Nothing here is paid for, and nothing is ranked on a single score.</p>
+
+      <section class="how-block how-made" id="how-made" aria-labelledby="how-made-h">
+        <h2 id="how-made-h">How it’s made</h2>
+        <p>GiveChi is generated with AI and overseen by ${esc(SITE.steward)}. ${esc(SITE.madeWith)}, gathered the records, wrote the summaries and built the site. ${esc(SITE.steward)} sets its direction and reviews the work.</p>
+        <p>AI can get things wrong. Each charity’s details link to the filings and sources behind its figures, so check the ones that matter to you before a large gift.</p>
+      </section>
+
+      <section class="how-block" aria-labelledby="how-num">
+        <h2 id="how-num">What the numbers mean</h2>
+        <dl class="defs">
+          <div><dt>To programs</dt><dd>The share of spending that goes to programs, averaged over three years. The median here is ${RATIO_MEDIAN.toFixed(1)}%. It shows how spending is classified; the evidence tag shows whether the programs work.</dd></div>
+          <div><dt>Charity Navigator score</dt><dd>${esc(BEACON_CAVEAT)}</dd></div>
+          <div><dt>Spent a year</dt><dd>Total expenses from the latest readable filing. Size measures reach.</dd></div>
+          <div><dt>Result</dt><dd>Revenue minus expenses in that year. A deficit is shown in red and explained under Worth knowing.</dd></div>
+        </dl>
+      </section>
+
+      <section class="how-block" aria-labelledby="how-ev">
+        <h2 id="how-ev">Evidence</h2>
+        <ul class="tiers">${tierList}</ul>
+      </section>
+
+      <section class="how-block" aria-labelledby="how-caution">
+        <h2 id="how-caution">Cautions</h2>
+        <p>Every note on the record stays in. The ones that bear most on a gift (${CAUTION_KINDS.map((k) => FLAG_LABELS[k].toLowerCase()).join(', ')}) show on the cards; the rest wait in each charity’s details.</p>
+      </section>
+
+      <section class="how-block" aria-labelledby="how-faq">
+        <h2 id="how-faq">Questions</h2>
+        <dl class="faq">${FAQ.map((f) => `<div${f.id ? ` id="${f.id}"` : ''}><dt>${esc(f.q)}</dt><dd>${esc(fill(f.a))}</dd></div>`).join('')}</dl>
+      </section>
+
+      <section class="how-block" aria-labelledby="how-src">
+        <h2 id="how-src">Sources</h2>
+        <ul class="sources">${SOURCES.map((s) => `<li><span>${esc(s.label)}</span>${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.via)}<span class="sr-only">, opens in a new tab</span></a>` : `<span class="src-via">${esc(s.via)}</span>`}</li>`).join('')}</ul>
+        <p class="fine">If a link is dead or a figure is wrong, it gets fixed.${SITE.contact ? ` Write to ${esc(SITE.contact)}.` : ''}</p>
+      </section>
+    </div>
+  </section>`;
+
+/* --- structured data --------------------------------------------------------------- */
+
+const SCHEMA = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebSite', '@id': `${SITE.canonical}#website`, url: SITE.canonical, name: SITE.masthead, description: DESCRIPTION, inLanguage: 'en-US', author: { '@type': 'Person', name: SITE.steward } },
+    {
+      '@type': 'ItemList', '@id': `${SITE.canonical}#roster`, name: `Vetted Chicago charities, ${N} organizations`, numberOfItems: N,
+      itemListElement: ORGS.map((o, i) => ({
+        '@type': 'ListItem', position: i + 1,
+        item: {
+          '@type': 'NGO', '@id': `${SITE.canonical}#${o.id}`, name: o.name, description: o.does, url: o.homepage,
+          identifier: { '@type': 'PropertyValue', propertyID: 'EIN', value: o.ein },
+          areaServed: { '@type': 'Place', name: o.serviceArea },
+          potentialAction: { '@type': 'DonateAction', target: { '@type': 'EntryPoint', urlTemplate: o.donateUrl } }
+        }
+      }))
+    },
+    { '@type': 'FAQPage', '@id': `${SITE.canonical}#faq`, mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: fill(f.a) } })) }
+  ]
+};
+const jsonld = JSON.stringify(SCHEMA).replace(/</g, '\\u003c');
+
+/* --- the page -------------------------------------------------------------------------- */
+
+const html = `<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E8F5FC">
+<meta name="color-scheme" content="light">
+<script>document.documentElement.classList.add('js');addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='SCRIPT'&&t.type==='module')document.documentElement.classList.remove('js')},true);</script>
+<title>${esc(SITE.name)}</title>
+<meta name="description" content="${esc(DESCRIPTION)}">
+<meta name="author" content="${esc(SITE.steward)}">
+<link rel="canonical" href="${esc(SITE.canonical)}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${esc(SITE.masthead)}">
+<meta property="og:title" content="${esc(SITE.title)}">
+<meta property="og:description" content="${esc(DESCRIPTION)}">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="mask-icon.svg" color="#E4002B">
+<link rel="preload" href="fonts/league-gothic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="modulepreload" href="js/core.js">
+<link rel="modulepreload" href="js/saved.js">
+<link rel="modulepreload" href="data/orgs.js">
+<link rel="modulepreload" href="data/meta.js">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#home" data-route="/"><span class="brand-word">${esc(SITE.masthead)}</span>${stars()}<span class="sr-only">, home</span></a>
+    <nav class="nav-links" aria-label="Site">
+      <a href="#how" data-route="/how">How we check</a>
+      <a href="#all" data-route="/all">All ${N} charities</a>
+    </nav>
+    <button class="saved-open js-only" type="button" id="saved-open" aria-haspopup="dialog">Saved <span class="saved-n" id="saved-n">0</span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+${home}
+${fit}
+${all}
+${how}
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p class="foot-brand"><span class="brand-word">${esc(SITE.masthead)}</span>${stars()}</p>
+    <p>${N} charities, checked ${esc(VERIFIED)}. No money taken, no donations processed, nothing collected about you, and no tie to any organization listed.<span class="foot-made">Generated with AI and overseen by ${esc(SITE.steward)}. <a href="#how-made">How it’s made</a></span></p>
+  </div>
+</footer>
+
+<dialog class="panel" id="detail" aria-labelledby="detail-h"></dialog>
+<dialog class="panel" id="saved" aria-labelledby="saved-h"></dialog>
+<div id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script type="application/ld+json">${jsonld}</script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
+`;
+
+writeFileSync(new URL('./index.html', import.meta.url), html);
+console.log(`index.html: ${(html.length / 1024).toFixed(0)} KB, ${N} organizations`);
