@@ -214,12 +214,14 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .all-flat .group { margin-top: 0; }
 .all-flat .group + .group .rows { border-top-left-radius: 0; border-top-right-radius: 0; }
 .all-empty { margin-top: var(--s-8); color: var(--ink-2); }
+.all-more { margin-top: var(--s-10); font-size: var(--t-sm); color: var(--ink-2); }
 
 /* --- how we check ------------------------------------------------------------------ */
 .how-block { margin-top: var(--s-12); }
 .how-block h2 { font-size: var(--t-2xl); font-weight: var(--w-heavy); letter-spacing: var(--tr-tight); line-height: var(--lh-tight); margin-bottom: var(--s-4); }
 .how-block > p { max-width: var(--measure); color: var(--ink-2); }
 .how-block > p + p { margin-top: var(--s-3); }
+.how-block > p + .defs, .how-block > .defs + p { margin-top: var(--s-4); }
 /* How it's made: set apart, so the disclosure is found without hunting. */
 .how-made { margin-top: var(--s-10); padding: var(--s-6) var(--s-8); border-radius: var(--r-card); background: var(--white); box-shadow: var(--shadow-2), inset var(--keel) 0 0 var(--blue); }
 .how-made h2 { font-size: var(--t-xl); margin-bottom: var(--s-3); }
@@ -278,6 +280,9 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .before { margin-top: var(--s-5); padding: var(--s-4) var(--s-5); border-radius: var(--r-md); background: var(--sky-100); }
 .before h3 { font-size: var(--t-sm); font-weight: var(--w-strong); }
 .before p { margin-top: var(--s-1); font-size: var(--t-sm); }
+.gift-eg { display: flex; align-items: baseline; gap: var(--s-3); margin-top: var(--s-5); padding: var(--s-4) var(--s-5); border-radius: var(--r-md); background: var(--sky-100); font-size: var(--t-sm); }
+.gift-amt { flex: none; font-family: var(--display); font-size: var(--t-fig); line-height: var(--lh-display); letter-spacing: var(--tr-display); color: var(--blue-deep); }
+.gift-eg .src { display: block; margin-top: var(--s-1); font-size: var(--t-xs); color: var(--ink-2); }
 .panel-why { margin-top: var(--s-6); padding-top: var(--s-6); border-top: var(--hair) solid var(--line); font-size: var(--t-base); line-height: var(--lh-read); }
 .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); margin-top: var(--s-6); }
 .stat { display: flex; flex-direction: column; padding: var(--s-4); border-radius: var(--r-md); background: var(--sky-50); }
@@ -320,6 +325,8 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .saved-go { display: flex; gap: var(--s-2); }
 .btn-sm { min-height: var(--ctl-h-sm); padding: 0 var(--s-4); }
 .saved-share { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-6); }
+.saved-remind { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); margin-top: var(--s-4); padding-top: var(--s-4); border-top: var(--hair) solid var(--line); }
+.saved-remind p { flex-basis: 100%; font-size: var(--t-sm); font-weight: var(--w-strong); }
 .shared-note { margin-top: var(--s-5); padding: var(--s-4) var(--s-5); border-radius: var(--r-md); background: var(--sky-100); font-size: var(--t-sm); }
 .shared-note .btn { margin-top: var(--s-3); }
 .saved-empty { margin-top: var(--s-6); color: var(--ink-2); max-width: var(--measure); }

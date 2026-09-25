@@ -229,7 +229,7 @@ export const FAQ = [
   },
   {
     q: 'Are donations tax deductible?',
-    a: 'For 37 of the 39, yes, if you itemize. Chicago CRED is a private operating foundation with different deduction limits, and gifts to Chicago Votes are deductible only through its Education Fund, which this page links. Each entry lists its EIN.'
+    a: 'For 37 of the 39, yes. From the 2026 tax year that includes up to $1,000 in cash gifts ($2,000 for a married couple filing jointly) even if you take the standard deduction; itemizers deduct gifts above 0.5% of income. Chicago CRED is a private operating foundation with different deduction rules, and gifts to Chicago Votes are deductible only through its Education Fund, which this page links. Each entry lists its EIN.'
   },
   {
     q: 'Why is there no overall ranking?',

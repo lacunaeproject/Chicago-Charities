@@ -23,6 +23,12 @@ figures.
 - It works without JavaScript. The page is built complete, with every
   charity and every donation link. Script adds the guided picker, the
   details panel, hover cards for cautions and the shareable saved list.
+- Beyond the numbers, each charity's details carry what a gift does in its
+  own published terms (never computed here), whether its form takes
+  recurring gifts, and where it takes volunteers. The saved list can
+  download a monthly or yearly calendar reminder (.ics, built in the
+  browser). How we check covers making a small gift count (employer
+  matching, the 2026 non-itemizer deduction) and giving safely.
 
 ## Views
 

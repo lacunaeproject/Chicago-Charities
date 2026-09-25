@@ -29,7 +29,7 @@ function parse(hash = location.hash) {
   // Hashes the page uses without script, and old anchors.
   if (!h || h === 'home' || h === 'main') return { view: 'home', params: new URLSearchParams() };
   if (h === 'all') return { view: 'all', params: new URLSearchParams() };
-  if (h === 'how' || h === 'how-we-vetted' || h === 'how-made') return { view: 'how', params: new URLSearchParams(), anchor: h === 'how' ? null : h };
+  if (h === 'how' || h === 'how-we-vetted' || h === 'how-made' || h === 'how-safe' || h === 'how-small') return { view: 'how', params: new URLSearchParams(), anchor: h === 'how' ? null : h };
   const g = h.match(/^all-([a-z]+)$/);
   if (g && causeOf(g[1])) return { view: 'fit', cause: g[1], params: new URLSearchParams() };
   if (!h.startsWith('/')) return null;               // an ordinary in-page anchor
@@ -377,7 +377,8 @@ function renderSaved() {
         : 'Saved in this browser only. Share the list to open it on another device or send it to someone.'}</p>
       ${shared && newOnes.length ? `<div class="shared-note"><p>${plural(newOnes.length, 'of these is', 'of these are')} not on your list yet.</p><button class="btn btn-dark btn-sm" type="button" data-add-shared>Add ${newOnes.length === 1 ? 'it' : 'them'} to my list</button></div>` : ''}
       ${ids.length ? `<ul class="saved-list">${ids.map((id) => byId.get(id)).map(savedItem).join('')}</ul>` : `<div class="saved-empty"><p>Nothing saved yet. Press Save on any charity and it collects here with its donation link, ready to share.</p><a class="btn btn-dark" href="#/" data-close>Find a charity</a></div>`}
-      ${ids.length && !shared ? `<div class="saved-share"><button class="btn btn-primary btn-sm" type="button" data-share>Copy share link</button><button class="btn btn-sm" type="button" data-copy>Copy as text</button><button class="btn btn-sm" type="button" data-clear>Clear list</button></div>` : ''}
+      ${ids.length && !shared ? `<div class="saved-share"><button class="btn btn-primary btn-sm" type="button" data-share>Copy share link</button><button class="btn btn-sm" type="button" data-copy>Copy as text</button><button class="btn btn-sm" type="button" data-clear>Clear list</button></div>
+      <div class="saved-remind"><p>Remind me to give again</p><button class="btn btn-sm" type="button" data-remind="month">Every month</button><button class="btn btn-sm" type="button" data-remind="year">Every December</button></div>` : ''}
     </div>`;
   if (shared) $$('[data-remove]', savedEl).forEach((b) => b.remove());
 }
@@ -405,6 +406,13 @@ savedEl.addEventListener('click', (e) => {
   if (b.dataset.remove) { const o = byId.get(b.dataset.remove); saved.remove(b.dataset.remove); renderSaved(); announce(`Removed ${o.name}.`); $('h2', savedEl).focus(); }
   if ('share' in b.dataset) copy(saved.shareUrl(), 'Share link copied.');
   if ('copy' in b.dataset) copy(saved.asText(), 'List copied as text.');
+  if (b.dataset.remind) {
+    const href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(saved.reminder(b.dataset.remind));
+    const a = Object.assign(document.createElement('a'), { href, download: 'givechi-reminder.ics' });
+    document.body.appendChild(a); a.click(); a.remove();
+    const msg = 'Reminder downloaded. Open it to add it to your calendar.';
+    announce(msg); toast(msg);
+  }
   if ('clear' in b.dataset) { saved.clear(); renderSaved(); announce('List cleared.'); $('h2', savedEl).focus(); }
   if ('addShared' in b.dataset) { saved.addAll(sharedIds.known); announce('Added to your list.'); requestClose(savedEl); }
 });

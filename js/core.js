@@ -132,7 +132,7 @@ export const stars = (n = 4) => `<span class="stars" aria-hidden="true">${star()
 
 /* --- small parts --------------------------------------------------------- */
 
-const external = (href, text, sr = '') =>
+export const external = (href, text, sr = '') =>
   `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${text}<span class="sr-only">${sr}, opens in a new tab</span></a>`;
 export const donateLink = (o, cls = 'btn btn-primary', text = 'Donate') =>
   `<a class="${cls}" href="${esc(o.donateUrl)}" target="_blank" rel="noopener noreferrer">${text} <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to ${esc(o.name)}, opens ${esc(hostOf(o.donateUrl))} in a new tab</span></a>`;
@@ -166,7 +166,8 @@ export function termTip(o, ctx, label = 'to programs') {
   const body = r == null
     ? `<p>The share of a charity’s spending that goes to its programs, rather than to management and fundraising. ${esc(o.name)} has no published figure.</p>`
     : `<p>Of every dollar ${esc(o.name)} spent, about ${Math.round(r)} cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
-      <p>This is a ${esc(v.ratioBasis || 'average')}${v.ratioYears ? ` (${esc(v.ratioYears)})` : ''} from its IRS filings. The median here is ${RATIO_MEDIAN.toFixed(1)}%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>`;
+      <p>This is a ${esc(v.ratioBasis || 'average')}${v.ratioYears ? ` (${esc(v.ratioYears)})` : ''} from its IRS filings. The median here is ${RATIO_MEDIAN.toFixed(1)}%.</p>
+      <p>Higher is not automatically better: staff, audits and data are what make programs work. This shows how spending is classified; the evidence tag shows whether the programs work.</p>`;
   return `<button class="term" type="button" popovertarget="${esc(id)}" data-tip="${esc(id)}">${label}<span class="sr-only">: what this means for ${esc(o.name)}</span></button>
     <div class="tip tip-term" id="${esc(id)}" popover role="group" aria-label="What “to programs” means">
       <p class="tip-h">What “to programs” means</p>${body}
@@ -246,7 +247,8 @@ export function detail(o) {
   const onFile = [
     ...(o.aka && o.aka.length ? [['Also known as', esc(o.aka.join(', '))]] : []),
     ['Founded', o.founded ? String(o.founded) : 'Not published'],
-    ['EIN', esc(o.ein)]
+    ['EIN', esc(o.ein)],
+    ['Checked', longDate(o.verified)]
   ];
   return `
   <div class="panel-head">
@@ -257,7 +259,8 @@ export function detail(o) {
     <h2 class="panel-name" id="detail-h" tabindex="-1">${esc(o.name)}</h2>
     <p class="panel-does">${esc(o.does)}</p>
     <div class="panel-go">${donateLink(o)}${saveButton(o, 'btn save save-btn')}</div>
-    <p class="panel-dest">${o.donateConfirmed === false ? '<strong class="warn">Payment form not confirmed.</strong> ' : ''}${giveDest(o)}${o.donateNote ? ' ' + esc(o.donateNote) : ''}</p>
+    <p class="panel-dest">${o.donateConfirmed === false ? '<strong class="warn">Payment form not confirmed.</strong> ' : ''}${giveDest(o)}${o.recurring ? ' Its form offers recurring gifts.' : ''}${o.donateNote ? ' ' + esc(o.donateNote) : ''}</p>
+    ${o.giftExample ? `<p class="gift-eg"><span class="gift-amt">$${esc(o.giftExample.amount)}</span> <span>${esc(o.giftExample.provides)}, by the charity’s own figures.${source(o.giftExample.source, 'gift example')}</span></p>` : ''}
     ${o.entityNote ? `<div class="before"><h3>Before you give</h3><p>${esc(o.entityNote)}</p></div>` : ''}
 
     <p class="panel-why">${esc(o.whyItMatters)}</p>
@@ -282,6 +285,11 @@ export function detail(o) {
       ${o.neighborhoods.length ? `<ul class="places">${o.neighborhoods.map((n) => `<li>${esc(n)}</li>`).join('')}</ul>` : ''}
       <p>${esc(o.serviceArea)}.</p>
     </section>
+
+    ${o.volunteerUrl ? `<section class="block" aria-labelledby="v-h">
+      <h3 class="block-h" id="v-h">Give time</h3>
+      <p>${esc(o.name)} takes volunteers. ${external(o.volunteerUrl, 'See how to volunteer', ` with ${esc(o.name)}`)}</p>
+    </section>` : ''}
 
     <section class="block" aria-labelledby="f-h">
       <h3 class="block-h" id="f-h">On file</h3>

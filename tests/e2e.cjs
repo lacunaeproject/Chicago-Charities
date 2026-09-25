@@ -175,6 +175,9 @@ const active = (p) => p.evaluate(() => { const a = document.activeElement; retur
     ok('save: survives reload', await p.evaluate((id) => document.querySelector(`[data-save="${id}"]`).getAttribute('aria-pressed') === 'true', id));
     await p.click('#saved-open'); await settle(p);
     ok('saved panel: lists it, focus on its title', (await p.$$eval('#saved .saved-item', (x) => x.length)) === 1 && (await active(p)) === 'saved-h');
+    const [dl] = await Promise.all([p.waitForEvent('download'), p.click('[data-remind="month"]')]);
+    const ics = require('fs').readFileSync(await dl.path(), 'utf8');
+    ok('reminder: a monthly calendar event listing the saved charity', dl.suggestedFilename() === 'givechi-reminder.ics' && /RRULE:FREQ=MONTHLY/.test(ics) && ics.replace(/\r\n /g, '').includes(`give=${id}`), ics.slice(0, 200));
     await p.keyboard.press('Escape'); await settle(p);
     ok('saved panel: Escape returns focus to the button', (await active(p)) === 'saved-open');
     await load(p, '#/?give=deborahs-place,nope-gone,' + id);
@@ -231,6 +234,13 @@ const active = (p) => p.evaluate(() => { const a = document.activeElement; retur
     ok('hovering "to programs" explains it with the charity\'s own figure', await isOpen('term-r-openlands') && /Openlands spent, about 83 cents/.test(await p.$eval('#term-r-openlands', (e) => e.textContent)));
     await p.keyboard.press('Escape'); await settle(p);
     ok('Escape closes the term card', !(await isOpen('term-r-openlands')));
+
+    // Other ways to help: the charity's own gift example, recurring note and volunteer link.
+    await load(p, '#/all?org=cawc');
+    const help = await p.evaluate(() => ({ gift: document.querySelector('#detail .gift-eg')?.textContent || '', dest: document.querySelector('#detail .panel-dest').textContent, vol: document.querySelector('#detail #v-h + p a')?.getAttribute('href') }));
+    ok('details: gift example with its source, recurring note, volunteer link', /\$25\s+provides a week’s worth of diapers/.test(help.gift) && /Source/.test(help.gift) && /recurring gifts/.test(help.dest) && help.vol === 'https://www.cawc.org/volunteer/', JSON.stringify(help));
+    await load(p, '#/all?org=youth-guidance');
+    ok('details: no gift example or volunteer block where none is published', await p.evaluate(() => !document.querySelector('#detail .gift-eg') && !document.querySelector('#detail #v-h')));
     await ctx.close();
 
     // 200% text at 320: a long card still fits and scrolls inside.

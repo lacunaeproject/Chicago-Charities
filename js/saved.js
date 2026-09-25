@@ -50,3 +50,28 @@ export function shareUrl(list = ids) {
 export function asText(list = ids) {
   return list.map((id) => byId.get(id)).map((o) => `${o.name}\nDonate: ${o.donateUrl}`).join('\n\n');
 }
+
+/* A calendar reminder to give again, built here and downloaded: nothing
+   leaves the browser. Monthly lands on the 1st; yearly on 1 December, ahead
+   of year-end giving. Times are floating, so 9 a.m. is the reader's own. */
+const icsText = (s) => String(s).replace(/[\;,]/g, (c) => '\\' + c).replace(/\n/g, '\\n');
+const fold = (line) => line.match(/.{1,73}/g).join('\r\n ');
+const stamp = (d) => `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+export function reminder(every, list = ids, now = new Date()) {
+  const first = every === 'month'
+    ? new Date(now.getFullYear(), now.getMonth() + 1, 1)
+    : new Date(now.getMonth() === 11 ? now.getFullYear() + 1 : now.getFullYear(), 11, 1);
+  const utc = now.toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+  const body = `Your giving list:\n\n${asText(list)}\n\nOpen the list: ${shareUrl(list)}`;
+  return [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//GiveChi//Giving reminder//EN', 'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    `UID:givechi-${every}-${utc}@givechi.org`, `DTSTAMP:${utc}`,
+    `DTSTART:${stamp(first)}T090000`, `DTEND:${stamp(first)}T091500`,
+    `RRULE:FREQ=${every === 'month' ? 'MONTHLY' : 'YEARLY'}`,
+    `SUMMARY:${icsText('Give to your GiveChi list')}`,
+    `DESCRIPTION:${icsText(body)}`,
+    'BEGIN:VALARM', 'ACTION:DISPLAY', `DESCRIPTION:${icsText('Give to your GiveChi list')}`, 'TRIGGER:PT0M', 'END:VALARM',
+    'END:VEVENT', 'END:VCALENDAR'
+  ].map(fold).join('\r\n') + '\r\n';
+}

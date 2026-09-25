@@ -9,7 +9,7 @@
 import { writeFileSync } from 'node:fs';
 import {
   ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT,
-  esc, money, longDate, inCause, icon, stars, row, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
+  esc, money, longDate, inCause, icon, stars, row, external, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
 } from './js/core.js';
 
 const N = ORGS.length;
@@ -80,6 +80,7 @@ const all = `
       <div id="all-list">${groups}
       </div>
       <p class="all-empty js-only" id="all-empty" hidden></p>
+      <p class="all-more">Looking for a charity that is not here? <a class="link" href="#how-safe">Check any charity yourself</a> in three public records.</p>
     </div>
   </section>`;
 
@@ -118,6 +119,29 @@ const how = `
       <section class="how-block" aria-labelledby="how-caution">
         <h2 id="how-caution">Cautions</h2>
         <p>Every note on the record stays in. The ones that bear most on a gift (${CAUTION_KINDS.map((k) => FLAG_LABELS[k].toLowerCase()).join(', ')}) show on the cards; the rest wait in each charity’s details.</p>
+      </section>
+
+      <section class="how-block" id="how-small" aria-labelledby="how-small-h">
+        <h2 id="how-small-h">Making a small gift count</h2>
+        <dl class="defs">
+          <div><dt>Ask if your employer matches it</dt><dd>Many employers match their staff’s gifts, often dollar for dollar. Check your benefits portal or ask HR before you give, then send the receipt in.</dd></div>
+          <div><dt>Deduct it without itemizing</dt><dd>From the 2026 tax year, you can deduct up to $1,000 in cash gifts to charities like these, or $2,000 for a married couple filing jointly, even if you take the standard deduction. If you itemize, gifts count above 0.5% of your income. Gifts through donor-advised funds do not qualify for the new deduction.</dd></div>
+          <div><dt>Give a little every month</dt><dd>Ten dollars a month is $120 a year, and a steady gift lets a charity plan staff and programs ahead. Each charity’s details say whether its form offers recurring gifts, and your saved list can add a reminder to your calendar.</dd></div>
+          <div><dt>Give time</dt><dd>Where a charity takes volunteers, its details link to how to sign up.</dd></div>
+        </dl>
+        <p class="fine">Tax rules: ${external('https://www.fidelitycharitable.org/articles/obbb-tax-reform.html', 'Fidelity Charitable', ', on the 2026 changes')}. Check your own situation with a tax professional.</p>
+      </section>
+
+      <section class="how-block" id="how-safe" aria-labelledby="how-safe-h">
+        <h2 id="how-safe-h">Giving safely</h2>
+        <p>Every Donate button here goes to the charity’s own site or the payment platform it uses, each checked by hand. Anywhere else, these are the signs the Federal Trade Commission says to watch for.</p>
+        <dl class="defs">
+          <div><dt>Pressure to give right now</dt><dd>A real charity will still take your gift tomorrow. Scammers push for an answer on the spot.</dd></div>
+          <div><dt>Cash, gift cards, wire transfers or crypto</dt><dd>Only scammers ask to be paid this way. A credit card or a check leaves a record you can dispute.</dd></div>
+          <div><dt>A name that is almost right</dt><dd>Lookalike names borrow a known charity’s trust. Match the EIN to the one listed here, or look the charity up in the Illinois Attorney General’s registry.</dd></div>
+        </dl>
+        <p>To check a charity that is not listed here, look up its Form 990 on ${external('https://projects.propublica.org/nonprofits/', 'ProPublica Nonprofit Explorer', '')}, its Illinois registration in the ${external('https://charitable.illinoisattorneygeneral.gov/search', 'Attorney General’s charity registry', '')} and its rating, if it has one, on ${external('https://www.charitynavigator.org/', 'Charity Navigator', '')}.</p>
+        <p class="fine">Warning signs: ${external('https://consumer.ftc.gov/features/how-donate-wisely-and-avoid-charity-scams', 'Federal Trade Commission', ', on charity scams')}.</p>
       </section>
 
       <section class="how-block" aria-labelledby="how-faq">
