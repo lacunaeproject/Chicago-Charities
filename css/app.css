@@ -33,7 +33,7 @@
 html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .view-h {
   font-family: var(--display); font-weight: var(--w-read); font-size: var(--t-view);
-  line-height: var(--lh-display); letter-spacing: var(--tr-display); text-wrap: balance;
+  line-height: var(--lh-heading); letter-spacing: var(--tr-display); text-wrap: balance;
 }
 .view-h em { font-style: normal; color: var(--blue-deep); }
 .view-sub, .lede { margin-top: var(--s-4); max-width: var(--measure); color: var(--ink-2); }
@@ -45,7 +45,7 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .promise::before { content: ""; flex: none; width: var(--s-7); height: var(--keel); border-radius: var(--keel); background: var(--blue); box-shadow: 0 var(--s-2) 0 var(--blue); transform: translateY(calc(-1 * var(--s-1))); }
 .q {
   font-family: var(--display); font-weight: var(--w-read); font-size: var(--t-hero);
-  line-height: var(--lh-display); letter-spacing: var(--tr-display);
+  line-height: var(--lh-heading); letter-spacing: var(--tr-display);
   max-width: var(--measure-q); margin-bottom: var(--s-10); text-wrap: balance;
 }
 .q em { font-style: normal; color: var(--blue-deep); }
@@ -308,7 +308,7 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 
 /* saved */
 .saved-body { padding: var(--s-6) var(--s-6) var(--s-12); }
-.saved-h { font-family: var(--display); font-weight: var(--w-read); font-size: var(--t-fig-lg); line-height: var(--lh-display); letter-spacing: var(--tr-display); }
+.saved-h { font-family: var(--display); font-weight: var(--w-read); font-size: var(--t-fig-lg); line-height: var(--lh-heading); letter-spacing: var(--tr-display); }
 .saved-sub { margin-top: var(--s-2); color: var(--ink-2); font-size: var(--t-sm); }
 .saved-list { margin-top: var(--s-6); border-top: var(--hair) solid var(--line); }
 .saved-item { display: grid; gap: var(--s-3); padding: var(--s-5) 0; border-bottom: var(--hair) solid var(--line); }

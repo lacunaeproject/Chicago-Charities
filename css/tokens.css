@@ -77,7 +77,8 @@
   --lh-tight:  1.15;
   --lh-snug:   1.3;
   --lh-read:   1.55;
-  --lh-display: .92;
+  --lh-display: .92;     /* single-line figures */
+  --lh-heading: 1.04;    /* wrapping display headings: League Gothic's ascender + descender is .935 em */
   --tr-display: .004em;
   --tr-tight:  -0.02em;
   --tr-name:   -0.015em;
