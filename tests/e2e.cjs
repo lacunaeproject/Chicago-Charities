@@ -50,7 +50,7 @@ const active = (p) => p.evaluate(() => { const a = document.activeElement; retur
       hiddenJs: [...document.querySelectorAll('.js-only')].every((e) => !e.offsetParent),
       tileTarget: document.querySelector('.tile[data-cause="food"]').getAttribute('href'),
     }));
-    ok('no-JS: 8 cause tiles', r.tiles === 8, JSON.stringify(r));
+    ok('no-JS: 9 cause tiles', r.tiles === 9, JSON.stringify(r));
     ok('no-JS: all 39 Donate links visible', r.donate === 39, r.donate);
     ok('no-JS: How we check visible', r.how);
     ok('no-JS: script-only controls hidden', r.hiddenJs);
@@ -192,7 +192,7 @@ const active = (p) => p.evaluate(() => { const a = document.activeElement; retur
     const isOpen = (id) => p.evaluate((id) => !!document.getElementById(id)?.matches(':popover-open'), id);
     await load(p, '#/fit/youth');
     const trig = '.card [data-tip="tip-c-youth-guidance"]';
-    ok('caution line names its kind', (await p.$eval(`${trig} .caution-t`, (e) => e.textContent)) === 'Caution: finances');
+    ok('caution line names its kind', (await p.$eval(`${trig} .caution-t`, (e) => e.textContent)) === 'Cautions: finances, funding risk');
     await p.hover(trig); await settle(p, 450);
     ok('hover opens the card with the full note', await isOpen('tip-c-youth-guidance') && /\$17\.7M cumulative/.test(await p.$eval('#tip-c-youth-guidance', (e) => e.textContent)));
     await p.hover('#tip-c-youth-guidance p'); await settle(p, 450);
@@ -223,6 +223,14 @@ const active = (p) => p.evaluate(() => { const a = document.activeElement; retur
     ok('closing the panel returns focus to the caution line', (await p.evaluate(() => document.activeElement.dataset.tip)) === 'tip-r-urban-growers-collective');
     ok('the row\'s line lost its open state', !(await p.evaluate(() => document.querySelector('[data-tip="tip-r-urban-growers-collective"]').classList.contains('is-open'))));
     ok('no console errors in caution flows', p.errors.length === 0, p.errors.join(' | '));
+
+    // "to programs" explains itself: hover opens its card, a closed card blocks nothing.
+    await load(p, '#/all');
+    ok('a closed term card takes no space', await p.$eval('#term-r-openlands', (e) => getComputedStyle(e).display === 'none'));
+    await p.hover('[data-tip="term-r-openlands"]'); await settle(p, 450);
+    ok('hovering "to programs" explains it with the charity\'s own figure', await isOpen('term-r-openlands') && /Openlands spent, about 83 cents/.test(await p.$eval('#term-r-openlands', (e) => e.textContent)));
+    await p.keyboard.press('Escape'); await settle(p);
+    ok('Escape closes the term card', !(await isOpen('term-r-openlands')));
     await ctx.close();
 
     // 200% text at 320: a long card still fits and scrolls inside.

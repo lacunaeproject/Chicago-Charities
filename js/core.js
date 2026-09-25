@@ -51,7 +51,7 @@ export const TOTAL_SPEND = SPEND_RANKED.reduce((s, o) => s + o.financials.expens
 
 /* The cautions that bear on the gift show on cards and rows; entity, link
    and data notes wait in the details. */
-export const CAUTION_KINDS = ['deficit', 'funding-risk', 'labor'];
+export const CAUTION_KINDS = ['deficit', 'funding-risk', 'labor', 'audit', 'incident'];
 export const cautions = (o) => o.flags.filter((f) => CAUTION_KINDS.includes(f.kind));
 const hasDeficit = (o) => o.flags.some((f) => f.kind === 'deficit');
 const TIER = (o) => EVIDENCE_TIERS[o.evidence.strength];
@@ -109,6 +109,7 @@ const ICON = {
   housing: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
   legal: '<path d="M12 3v18M5 21h14M4 7h16"/><path d="M6 7l-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/>',
   youth: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+  jobs: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>',
   health: '<path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/><path d="M9.5 11h5M12 8.5v5"/>',
   women: '<circle cx="12" cy="7" r="3.5"/><path d="M5 21a7 7 0 0 1 14 0"/>',
   environment: '<path d="M5 19C5 10 11 5 20 4c-1 9-6 15-15 15z"/><path d="M5 19l8-8"/>',
@@ -143,7 +144,7 @@ const tierBadge = (o, cls = 'ev') => { const t = TIER(o); return `<span class="$
    press for touch and keys. The card is a native popover, so it opens even
    without script; app.js adds the hover and places it beside the line.
    `ctx` keeps ids unique where one charity shows in two views at once. */
-const FLAG_ORDER = ['deficit', 'funding-risk', 'labor', 'data-quality', 'link', 'entity'];
+const FLAG_ORDER = ['deficit', 'audit', 'incident', 'funding-risk', 'labor', 'data-quality', 'link', 'entity'];
 const byFlagOrder = (a, b) => FLAG_ORDER.indexOf(a.kind) - FLAG_ORDER.indexOf(b.kind);
 export function cautionTip(o, ctx) {
   const cs = cautions(o).sort(byFlagOrder);
@@ -156,8 +157,23 @@ export function cautionTip(o, ctx) {
       <button class="tip-more js-only" type="button" data-org="${esc(o.id)}" data-at="w-h">See details and sources<span class="sr-only"> for ${esc(o.name)}</span> <span aria-hidden="true">→</span></button>
     </div>`;
 }
-const figures = (o, cls = 'figs') => `<dl class="${cls}">
-    <div><dt>to programs</dt><dd>${pct(o.vetting.programExpenseRatio) || '<span aria-hidden="true">—</span><span class="sr-only">not published</span>'}</dd></div>
+/* "To programs" explains itself in place: the label opens a card with this
+   charity's own figure in plain words, through the same popover machinery
+   as a caution line. */
+export function termTip(o, ctx, label = 'to programs') {
+  const id = `term-${ctx}-${o.id}`;
+  const v = o.vetting, r = v.programExpenseRatio;
+  const body = r == null
+    ? `<p>The share of a charity’s spending that goes to its programs, rather than to management and fundraising. ${esc(o.name)} has no published figure.</p>`
+    : `<p>Of every dollar ${esc(o.name)} spent, about ${Math.round(r)} cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a ${esc(v.ratioBasis || 'average')}${v.ratioYears ? ` (${esc(v.ratioYears)})` : ''} from its IRS filings. The median here is ${RATIO_MEDIAN.toFixed(1)}%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>`;
+  return `<button class="term" type="button" popovertarget="${esc(id)}" data-tip="${esc(id)}">${label}<span class="sr-only">: what this means for ${esc(o.name)}</span></button>
+    <div class="tip tip-term" id="${esc(id)}" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p>${body}
+    </div>`;
+}
+const figures = (o, cls = 'figs', ctx = 'f') => `<dl class="${cls}">
+    <div><dt>${termTip(o, ctx)}</dt><dd>${pct(o.vetting.programExpenseRatio) || '<span aria-hidden="true">—</span><span class="sr-only">not published</span>'}</dd></div>
     <div><dt>spent a year</dt><dd>${money(o.financials?.expenses) || '<span aria-hidden="true">—</span><span class="sr-only">not filed</span>'}</dd></div>
   </dl>`;
 
@@ -169,7 +185,7 @@ export function card(o, i, priority) {
     <h3 class="card-name" id="c-${esc(o.id)}"><a href="${esc(o.homepage)}" data-org="${esc(o.id)}">${esc(o.name)}</a></h3>
     <p class="card-does">${esc(o.short)}</p>
     <p class="card-why">${esc(reason(o, priority))}</p>
-    ${figures(o)}
+    ${figures(o, 'figs', 'c')}
     ${cautionTip(o, 'c')}
     ${o.donateConfirmed === false ? '<span class="form-warn">Payment form not confirmed. See details.</span>' : ''}
     <div class="card-go">${donateLink(o)}<button class="btn js-only" type="button" data-org="${esc(o.id)}">Details<span class="sr-only"> on ${esc(o.name)}</span></button></div>
@@ -185,7 +201,7 @@ export function row(o) {
       <p class="row-does">${esc(o.short)}</p>
       ${cautionTip(o, 'r')}
     </div>
-    ${figures(o, 'figs row-figs')}
+    ${figures(o, 'figs row-figs', 'r')}
     ${donateLink(o, 'row-donate no-js', 'Donate')}
     <span class="chev js-only" aria-hidden="true"></span>
   </li>`;
@@ -201,8 +217,8 @@ const NONE = (sr) => `<span aria-hidden="true">—</span><span class="sr-only">$
 function stats(o) {
   const v = o.vetting, f = o.financials, out = [];
   out.push(v.programExpenseRatio != null
-    ? stat('To programs', pct(v.programExpenseRatio), `Median here is ${RATIO_MEDIAN.toFixed(1)}%.`)
-    : stat('To programs', NONE('Not published'), 'No program ratio published.', ' is-none'));
+    ? stat(termTip(o, 'd', 'To programs'), pct(v.programExpenseRatio), `Median here is ${RATIO_MEDIAN.toFixed(1)}%.`)
+    : stat(termTip(o, 'd', 'To programs'), NONE('Not published'), 'No program ratio published.', ' is-none'));
   out.push(v.cnScore == null
     ? stat('Charity Navigator', NONE('Unrated'), o.entity === 'private-operating-foundation' ? 'Private foundations are not rated.' : 'Profiled, but not yet rated.', ' is-none')
     : stat('Charity Navigator', `${v.cnScore}<span class="stat-of">/100</span>`, `Assessed on ${v.beaconsComplete} of ${v.beaconsTotal} measures.`));

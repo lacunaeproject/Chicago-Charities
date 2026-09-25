@@ -163,6 +163,15 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DHYN3S0XDC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DHYN3S0XDC');
+</script>
 <meta name="theme-color" content="#E8F5FC">
 <meta name="color-scheme" content="light">
 <script>document.documentElement.classList.add('js');addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='SCRIPT'&&t.type==='module')document.documentElement.classList.remove('js')},true);</script>
@@ -211,7 +220,7 @@ ${how}
 <footer class="foot">
   <div class="wrap foot-in">
     <p class="foot-brand"><span class="brand-word">${esc(SITE.masthead)}</span>${stars()}</p>
-    <p>${N} charities, checked ${esc(VERIFIED)}. No money taken, no donations processed, nothing collected about you, and no tie to any organization listed.<span class="foot-made">Generated with AI and overseen by ${esc(SITE.steward)}. <a href="#how-made">How it’s made</a></span></p>
+    <p>${N} charities, checked ${esc(VERIFIED)}. No money taken, no donations processed, and no tie to any organization listed. Visits are counted with Google Analytics.<span class="foot-made">Generated with AI and overseen by ${esc(SITE.steward)}. <a href="#how-made">How it’s made</a></span></p>
   </div>
 </footer>
 

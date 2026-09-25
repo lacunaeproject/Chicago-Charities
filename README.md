@@ -12,13 +12,14 @@ figures.
 
 ## What it is
 
-- 39 Chicago charities, checked on September 20, 2026 against IRS Form 990
+- 39 Chicago charities, checked on September 20, 2026 and re-checked September 25 against IRS Form 990
   filings, Charity Navigator and each organization's own reports. Every
   donation link was opened; the three whose payment form could not be
   confirmed are flagged on the site.
 - A static site: one pre-rendered HTML page, three stylesheets, four small
-  ES modules and two data files. No framework, no runtime dependencies, no
-  tracking, no cookies. The saved list lives in the visitor's browser.
+  ES modules and two data files. No framework and no runtime dependencies.
+  Google Analytics (gtag.js, set in build.mjs) measures visits and sets its
+  own cookies. The saved list lives in the visitor's browser.
 - It works without JavaScript. The page is built complete, with every
   charity and every donation link. Script adds the guided picker, the
   details panel, hover cards for cautions and the shareable saved list.
@@ -30,7 +31,7 @@ land on the exact view.
 
 | Route | View |
 |---|---|
-| `#/` | Home: the question and eight cause tiles |
+| `#/` | Home: the question and nine cause tiles |
 | `#/fit/<cause>?p=<priority>&near=<neighborhood>` | Three good fits, ranked by one priority |
 | `#/all?cause=&sort=&near=` | All 39, grouped by cause or filtered and sorted |
 | `#/how` | How we check: what the numbers mean, evidence tiers, sources |

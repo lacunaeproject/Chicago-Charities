@@ -1,7 +1,7 @@
 // Site-wide metadata. Single source for the cause taxonomy, the picks, the
 // FAQ and the search metadata.
 
-export const VERIFIED_AS_OF = '2026-09-20';
+export const VERIFIED_AS_OF = '2026-09-25';
 
 /* --- deployment ---------------------------------------------------------- */
 // Set CANONICAL to the real domain before launch. Search engines and AI
@@ -58,6 +58,7 @@ export const CAUSES = [
   { id: 'housing',     label: 'Housing and homelessness',    short: 'Housing',     axis: 'Housing', query: 'homelessness, shelter and supportive housing' },
   { id: 'legal',       label: 'Legal aid and civic accountability', short: 'Legal aid', axis: 'Legal aid', query: 'immigration defense, civil legal aid and police accountability' },
   { id: 'youth',       label: 'Violence prevention and youth', short: 'Violence prevention', axis: 'Violence', query: 'gun violence prevention and youth development' },
+  { id: 'jobs',        label: 'Jobs and job training',       short: 'Jobs',        axis: 'Jobs', query: 'job training, transitional work and paid youth employment' },
   { id: 'health',      label: 'Health',                      short: 'Health',      axis: 'Health', query: 'community health centers and free clinics' },
   { id: 'women',       label: 'Women and survivors',         short: 'Women and survivors', axis: 'Women', query: 'domestic violence services and women’s funds' },
   { id: 'environment', label: 'Environment and land',        short: 'Environment', axis: 'Environment', query: 'conservation, rivers and urban farming' }
@@ -90,7 +91,9 @@ export const FLAG_LABELS = {
   'funding-risk': 'Funding risk',
   entity: 'Entity',
   link: 'Giving link',
-  'data-quality': 'Reported figures'
+  'data-quality': 'Reported figures',
+  audit: 'Audit finding',
+  incident: 'Incident'
 };
 
 export const BEACON_CAVEAT =
@@ -234,7 +237,7 @@ export const FAQ = [
   },
   {
     q: 'How current is this information?',
-    a: 'Checked on {{verified}}. Financial figures come from each organization’s latest readable filing: FY2025 for {{fy2025}}, FY2024 for {{fy2024}} and FY2023 for {{fy2023}}.'
+    a: 'Checked on {{verified}}. Financial figures come from each organization’s latest readable filing: FY2025 for {{fy2025}} and FY2024 for {{fy2024}}.'
   }
 ];
 

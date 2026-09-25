@@ -1,4 +1,4 @@
-// The roster. Verified 2026-09-20 against IRS Form 990 data (via ProPublica),
+// The roster. Verified 2026-09-20, re-checked 2026-09-25, against IRS Form 990 data (via ProPublica),
 // Charity Navigator profiles, and each organization's own site and audited statements.
 //
 // Do not add entries from memory. Every addition needs: EIN and subsection code from
@@ -46,7 +46,7 @@ export const ORGS = [
     flags: [
       { kind: 'deficit', note: 'Small operating deficits in FY2022, FY2023 and FY2025, against $216M in assets.', source: 'https://projects.propublica.org/nonprofits/organizations/362971864' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -86,7 +86,7 @@ export const ORGS = [
       { kind: 'link', note: 'Their own donate page routes to a landing page with no amount form. Give through ways-to-give or the monthly form.', source: 'https://nourishinghopechi.org/ways-to-give/' },
       { kind: 'deficit', note: 'FY2025 deficit of $390,000 on a $20M budget.', source: 'https://projects.propublica.org/nonprofits/organizations/362734184' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -101,13 +101,13 @@ export const ORGS = [
     donateUrl: 'https://careforreal.org/get-involved/donate/',
     donateNote: null,
     founded: 1970,
-    foundedNote: 'Began in 1970 as a parish program; incorporated as an independent 501(c)(3) in 2010.',
+    foundedNote: 'Founded in 1970 by an interfaith group of Edgewater clergy; incorporated as an independent 501(c)(3) in 2010.',
     primaryCause: 'food',
     causes: ['food'],
     serviceArea: 'Edgewater and Rogers Park — ZIPs 60640, 60660, 60626, 60659, 60645',
     neighborhoods: ['Edgewater', 'Rogers Park'],
     scale: 'Neighborhood',
-    does: 'Operates food pantries four to five days a week alongside a clothing closet, a pet pantry and home delivery for homebound neighbors.',
+    does: 'Operates food pantries four days a week alongside a clothing closet, a pet pantry and home delivery for homebound neighbors.',
     short: 'Food pantries, clothing and home delivery',
     whyItMatters: 'Ninety-three cents of every dollar reaches programs, the highest of any four-star organization in this guide, and it has run surpluses while expanding. It serves five far-North-Side ZIP codes and nothing else, which is why it can keep a pet pantry and a clothing closet open alongside the food: the kinds of things a citywide operation cuts first.',
     evidence: {
@@ -124,7 +124,7 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2025', revenue: 8374038, expenses: 7111107, result: 1262931 },
     flags: [],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -141,15 +141,15 @@ export const ORGS = [
     founded: 1978,
     primaryCause: 'food',
     causes: ['food'],
-    serviceArea: '13 ZIP codes across Oak Park, River Forest, Forest Park, Berwyn and Chicago’s West Side',
+    serviceArea: '13 ZIP codes across Oak Park, River Forest, Forest Park, Berwyn, other near-west suburbs and Chicago’s Austin and Galewood',
     neighborhoods: ['Oak Park', 'River Forest', 'Forest Park', 'Berwyn', 'West Side'],
     scale: 'Regional',
     does: 'Runs a food pantry with home delivery, SNAP application assistance and nutrition education across thirteen ZIP codes.',
     short: 'Food pantry and home delivery in 13 ZIP codes',
     whyItMatters: 'Beyond Hunger covers thirteen ZIP codes across Oak Park, River Forest, Forest Park, Berwyn and Chicago’s West Side, where need shows up as a quiet line at a church door and is easy to miss. Its finances are the strongest in this category. When SNAP benefits were in doubt in late 2025, it served a record number of households in a single weekend.',
     evidence: {
-      claim: 'More than 69,000 individuals served; a record weekend independently reported by the Wednesday Journal in November 2025',
-      period: 'FY2026',
+      claim: '1,200 people served in a single weekend, the most households in its 47-year history, as reported by the Wednesday Journal',
+      period: 'November 2025',
       strength: 'self-reported',
       source: 'https://www.oakpark.com/2025/11/04/beyond-hunger-sets-record-for-households-served-amid-snap-benefit-uncertainty/'
     },
@@ -161,7 +161,7 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2025', revenue: 6921928, expenses: 5046775, result: 1875153 },
     flags: [],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -198,7 +198,7 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2024', revenue: 3452339, expenses: 2462910, result: 989429 },
     flags: [],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -240,7 +240,7 @@ export const ORGS = [
       { kind: 'deficit', note: 'Two consecutive deficits: $0.99M in FY2024 and $1.61M in FY2025.', source: 'https://projects.propublica.org/nonprofits/organizations/43584367' },
       { kind: 'data-quality', note: 'No Chicago-only impact figure is published.', source: null }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   /* ----------------------------------------------------------- education --- */
@@ -255,7 +255,7 @@ export const ORGS = [
     entityNote: null,
     homepage: 'https://www.literacychicago.org/',
     donateUrl: 'https://givebutter.com/supportliteracychicago',
-    donateNote: 'Their own /donate/ page links only to a Google Form, with no way to pay. This is the working campaign.',
+    donateNote: 'Their /donate/ page loads this Givebutter form by script. This link goes to the campaign directly.',
     founded: 1968,
     primaryCause: 'education',
     causes: ['education'],
@@ -279,11 +279,11 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2025', revenue: 897204, expenses: 705684, result: 191520 },
     flags: [
-      { kind: 'link', note: 'Their own donate page offers no payment path. Use the Givebutter campaign.', source: 'https://givebutter.com/supportliteracychicago' },
+      { kind: 'link', note: 'Their donate page loads its Givebutter form by script. This link goes to the same campaign directly.', source: 'https://givebutter.com/supportliteracychicago' },
       { kind: 'data-quality', note: 'Publishes no annual learners-served figure, and the IRS ruling date on file is June 2024 despite a 1968 founding — a pattern that usually indicates reinstatement after a lapse.', source: 'https://projects.propublica.org/nonprofits/organizations/362663174' },
       { kind: 'funding-risk', note: '90% of revenue is government grants ($805,772 of $897,204).', source: 'https://projects.propublica.org/nonprofits/organizations/362663174' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -300,7 +300,7 @@ export const ORGS = [
     founded: 2006,
     primaryCause: 'education',
     causes: ['education'],
-    serviceArea: 'South and West Sides; bookstores in Pilsen, the West Loop and North Lawndale, plus a mobile store',
+    serviceArea: 'South and West Sides; bookstores in Pilsen and the West Loop, a free program site in North Lawndale, plus a mobile store',
     neighborhoods: ['Pilsen', 'West Loop', 'North Lawndale'],
     scale: 'Citywide',
     does: 'Sells donated books through community bookstores and uses the proceeds to run K–12 literacy programming and give books away.',
@@ -318,12 +318,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/204830666',
       programExpenseRatio: 82.0, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 3924289, expenses: 3359617, result: 564672 },
+    financials: { fiscalYear: 'FY2025', revenue: 3049522, expenses: 3451702, result: -402180 },
     flags: [
-      { kind: 'deficit', note: 'Closed its Logan Square store on 1 March 2026 citing financial challenges; the executive director pointed to changes in funding and priorities. The most recent Form 990 predates this and shows a surplus, so the current position is not public.', source: 'https://chicago.suntimes.com/chicago/2026/02/05/open-books-logan-square-closing-march-1' },
+      { kind: 'deficit', note: 'A $402,000 deficit in FY2025 as revenue fell about 22%, to $3.05M; net assets dropped from $2.54M to $2.14M. It then closed its Logan Square store on 1 March 2026, citing financial challenges.', source: 'https://projects.propublica.org/nonprofits/organizations/204830666' },
       { kind: 'labor', note: 'Former Logan Square employees publicly criticized management over sudden terminations in March 2026.', source: 'https://blockclubchicago.org/2026/03/26/former-logan-square-open-books-employees-criticize-management-for-sudden-terminations/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -345,9 +345,9 @@ export const ORGS = [
     scale: 'Multi-region',
     does: 'Sources and distributes free children’s books so that children from birth through sixth grade build home libraries.',
     short: 'Free books for kids, birth to sixth grade',
-    whyItMatters: 'The only organization in this guide whose core claim rests on a five-year randomized controlled trial — children who received books across multiple years gained roughly half to two-thirds of a typical school year’s reading growth, at twenty dollars a child. That is a rate of return almost nothing else on this page can document. The catch is geographic: it is headquartered in Lake Bluff and serves three metro regions, so a Chicago dollar is not spent only in Chicago.',
+    whyItMatters: 'The only organization in this guide whose core claim rests on a five-year randomized controlled trial — children who received books gained about a quarter to a third of a typical school year’s reading growth, and those who stayed all five years gained half to two-thirds, at twenty dollars a child. That is a rate of return almost nothing else on this page can document. The catch is geographic: it is headquartered in Lake Bluff and serves three metro regions, so a Chicago dollar is not spent only in Chicago.',
     evidence: {
-      claim: 'A five-year randomized controlled trial with Milwaukee Public Schools (2018–23), directed by Dr. Geoffrey Borman and funded by the Arnold Foundation, found statistically significant reading gains — multi-year recipients gained roughly 52–65% of a typical school year’s growth, at $20 per child per year',
+      claim: 'A five-year randomized controlled trial with Milwaukee Public Schools (2018–23), directed by Dr. Geoffrey Borman and funded by the Arnold Foundation, found statistically significant reading gains — about 25–32% of a typical school year’s growth across all students, and 52–65% among those who stayed in the same schools for all five years, at $20 per child per year',
       period: '2018–2023',
       strength: 'randomized-trial',
       source: 'https://www.berniesbookbank.org/our-impact/'
@@ -358,11 +358,11 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/270914453',
       programExpenseRatio: 76.9, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 6359662, expenses: 5684851, result: 674811 },
+    financials: { fiscalYear: 'FY2025', revenue: 9463630, expenses: 6013621, result: 3450009 },
     flags: [
       { kind: 'entity', note: 'Headquartered in Lake County, outside Chicago, with chapters in Milwaukee and Florida.', source: 'https://www.berniesbookbank.org/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -375,7 +375,7 @@ export const ORGS = [
     entityNote: null,
     homepage: 'https://cplfoundation.org/',
     donateUrl: 'https://secure3.convio.net/cplf/site/Donation2?mfc_pref=T&df_id=4861&4861.donation=form1',
-    donateNote: 'Their /donate/ page returns a 404. This is the working form.',
+    donateNote: 'The same form their homepage Donate button opens.',
     founded: 1986,
     primaryCause: 'education',
     causes: ['education'],
@@ -399,11 +399,10 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2024', revenue: 4556792, expenses: 5913603, result: -1356811 },
     flags: [
-      { kind: 'link', note: 'The donate link on their own site returns a 404.', source: 'https://cplfoundation.org/' },
-      { kind: 'deficit', note: 'FY2024 deficit of $1.36M, absorbed by $38.5M in net assets. Consecutive deficits in FY2018 and FY2019.', source: 'https://projects.propublica.org/nonprofits/organizations/363480353' },
+      { kind: 'deficit', note: 'FY2024 deficit of $1.36M, absorbed by $38.5M in net assets. Four consecutive deficits from FY2016 through FY2019.', source: 'https://projects.propublica.org/nonprofits/organizations/363480353' },
       { kind: 'data-quality', note: 'At 62%, the program-expense ratio is below Charity Navigator’s 70% threshold and is what holds the rating to three stars.', source: 'https://www.charitynavigator.org/ein/363480353' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -427,10 +426,10 @@ export const ORGS = [
     short: 'Coaching and money for community college students',
     whyItMatters: 'Community college completion is where the American education promise breaks — most students who enroll never finish. One Million Degrees put its model through a randomized trial and the students it reached were meaningfully more likely to graduate. Note that its own homepage quotes a 73 percent figure applying to a narrow subgroup; the trial’s real numbers are smaller and still good.',
     evidence: {
-      claim: 'A randomized trial by the University of Chicago Inclusive Economy Lab (three cohorts, 2016–18; 4,897 applicants, 2,573 offered places, 895 participated) found those offered the program 9% more likely to earn an associate degree within three years, and 18% more likely among those who enrolled',
+      claim: 'A randomized trial by the University of Chicago Inclusive Economy Lab (three cohorts, 2016–18; 4,897 applicants, 2,573 offered places, 895 participated) found those offered the program 9% more likely to earn an associate degree within three years, and 18% more likely among those who enrolled. An eight-year follow-up in 2026 found participants 16% more likely to earn any degree',
       period: '2016–2018 cohorts',
       strength: 'randomized-trial',
-      source: 'https://harris.uchicago.edu/news-events/news/uchicago-inclusive-economy-lab-finds-community-college-support-program-significantly-improves-degree-attainment'
+      source: 'https://harris.uchicago.edu/news-events/news/uchicago-inclusive-economy-lab-finds-community-college-support-program'
     },
     vetting: {
       cnScore: 92, cnStars: 4, beaconsComplete: 1, beaconsTotal: 4,
@@ -438,12 +437,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/421710230',
       programExpenseRatio: 63.1, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 7169376, expenses: 8559848, result: -1390472 },
+    financials: { fiscalYear: 'FY2025', revenue: 8447741, expenses: 10113398, result: -1665657 },
     flags: [
-      { kind: 'data-quality', note: 'Their homepage’s “73% more likely to graduate” applies only to students who applied during their senior year of high school.', source: 'https://onemilliondegrees.org/' },
-      { kind: 'deficit', note: 'FY2024 deficit of $1.39M, following a FY2023 surplus of $19.2M — consistent with a planned spend-down during scale-up. In April 2026 City Colleges announced a five-year expansion with more than $20M initial funding.', source: 'https://colleges.ccc.edu/2026/04/28/city-colleges-of-chicago-announces-five-year-expansion-of-partnership-with-one-million-degrees-to-scale-wraparound-support-to-reach-over-3000-students-annually/' }
+      { kind: 'data-quality', note: 'Their homepage’s “73% more likely to graduate” does not appear in the trial’s published results. The trial found its largest effects for students who applied while still in high school.', source: 'https://onemilliondegrees.org/' },
+      { kind: 'deficit', note: 'Deficits of $1.39M in FY2024 and $1.67M in FY2025, following a FY2023 surplus of $19.2M — consistent with a planned spend-down during scale-up, with $22.9M in net assets. In April 2026 City Colleges announced a five-year expansion with more than $20M initial funding.', source: 'https://colleges.ccc.edu/2026/04/28/city-colleges-of-chicago-announces-five-year-expansion-of-partnership-with-one-million-degrees-to-scale-wraparound-support-to-reach-over-3000-students-annually/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -465,12 +464,12 @@ export const ORGS = [
     scale: 'Citywide',
     does: 'Selects, trains and mentors first-generation Chicago high school students through college admission, graduation and into a first job.',
     short: 'Mentors first-generation students to college and career',
-    whyItMatters: 'Chicago Scholars stays with first-generation students through college and into a first job, past the easier step of getting admitted. That is why 76 percent finish within six years against a far lower baseline for comparable CPS students. It has also run two consecutive deficits totaling about $2 million, with no public explanation.',
+    whyItMatters: 'Chicago Scholars stays with first-generation students through college and into a first job, past the easier step of getting admitted. In a University of Chicago study, its Scholars finished college at a rate 10 points higher than matched CPS peers. It has also run three consecutive deficits totaling about $4.6 million, with no public explanation.',
     evidence: {
-      claim: '76% of Scholars graduate college within six years, from a study with the University of Chicago Inclusive Economy Lab analyzing ten years of data across more than 3,500 Scholars against matched CPS students',
-      period: 'ten-year cohort analysis',
+      claim: 'A University of Chicago Inclusive Economy Lab matched-comparison study of 3,569 Scholars found 55% graduated college within six years of high school, against 45% of matched CPS peers — 10 points higher, and 13 points higher for bachelor’s degrees. Its often-quoted 76% is the program’s own figure',
+      period: '2009–2019 cohorts',
       strength: 'independent-study',
-      source: 'https://chicagoscholars.org/chicago-scholars-impact/'
+      source: 'https://urbanlabs.uchicago.edu/attachments/d2697652421158d63cd5660055720d719893a707/store/e537ad891b3dbbf9c938db216e8be4ce6977159c400d7f8e8db2bbf9c8fe/Chicago+Scholars+PSM+Report_vFINAL.pdf'
     },
     vetting: {
       cnScore: 93, cnStars: 4, beaconsComplete: 1, beaconsTotal: 4,
@@ -478,11 +477,11 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/364117530',
       programExpenseRatio: 71.8, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 6512762, expenses: 7570054, result: -1057292 },
+    financials: { fiscalYear: 'FY2025', revenue: 4996476, expenses: 7572048, result: -2575572 },
     flags: [
-      { kind: 'deficit', note: 'Two consecutive deficits: $987,000 in FY2023 and $1.06M in FY2024, about $2.04M combined. Also consecutive in FY2019 and FY2020. No adverse news coverage was found; this comes from Form 990 data.', source: 'https://projects.propublica.org/nonprofits/organizations/364117530' }
+      { kind: 'deficit', note: 'Three consecutive deficits: $987,000 in FY2023, $1.06M in FY2024 and $2.58M in FY2025, about $4.62M combined; net assets fell to $8.15M. Also consecutive in FY2019 and FY2020. No adverse news coverage was found; this comes from Form 990 data.', source: 'https://projects.propublica.org/nonprofits/organizations/364117530' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -499,11 +498,11 @@ export const ORGS = [
     founded: 1991,
     foundedNote: 'Began as Gallery 37, a City of Chicago program; incorporated separately later.',
     primaryCause: 'education',
-    causes: ['education', 'youth'],
+    causes: ['education', 'youth', 'jobs'],
     serviceArea: 'More than 350 program sites across Chicago',
     neighborhoods: [],
     scale: 'Citywide',
-    does: 'Runs paid after-school and summer apprenticeships for Chicago public high school teens in arts, STEM, sports and communications.',
+    does: 'Runs paid after-school and summer apprenticeships for teens at Chicago high schools in arts, STEM, sports and communications.',
     short: 'Paid after-school apprenticeships for high school teens',
     whyItMatters: 'Teenagers get paid to do the work — arts, STEM, sports, media — which reframes the whole thing from enrichment to employment. Seventeen thousand of them last year across 350 sites, at the highest program-expense ratio in this category. Its exposure is political: City and CPS money funds most of it, and both are under strain.',
     evidence: {
@@ -518,13 +517,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/364409182',
       programExpenseRatio: 83.2, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 37608626, expenses: 38128089, result: -519463 },
+    financials: { fiscalYear: 'FY2025', revenue: 48377490, expenses: 40876917, result: 7500573 },
     flags: [
-      { kind: 'deficit', note: 'FY2024 deficit of $519,000, about 1.4% of expenses, against $58.9M in net assets.', source: 'https://projects.propublica.org/nonprofits/organizations/364409182' },
       { kind: 'funding-risk', note: 'Heavily dependent on City of Chicago and CPS funding, both under 2026 budget strain. No cut specific to this organization was found.', source: null },
       { kind: 'data-quality', note: 'Their homepage says “nearly 20,000 teens annually” while the FY2025 impact page says more than 17,000. The FY2025 figure is the one tied to a year.', source: 'https://afterschoolmatters.org/our-impact-and-research/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   /* ------------------------------------------------------------- housing --- */
@@ -562,12 +560,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/364272272',
       programExpenseRatio: 96.8, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2023', revenue: 62933761, expenses: 64232761, result: -1299000 },
+    financials: { fiscalYear: 'FY2024', revenue: 54915318, expenses: 54624829, result: 290489 },
     flags: [
-      { kind: 'funding-risk', note: 'As the Continuum of Care lead agency it is the pass-through for federal homelessness funding, and proposed HUD changes project roughly $67M in losses for Chicago.', source: 'https://chicagohomeless.org/nofo26/' },
-      { kind: 'deficit', note: 'FY2023 deficit of $1.3M. Revenue swings between $54.9M and $115.5M year to year because government rental assistance passes through the books.', source: 'https://projects.propublica.org/nonprofits/organizations/364272272' }
+      { kind: 'funding-risk', note: 'As the Continuum of Care lead agency it is the pass-through for federal homelessness funding, and HUD is weighing more than $60M in cuts that put an estimated 3,247 Chicagoans at risk. The FY2026 funding rules have since gone back and forth in court.', source: 'https://chicagohomeless.org/nofo26/' },
+      { kind: 'deficit', note: 'FY2023 deficit of $1.3M, back to a small surplus in FY2024. Revenue swings between $54.9M and $115.5M year to year because government rental assistance passes through the books.', source: 'https://projects.propublica.org/nonprofits/organizations/364272272' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -589,7 +587,7 @@ export const ORGS = [
     scale: 'Statewide',
     does: 'Organizes, lobbies and litigates on homelessness policy, and runs a legal aid project for people who are homeless. It runs no shelters or housing.',
     short: 'Homelessness policy, organizing and legal aid',
-    whyItMatters: 'The coalition writes the bills, sues, and forces the counts that shelters and city agencies then argue over. If you think Chicago’s homelessness numbers are undercounted, this is the group that made that case and got the definition changed. Surpluses every year for five years, which is unusual for an advocacy shop.',
+    whyItMatters: 'The coalition writes the bills, sues, and forces the counts that shelters and city agencies then argue over. If you think Chicago’s homelessness numbers are undercounted, this is the group that has made that case, publishing its own estimate that counts people doubled up with others. Surpluses every year for five years, which is unusual for an advocacy shop.',
     evidence: {
       claim: 'Law Project closed 404 cases for 343 clients, 48% of them aged 24 or under; $91,000 in emergency grants to 182 households',
       period: '2025',
@@ -602,11 +600,11 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/363292607',
       programExpenseRatio: 86.2, ratioBasis: 'three-year average', ratioYears: 'FY2023–FY2025'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 5760250, expenses: 5259538, result: 500712 },
+    financials: { fiscalYear: 'FY2025', revenue: 6791042, expenses: 6664232, result: 126810 },
     flags: [
       { kind: 'entity', note: 'Renamed in 2024 from Chicago Coalition for the Homeless.', source: 'https://chicagohomeless.org/about/history-of-cch/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -624,14 +622,14 @@ export const ORGS = [
     foundedNote: 'The organization dates its operations to 2002; its IRS ruling date is 1997, unexplained.',
     primaryCause: 'housing',
     causes: ['housing', 'youth'],
-    serviceArea: 'Humboldt Park, Logan Square, Back of the Yards, Brighton Park and Pilsen',
-    neighborhoods: ['Humboldt Park', 'Logan Square', 'Back of the Yards', 'Brighton Park', 'Pilsen'],
+    serviceArea: 'Humboldt Park, Logan Square, Back of the Yards and Brighton Park',
+    neighborhoods: ['Humboldt Park', 'Logan Square', 'Back of the Yards', 'Brighton Park'],
     scale: 'Multi-neighborhood',
     does: 'Runs youth drop-in centers, emergency shelter and housing from short-term through permanent supportive, for young people and families who are homeless.',
     short: 'Shelter and housing for homeless youth and families',
-    whyItMatters: 'Youth homelessness is mostly hidden: young people tend to couch-surf, which keeps them out of the counts. La Casa Norte built drop-in centers, shelter and permanent housing around that reality across five West and South Side neighborhoods. Charity Navigator has a profile for it but no rating, so you are giving without that particular check available.',
+    whyItMatters: 'Youth homelessness is mostly hidden: young people tend to couch-surf, which keeps them out of the counts. La Casa Norte built drop-in centers, shelter and permanent housing around that reality across four West and South Side neighborhoods. Charity Navigator has a profile for it but no rating, so you are giving without that particular check available.',
     evidence: {
-      claim: 'More than 24,000 clients served, up from 5,000 in 2019 — a fivefold rise in six years that suggests a broad counting definition, likely including food pantry and basic-needs contacts',
+      claim: 'More than 24,000 clients served, up from 5,000 in 2019',
       period: '2025',
       strength: 'self-reported',
       source: 'https://www.lacasanorte.org/faq'
@@ -642,13 +640,14 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/364041525',
       programExpenseRatio: null, ratioBasis: null, ratioYears: null
     },
-    financials: { fiscalYear: 'FY2023', revenue: 7876997, expenses: 7909522, result: -32525 },
+    financials: { fiscalYear: 'FY2024', revenue: 10569794, expenses: 21044609, result: -10474815 },
     flags: [
+      { kind: 'funding-risk', note: '66% of 2025 revenue ($6.07M of $9.23M) came from government grants.', source: 'https://app.fac.gov/dissemination/report/pdf/2025-12-GSAFAC-0000428860' },
       { kind: 'entity', note: 'Listed by Charity Navigator but unrated, so no score, star rating or program-expense ratio exists for it.', source: 'https://www.charitynavigator.org/ein/364041525' },
-      { kind: 'deficit', note: 'Two consecutive deficits: $263,000 in FY2022 and $33,000 in FY2023, both small relative to budget. A larger $1.8M deficit in FY2019.', source: 'https://projects.propublica.org/nonprofits/organizations/364041525' },
-      { kind: 'data-quality', note: 'Their headline growth figure is not defined, so it cannot be compared to other organizations’ counts.', source: 'https://www.lacasanorte.org/faq' }
+      { kind: 'deficit', note: 'Its FY2024 Form 990 shows a $10.47M deficit and negative net assets of $789,000. The audited consolidated statements explain it as the unwinding of a New Markets Tax Credit financing, in which $12.5M of notes were forgiven: consolidated results were a $5.27M surplus in 2024 and a $403,000 deficit in 2025, with $15.3M in net assets and a clean audit. Earlier deficits were small: $263,000 in FY2022 and $33,000 in FY2023.', source: 'https://projects.propublica.org/nonprofits/organizations/364041525' },
+      { kind: 'data-quality', note: 'Their headline figure is not defined, and a fivefold rise in six years suggests a broad counting definition, so it cannot be compared to other organizations’ counts.', source: 'https://www.lacasanorte.org/faq' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -670,9 +669,9 @@ export const ORGS = [
     scale: 'Citywide',
     does: 'Runs overnight street outreach, mobile street medicine and youth shelter and housing for people who are unhoused.',
     short: 'Overnight outreach, street medicine and youth shelter',
-    whyItMatters: 'Two things nobody else does at this hour: a bus that finds people where they already are, and a nurse on it. Street medicine is the only form of healthcare that reaches someone who will not, or cannot, walk into a clinic. Surpluses every year since 2019, though its program-expense ratio is the thinnest in this category.',
+    whyItMatters: 'Two things nobody else does at this hour: a bus that finds people where they already are, and a nurse on it. Street medicine is the only form of healthcare that reaches someone who will not, or cannot, walk into a clinic. It ran a small deficit in FY2025 after years of surpluses, and its program-expense ratio is the thinnest in this category.',
     evidence: {
-      claim: '5,429 individuals received resources; 47,781 meals distributed; 3,665 health assessments',
+      claim: '4,569 individuals received resources; 45,921 meals distributed; 2,902 health assessments',
       period: 'stated as “the past year” — no fiscal year given',
       strength: 'self-reported',
       source: 'https://www.thenightministry.org/'
@@ -683,11 +682,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/363145764',
       programExpenseRatio: 71.0, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2023', revenue: 12060037, expenses: 11331775, result: 728262 },
+    financials: { fiscalYear: 'FY2025', revenue: 10607790, expenses: 10844388, result: -236598 },
     flags: [
+      { kind: 'deficit', note: 'A $237,000 deficit in FY2025, as revenue fell from $12.06M in FY2023 to $10.61M.', source: 'https://projects.propublica.org/nonprofits/organizations/363145764' },
       { kind: 'data-quality', note: 'Impact figures are given as “the past year” with no fiscal year attached.', source: 'https://www.thenightministry.org/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -709,12 +709,12 @@ export const ORGS = [
     scale: 'Citywide',
     does: 'Chicago’s largest provider of permanent supportive housing for unaccompanied women who are homeless, plus interim housing and support services.',
     short: 'Supportive housing for women who are homeless',
-    whyItMatters: 'The only organization in this guide built specifically for women who are homeless alone: without children, and so outside most of the family shelter system. Ninety-two percent of residents stay housed. Charity Navigator scores it 98 on three of its four beacons, the best result among the four organizations here checked that far. Its CEO has said publicly that the proposed 30 percent federal cap on permanent-housing funds would force evictions at two of its buildings, which is what the funding fight looks like at the level of a named address.',
+    whyItMatters: 'The only organization in this guide built specifically for women who are homeless alone: without children, and so outside most of the family shelter system. Ninety-two percent of residents stay housed. Charity Navigator scores it 98 with three of its four beacons assessed, the best result among the four organizations here checked that far. Its CEO has said publicly that the proposed 30 percent federal cap on permanent-housing funds would force evictions at two of its buildings, which is what the funding fight looks like at the level of a named address.',
     evidence: {
-      claim: '688 women served, 92% of residents maintained stable housing — partly corroborated by City Bureau, which independently described it as serving nearly 700 annually',
+      claim: '688 women served, 92% of residents maintained stable housing; City Bureau independently describes it as serving nearly 700 a year',
       period: 'FY2025',
       strength: 'self-reported',
-      source: 'https://www.citybureau.org/newswire/2026/8/27/perfect-storm-federal-cuts-threaten-gold-standard-of-homeless-services-in-chicago'
+      source: 'https://www.deborahsplace.org/'
     },
     vetting: {
       cnScore: 98, cnStars: 4, beaconsComplete: 3, beaconsTotal: 4,
@@ -722,11 +722,11 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/363382973',
       programExpenseRatio: 77.0, ratioBasis: 'three-year average', ratioYears: 'FY2023–FY2025'
     },
-    financials: { fiscalYear: 'FY2023', revenue: 5005088, expenses: 5123204, result: -118116 },
+    financials: { fiscalYear: 'FY2025', revenue: 7685834, expenses: 6811760, result: 874074 },
     flags: [
       { kind: 'funding-risk', note: 'Its CEO has said on the record that a proposed federal 30% cap on HUD permanent-housing funds would force evictions at two of its buildings, including The Conservatory Apartments, home to 34 women.', source: 'https://www.citybureau.org/newswire/2026/8/27/perfect-storm-federal-cuts-threaten-gold-standard-of-homeless-services-in-chicago' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -761,12 +761,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/363810926',
       programExpenseRatio: 89.3, ratioBasis: 'three-year average', ratioYears: 'FY2023–FY2025'
     },
-    financials: { fiscalYear: 'FY2023', revenue: 15825862, expenses: 13741022, result: 2084840 },
+    financials: { fiscalYear: 'FY2025', revenue: 19132325, expenses: 13968539, result: 5163786 },
     flags: [
       { kind: 'link', note: 'Their /give link redirects to a Salesforce page that could not be verified. Use the ways-to-give page.', source: 'https://breakthrough.org/donate-to-breakthrough/' },
       { kind: 'data-quality', note: 'Their claim of a 26% two-year reduction in East Garfield Park shooting victimizations has no locatable underlying study.', source: 'https://breakthrough.org/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -787,9 +787,9 @@ export const ORGS = [
     serviceArea: 'North Lawndale, East Garfield Park and Pilsen',
     neighborhoods: ['North Lawndale', 'East Garfield Park', 'Pilsen'],
     scale: 'Multi-neighborhood',
-    does: 'Operates Chicago’s largest interim shelters, with meal service and case management aimed at moving guests into permanent housing.',
-    short: 'Chicago’s largest interim shelters',
-    whyItMatters: 'Chicago’s largest interim shelters — 263,000 meals and 99,000 shelter nights in a year, run out of three buildings on the West and Southwest Sides. This is the unglamorous end of the system, the beds that exist so nobody sleeps outside tonight, before anyone gets to talk about permanent housing. No consecutive deficits in five years.',
+    does: 'Operates interim shelters on the West and Southwest Sides, with meal service and case management aimed at moving guests into permanent housing.',
+    short: 'Interim shelters, meals and case management',
+    whyItMatters: 'Interim shelters on the West and Southwest Sides, with 263,000 meals and 99,000 shelter nights in 2023. This is the unglamorous end of the system, the beds that exist so nobody sleeps outside tonight, before anyone gets to talk about permanent housing. No consecutive deficits in five years.',
     evidence: {
       claim: '2,755 guests supported, 263,093 meals served, 99,188 shelter nights',
       period: '2023',
@@ -802,11 +802,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/362928835',
       programExpenseRatio: 79.2, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2023', revenue: 5445621, expenses: 5046869, result: 398752 },
+    financials: { fiscalYear: 'FY2024', revenue: 7037782, expenses: 6732742, result: 305040 },
     flags: [
+      { kind: 'audit', note: 'Its federal single audits for FY2024 and FY2025 both report a material weakness in internal controls.', source: 'https://projects.propublica.org/nonprofits/organizations/362928835' },
       { kind: 'data-quality', note: 'Their published impact figures come from a Franciscan province outlet, an affiliated source.', source: 'https://friars.us/article/2024/02/29/all-are-welcome-at-franciscan-outreach-in-chicago' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   /* --------------------------------------------------------------- legal --- */
@@ -821,7 +822,7 @@ export const ORGS = [
     entityNote: 'Separated from Heartland Alliance in April 2024 and now operates as an independent 501(c)(3) with a new EIN. Any record pointing at a Heartland Alliance EIN is out of date.',
     homepage: 'https://immigrantjustice.org/',
     donateUrl: 'https://immigrantjustice.salsalabs.org/donate-26/index.html',
-    donateNote: 'Their main site blocks non-browser clients; this is the direct form.',
+    donateNote: 'Their /donate link redirects to this form.',
     founded: 1984,
     foundedNote: 'Founded 1984 as a Heartland Alliance program; independent since April 2024.',
     primaryCause: 'legal',
@@ -831,9 +832,9 @@ export const ORGS = [
     scale: 'National',
     does: 'Provides direct legal representation to immigrants, refugees and asylum seekers, including detained people and unaccompanied children, alongside policy advocacy and impact litigation.',
     short: 'Legal representation for immigrants and asylum seekers',
-    whyItMatters: 'Deportation is the only major American legal process where you can lose everything without a lawyer, because there is no right to appointed counsel. NIJC provides one at scale — 13,647 people last year, multiplied by 2,600 pro bono attorneys. It spun out of Heartland Alliance in 2024, which is why Charity Navigator has not rated it; the blank score reflects only the entity’s age.',
+    whyItMatters: 'Deportation is the only major American legal process where you can lose everything without a lawyer, because there is no right to appointed counsel. NIJC provides one at scale — more than 10,000 people last year, multiplied by 2,600 pro bono attorneys. It spun out of Heartland Alliance in 2024, which is why Charity Navigator has not rated it; the blank score reflects only the entity’s age.',
     evidence: {
-      claim: '13,647 people reached through legal services, 6,345 new cases opened, 2,202 people granted legal relief, with 2,600 pro bono volunteers donating 66,000 hours',
+      claim: 'More than 10,100 people reached through legal services, 1,971 new cases opened, 2,202 people granted legal relief, with 2,600 pro bono volunteers donating 66,000 hours',
       period: 'FY2025',
       strength: 'self-reported',
       source: 'https://immigrantjustice.org/blog/fy2025-nijc-impact-report/'
@@ -844,11 +845,11 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/933878636',
       programExpenseRatio: null, ratioBasis: null, ratioYears: null
     },
-    financials: { fiscalYear: 'FY2025', revenue: 22135576, expenses: null, result: null },
+    financials: { fiscalYear: 'FY2025', revenue: 22135576, expenses: 16263505, result: 5872071 },
     flags: [
-      { kind: 'entity', note: 'Unrated only because the entity is new. Only one Form 990 is on file. Its former parent, Heartland Alliance, announced in 2024 that it would spin off all four divisions and was weighing dissolution, citing a severe cash flow problem — do not give to Heartland Alliance expecting it to reach NIJC.', source: 'https://chicago.suntimes.com/business/2024/04/04/heartland-alliance-to-spin-off-divisions-separate-entities-nonprofit-healthcare-migrant-services' }
+      { kind: 'entity', note: 'Unrated only because the entity is new. Two Form 990s are on file, for FY2024 and FY2025. Its former parent, Heartland Alliance, announced in 2024 that it would spin off all four divisions and decide its own future afterward, citing a severe cash flow problem — do not give to Heartland Alliance expecting it to reach NIJC.', source: 'https://chicago.suntimes.com/business/2024/04/04/heartland-alliance-to-spin-off-divisions-separate-entities-nonprofit-healthcare-migrant-services' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -861,7 +862,7 @@ export const ORGS = [
     entityNote: null,
     homepage: 'https://resurrectionproject.org/',
     donateUrl: 'https://pro.gofundme.com/give/391084',
-    donateNote: 'Their own /donate/ page resolves to an image file. This is the working checkout.',
+    donateNote: 'Their own /donate/ page loads its form by script. This is the working checkout.',
     founded: 1990,
     primaryCause: 'legal',
     causes: ['legal', 'housing'],
@@ -885,11 +886,11 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2024', revenue: 45532789, expenses: 44788674, result: 744115 },
     flags: [
-      { kind: 'link', note: 'Their own /donate/ page resolves to a PNG image with no form.', source: 'https://pro.gofundme.com/give/391084' },
+      { kind: 'link', note: 'Their own /donate/ page shows only a button that loads the form by script. This checkout is the working one.', source: 'https://pro.gofundme.com/give/391084' },
       { kind: 'deficit', note: 'Two consecutive deficits: $2.08M in FY2021 and $3.76M in FY2022. Recovered to a $744,000 surplus in FY2024, but Charity Navigator’s financial health sub-score is 0.50 and the overall rating is two stars, tied for the lowest here.', source: 'https://www.charitynavigator.org/ein/363576073' },
       { kind: 'funding-risk', note: 'Signed an April 2026 letter opposing the Justice Department’s dismantling of the Recognition and Accreditation program, which allows non-attorney immigration representation — a risk to how it delivers legal services.', source: 'https://www.wbez.org/immigration/2026/04/30/illinois-advocacy-groups-department-justice-gutting-legal-aid-services-low-income-immigrants' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -926,9 +927,9 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2024', revenue: 30608311, expenses: 25748577, result: 4859734 },
     flags: [
-      { kind: 'entity', note: 'Renamed in 2019 from LAF, previously the Legal Assistance Foundation of Metropolitan Chicago. Same entity and EIN throughout.', source: 'https://legalaidchicago.org/who-we-are/our-history/' }
+      { kind: 'entity', note: 'Renamed in 2019 from LAF, previously the Legal Assistance Foundation of Metropolitan Chicago. Same entity and EIN throughout.', source: 'http://www.lawndalenews.com/2019/06/laf-changes-name-to-legal-aid-chicago/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -943,7 +944,7 @@ export const ORGS = [
     donateUrl: 'https://invisible.institute/donate',
     donateNote: null,
     founded: 2014,
-    foundedNote: 'Incorporated in 2014 following the Kalven v. Chicago ruling that forced disclosure of police misconduct files.',
+    foundedNote: 'Incorporated after the 2014 Kalven v. Chicago ruling that forced disclosure of police misconduct files.',
     primaryCause: 'legal',
     causes: ['legal'],
     serviceArea: 'Chicago South Side; statewide through Illinois Police Data and nationally through the National Police Index',
@@ -951,11 +952,11 @@ export const ORGS = [
     scale: 'Citywide',
     does: 'Produces investigative journalism on police accountability and builds public databases of police misconduct records.',
     short: 'Police accountability journalism and public records',
-    whyItMatters: 'Three Pulitzer Prizes in four years, from a team of about a dozen people on the South Side, for reporting on police misconduct and missing persons cases nobody else was doing. Its database of Chicago police complaint records helped overturn more than 212 Cook County convictions. This is journalism as public infrastructure, and it exists only because a court forced those records into daylight in the first place.',
+    whyItMatters: 'Three Pulitzer Prizes in four years, from a team of about a dozen people on the South Side, for reporting on police misconduct and missing persons cases nobody else was doing. It credits its 2016 Code of Silence investigation with the overturning of more than 212 Cook County convictions. This is journalism as public infrastructure, and it exists only because a court forced those records into daylight in the first place.',
     evidence: {
       claim: 'Three Pulitzer Prizes in four years — 2024 Local Reporting for Missing in Chicago with City Bureau, 2024 Audio Reporting for You Didn’t See Nothin’, and 2021 National Reporting for Mauled with The Marshall Project, AL.com and IndyStar. More than 212 Cook County convictions were overturned following its 2016 Code of Silence investigation',
       period: '2021–2024',
-      strength: 'independent-study',
+      strength: 'self-reported',
       source: 'https://chicago.suntimes.com/news/2024/05/06/city-bureau-invisible-institute-win-pulitzer-prize-for-series-on-missing-persons-cases-in-chicago'
     },
     vetting: {
@@ -964,9 +965,9 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/473551981',
       programExpenseRatio: 71.7, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 2855173, expenses: 1783085, result: 1072088 },
+    financials: { fiscalYear: 'FY2025', revenue: 3086331, expenses: 1988176, result: 1098155 },
     flags: [],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1007,7 +1008,7 @@ export const ORGS = [
       { kind: 'entity', note: 'Two entities share the name. The 501(c)(4) Chicago Votes Action Fund (EIN 46-3873520) is not tax-deductible and is not listed in this guide as a charity.', source: 'https://chicagovotes.com/donate/' },
       { kind: 'deficit', note: 'Two consecutive deficits: $770,000 in FY2022 and $218,000 in FY2023, recovered to a $714,000 surplus in FY2024.', source: 'https://projects.propublica.org/nonprofits/organizations/460545127' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   /* --------------------------------------------------------------- youth --- */
@@ -1026,15 +1027,15 @@ export const ORGS = [
     founded: 2016,
     foundedNote: 'Founded in 2016 by Emerson Collective with Arne Duncan.',
     primaryCause: 'youth',
-    causes: ['youth'],
+    causes: ['youth', 'jobs'],
     serviceArea: 'Roseland, North Lawndale, West Garfield Park and Englewood',
     neighborhoods: ['Roseland', 'North Lawndale', 'West Garfield Park', 'Englewood'],
     scale: 'Multi-neighborhood',
-    does: 'Provides 18 to 24 months of paid street outreach engagement, cognitive behavioral therapy, education and job training to men at highest risk of shooting or being shot.',
-    short: 'Outreach, therapy and jobs for men at highest risk',
-    whyItMatters: 'The strongest evidence in Chicago gun violence work: men who finished the full two-year program were 73 percent less likely to be arrested for a violent crime, in a Northwestern study published in PNAS. It pays participants while they are in it, which is the part that makes the rest possible. It also ran a $10.2 million deficit in FY2024.',
+    does: 'Provides 18 to 24 months of paid street outreach engagement, cognitive behavioral therapy, education and job training to men and women at highest risk of shooting or being shot.',
+    short: 'Outreach, therapy and jobs for those at highest risk',
+    whyItMatters: 'Some of the strongest evidence in Chicago gun violence work short of a randomized trial: men who finished the full two-year program were 73 percent less likely to be arrested for a violent crime, in a Northwestern study published in PNAS. It pays participants while they are in it, which is the part that makes the rest possible. It also ran a $10.2 million deficit in FY2024.',
     evidence: {
-      claim: 'Participants who completed the full 24-month program were more than 73% less likely to be arrested for a violent crime in the following two years. Bayesian survival analysis of 324 participants against roughly 2,500 comparison men, led by Andrew Papachristos at Northwestern, published in PNAS on 6 November 2023. The design is quasi-experimental, one tier below a randomized trial',
+      claim: 'Participants who completed the full 24-month program were more than 73% less likely to be arrested for a violent crime in the two years following enrollment, though their rate of being shot was statistically unchanged. Bayesian survival analysis of 324 participants against roughly 2,500 comparison men, led by Andrew Papachristos at Northwestern, published in PNAS on 6 November 2023. The design is quasi-experimental, one tier below a randomized trial',
       period: 'participants enrolled 2016–2021',
       strength: 'independent-study',
       source: 'https://news.northwestern.edu/stories/2023/11/chicago-community-violence-intervention-program-shown-to-reduce-gun-violence'
@@ -1050,7 +1051,7 @@ export const ORGS = [
       { kind: 'entity', note: 'A private operating foundation. Gifts go to Chicago Cred Inc. under its own EIN, with no fiscal sponsor, and Emerson Collective does not receive them.', source: 'https://projects.propublica.org/nonprofits/organizations/813130448' },
       { kind: 'deficit', note: 'FY2024 deficit of $10.24M, on record-high expenses against sharply lower revenue. Consecutive deficits in FY2021 and FY2022, then a large FY2023 surplus.', source: 'https://projects.propublica.org/nonprofits/organizations/813130448' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1075,7 +1076,7 @@ export const ORGS = [
     scale: 'Multi-neighborhood',
     does: 'Runs street outreach, violence interruption and conflict mediation, with victim support, reentry, workforce readiness and behavioral health services.',
     short: 'Street outreach and violence interruption',
-    whyItMatters: 'Violence interruption is the work of knowing who is about to shoot whom and getting there first, which requires people the street trusts more than it trusts police. INVC does that in four neighborhoods and spends 93 percent of its money on programs. Be skeptical of its homepage statistics, which contradict its own impact page, and note that 99.7 percent of revenue is contributions — a fragile way to fund anything.',
+    whyItMatters: 'Violence interruption is the work of knowing who is about to shoot whom and getting there first, which requires people the street trusts more than it trusts police. INVC does that in four neighborhoods and spends 93 percent of its money on programs. Its outcome numbers are its own, published without a method, and note that 99.7 percent of revenue is contributions — a fragile way to fund anything.',
     evidence: {
       claim: 'Shootings down 17% in Austin and West Garfield Park and 42% in Back of the Yards; 1,307 participants and 197 mediations',
       period: '2025',
@@ -1090,12 +1091,12 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2025', revenue: 15883895, expenses: 15749475, result: 134420 },
     flags: [
-      { kind: 'data-quality', note: 'Their homepage claims reductions of 72%, 48% and 74% and 4,070 participants, which their own impact page contradicts with the 2025 figures above. The homepage numbers carry no period and should not be used.', source: 'https://www.nonviolencechicago.org/our-impact' },
+      { kind: 'data-quality', note: 'Their homepage figures (reductions of 72%, 48% and 74%; 4,070 participants) are cumulative since 2016, self-reported and published without a method. The 2025 figures above come from their impact page.', source: 'https://www.nonviolencechicago.org/our-impact' },
       { kind: 'funding-risk', note: 'Contributions are 99.7% of revenue, which is severe funder concentration.', source: 'https://projects.propublica.org/nonprofits/organizations/811098722' },
       { kind: 'deficit', note: 'Three consecutive deficits FY2022 through FY2024, all small, returning to surplus in FY2025.', source: 'https://projects.propublica.org/nonprofits/organizations/811098722' },
       { kind: 'entity', note: 'Receives subgrants from Metropolitan Family Services, also listed in this guide. Giving to both funds some of the same outreach twice.', source: 'https://www.metrofamily.org/cp4p/cp4p-info/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1118,10 +1119,10 @@ export const ORGS = [
     scale: 'Multi-region',
     does: 'Places counselors and clinicians inside public schools to run group cognitive behavioral programs — Becoming A Man for boys, Working on Womanhood for girls.',
     short: 'School counseling programs, including Becoming A Man',
-    whyItMatters: 'Becoming A Man has the best evidence of anything in this guide: four randomized controlled trials that pool to a reduction of up to 37 percent in violent-crime arrests, at a benefit-cost ratio between two and ten to one. It works by putting counselors inside schools during the school day, so the kids who need it most do not have to opt in. The hard part is three consecutive and worsening deficits totaling about $17.7 million, with no public explanation — the largest financial question in this guide.',
+    whyItMatters: 'Becoming A Man has the best evidence of anything in this guide: four randomized controlled trials that pool to a reduction of up to 37 percent in violent-crime arrests, at a benefit-cost ratio between two and ten to one. It works by putting counselors inside schools during the school day, so the kids who need it most do not have to opt in. The hard part is three consecutive and worsening deficits totaling about $17.7 million, followed by a city funding cut in late 2025 — the largest financial question in this guide.',
     evidence: {
-      claim: 'Four randomized controlled trials by the University of Chicago Crime Lab. The first two found violent crime arrests down 45% and on-time graduation up 19% (Heller et al., Quarterly Journal of Economics; NBER working paper 21178); a second pair found 50%. Pooled across all four, up to a 37% reduction in violent crime arrests, with a benefit-cost ratio between 2:1 and 10:1',
-      period: '2009–2015 school years',
+      claim: 'Four randomized controlled trials by the University of Chicago Crime Lab. The first (2008–09) found violent crime arrests down 45% and on-time graduation up 19% (Heller et al., Quarterly Journal of Economics; NBER working paper 21178); the second (2013–15) found 50%; the third and fourth showed the challenges of expanding it. Pooled across all four, up to a 37% reduction in violent crime arrests, with a benefit-cost ratio between 2:1 and 10:1',
+      period: 'four studies, 2008–09 onward',
       strength: 'randomized-trial',
       source: 'https://crimelab.uchicago.edu/projects/becoming-a-man-bam/'
     },
@@ -1133,10 +1134,11 @@ export const ORGS = [
     },
     financials: { fiscalYear: 'FY2025', revenue: 44260936, expenses: 54716820, result: -10455884 },
     flags: [
-      { kind: 'deficit', note: 'Three consecutive and worsening deficits — $655,000 in FY2023, $6.61M in FY2024 and $10.46M in FY2025, roughly $17.7M cumulative. Revenue fell from $58.99M in FY2022 to $44.26M in FY2025 while expenses rose to a record $54.7M. No reporting of layoffs or leadership change was found and the cause is not public.', source: 'https://projects.propublica.org/nonprofits/organizations/362167032' },
+      { kind: 'funding-risk', note: 'In November 2025 the city cut mentoring funding from $9.5M to $4.6M and made school-based group counseling such as Becoming A Man and Working on Womanhood ineligible for city funds, affecting about 1,400 students at 33 schools from January 2026.', source: 'https://chicago.suntimes.com/city-hall/2025/11/20/mayor-brandon-johnson-corporate-head-tax-youth-program-cuts-become-a-man-working-on-womanhood' },
+      { kind: 'deficit', note: 'Three consecutive and worsening deficits — $655,000 in FY2023, $6.61M in FY2024 and $10.46M in FY2025, roughly $17.7M cumulative. Revenue fell from $58.99M in FY2022 to $44.26M in FY2025 while expenses peaked at $56.1M in FY2024. No reporting of layoffs or leadership change was found and the cause is not public.', source: 'https://projects.propublica.org/nonprofits/organizations/362167032' },
       { kind: 'entity', note: 'Operates in eight cities. The donation link above designates Chicago.', source: 'https://www.youth-guidance.org/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1152,14 +1154,14 @@ export const ORGS = [
     donateNote: 'No online payment form could be confirmed on this page. Giving by phone at 312-798-3331 works.',
     donateConfirmed: false,
     founded: 1991,
-    primaryCause: 'youth',
-    causes: ['youth'],
+    primaryCause: 'jobs',
+    causes: ['jobs'],
     serviceArea: 'Chicago; its employer-partnership arm operates nationally',
     neighborhoods: [],
     scale: 'Citywide',
     does: 'Provides job readiness training, transitional employment through its own staffing business, and permanent placement with retention coaching for people facing barriers to work.',
     short: 'Job training and placement for people facing barriers',
-    whyItMatters: 'A staffing business and a job-training program inside one organization, so participants work for real wages before they interview anywhere else. Seventy-five percent are still with the same employer a year later, and retention is the number that shows a placement held. No deficit years, and the strongest balance sheet in this category.',
+    whyItMatters: 'A staffing business and a job-training program inside one organization, so participants work for real wages before they interview anywhere else. Seventy-five percent are still with the same employer a year later, and retention is the number that shows a placement held. Surpluses in most recent years, and reserves of about 1.3 years of expenses.',
     evidence: {
       claim: '18,526 jobs placed since 1991, with a 75% one-year same-employer retention rate and $16.1M in total annual participant earnings',
       period: 'as of FY2026',
@@ -1177,7 +1179,7 @@ export const ORGS = [
       { kind: 'link', note: 'No giving-platform script was detected on their donate page and its own Donate button points back at itself. Use the phone number if the page does not work.', source: 'https://caracollective.org/donate/' },
       { kind: 'entity', note: 'Renamed from Cara Program, which remains the IRS legal name. Now an umbrella over Cara, Cleanslate and Cara Plus.', source: 'https://caracollective.org/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1194,12 +1196,12 @@ export const ORGS = [
     founded: 1857,
     primaryCause: 'youth',
     causes: ['youth', 'legal', 'health'],
-    serviceArea: 'Chicago, DuPage County, Evanston and Skokie and the southwest suburbs; its violence intervention network covers 24 Chicago neighborhoods',
+    serviceArea: 'Chicago, DuPage County, Evanston and Skokie and the southwest suburbs; its violence intervention network covers 27 Chicago community areas',
     neighborhoods: ['Austin', 'Humboldt Park', 'East Garfield Park', 'West Garfield Park', 'North Lawndale', 'Little Village', 'Back of the Yards', 'Englewood', 'Roseland', 'South Shore', 'South Chicago', 'Auburn Gresham', 'Chatham', 'Chicago Lawn', 'Woodlawn'],
     scale: 'Regional',
     does: 'Delivers education, economic stability, mental health and legal services across the Chicago region, and coordinates the Communities Partnering 4 Peace violence intervention network.',
     short: 'Family services and violence intervention region-wide',
-    whyItMatters: 'A hundred and sixty-nine years old, $180 million a year, and the coordinator of violence intervention across 24 Chicago neighborhoods. A gift here funds a whole system of programs, which brings reach and also distance from any one of them.',
+    whyItMatters: 'A hundred and sixty-nine years old, $180 million a year, and the coordinator of violence intervention across 27 Chicago community areas. A gift here funds a whole system of programs, which brings reach and also distance from any one of them.',
     evidence: {
       claim: 'More than 200,000 families and individuals served annually with more than 1,100 staff; 81% of those served are working poor or lower-middle class. No outcome metrics specific to the violence intervention network are published',
       period: 'annual, most recent reported',
@@ -1217,7 +1219,7 @@ export const ORGS = [
       { kind: 'entity', note: 'Its violence intervention network subgrants to Institute for Nonviolence Chicago and Breakthrough, both listed separately here, as well as New Life Centers, UCAN and Project H.O.O.D. Giving to both funds some of the same outreach twice.', source: 'https://www.metrofamily.org/cp4p/cp4p-info/' },
       { kind: 'data-quality', note: 'No outcome measures are published for the violence intervention network itself. The widely quoted 73% figure from the 2023 PNAS study belongs to Chicago CRED, a different organization.', source: 'https://www.metrofamily.org/cp4p/cp4p-info/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1234,7 +1236,7 @@ export const ORGS = [
     founded: 2001,
     primaryCause: 'youth',
     causes: ['youth', 'health'],
-    serviceArea: 'City of Chicago — a single citywide center',
+    serviceArea: 'City of Chicago — its main center, plus CAN Hope in East Garfield Park for adult survivors, opened October 2025',
     neighborhoods: [],
     scale: 'Citywide',
     does: 'Co-locates child protection investigators, police, family advocates, medical experts and mental health clinicians in one building so abused children are interviewed and treated once, in one place.',
@@ -1244,7 +1246,7 @@ export const ORGS = [
       claim: 'More than 2,200 children served per year, and more than 50,000 since opening in 2001',
       period: 'annual, most recent reported',
       strength: 'self-reported',
-      source: 'https://www.chicagocac.org/who-we-are/'
+      source: 'https://www.chicagocac.org/'
     },
     vetting: {
       cnScore: 93, cnStars: 4, beaconsComplete: 1, beaconsTotal: 4,
@@ -1256,7 +1258,7 @@ export const ORGS = [
     flags: [
       { kind: 'deficit', note: 'Five consecutive deficits from FY2020 through FY2024, about $2.27M cumulative on a roughly $8M budget, then a sharp reversal to a $1.88M surplus in FY2025 on a revenue jump. The cause of the reversal is not public, so do not assume it recurs.', source: 'https://projects.propublica.org/nonprofits/organizations/364251865' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   /* -------------------------------------------------------------- health --- */
@@ -1293,12 +1295,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/362894128',
       programExpenseRatio: 87.9, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 206540054, expenses: 212242604, result: -5702550 },
+    financials: { fiscalYear: 'FY2025', revenue: 217487912, expenses: 206296710, result: 11191202 },
     flags: [
       { kind: 'labor', note: 'December 2022: 65 positions cut, citing a $12M shortfall. January 2023: roughly 440 employees struck for three days. July 2023: the National Labor Relations Board found unfair labor practices. May 2024: a contract was ratified after the CEO resigned, and two clinics closed. July 2024: 43 more layoffs, about 7% of staff, which the interim CEO described as the third consecutive year of an operating shortfall. November 2024: a $1.108M NLRB settlement covering 55 laid-off workers. A new CEO was named in February 2025 and no labor actions have been found since.', source: 'https://chicago.suntimes.com/health/2024/11/22/howard-brown-nlrb-settlement-layoffs-workers-back-pay' },
-      { kind: 'deficit', note: 'FY2024 deficit of about $4.9M and three to four years of management-described operating shortfalls. No going-concern warning, against $124.6M in net assets. Down from 11 locations in 2019 to seven.', source: 'https://howardbrown.org/wp-content/uploads/2025/01/HBHC-2024-Final-Single-Long-Form-FS-1.pdf' }
+      { kind: 'deficit', note: 'FY2024 deficit of about $4.9M after three to four years of management-described operating shortfalls, then an $11.2M surplus in FY2025, with $130.6M in net assets. No going-concern warning. Down from 11 locations in 2019 to seven.', source: 'https://projects.propublica.org/nonprofits/organizations/362894128' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1316,16 +1318,16 @@ export const ORGS = [
     primaryCause: 'health',
     causes: ['health'],
     serviceArea: '14 health centers from Chicago’s West Side to Waukegan, across Cook and Lake counties',
-    neighborhoods: ['West Town', 'Humboldt Park', 'Little Village'],
+    neighborhoods: ['West Town', 'Humboldt Park', 'North Lawndale'],
     scale: 'Regional',
     does: 'A federally qualified health center network providing primary medical, dental and behavioral healthcare regardless of ability to pay, including five school-based clinics.',
     short: 'Community health centers, regardless of ability to pay',
-    whyItMatters: 'Fourteen clinics from the West Side to Waukegan, 95,000 patients, 90 percent of them low-income, and no deficit year since 2019. Federally qualified health centers are the safety net for people without insurance, and among the most efficient healthcare in the country measured per patient.',
+    whyItMatters: 'Fourteen clinics from the West Side to Waukegan, 95,000 patients, 90 percent of them low-income, and no deficit year since 2019. Federally qualified health centers are the safety net for people without insurance.',
     evidence: {
       claim: 'More than 95,000 patients annually across 14 sites; 71% of patients Hispanic and 90% low-income',
       period: 'annual, most recent reported',
       strength: 'self-reported',
-      source: 'https://www.eriefamilyhealth.org/about-us/our-history/'
+      source: 'https://www.eriefamilyhealth.org/'
     },
     vetting: {
       cnScore: 95, cnStars: 4, beaconsComplete: 1, beaconsTotal: 4,
@@ -1333,11 +1335,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/363088628',
       programExpenseRatio: 86.2, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 122213003, expenses: 110619316, result: 11593687 },
+    financials: { fiscalYear: 'FY2025', revenue: 132295957, expenses: 122117456, result: 10178501 },
     flags: [
+      { kind: 'incident', note: 'A breach of its network from 10 December 2025 to 27 January 2026 exposed patient data including Social Security numbers and medical records. Notices went to up to 570,000 people from May 2026.', source: 'https://www.hipaajournal.com/erie-family-health-centers-data-breach/' },
       { kind: 'entity', note: 'Do not confuse with the separately incorporated Erie Family Health Foundation.', source: 'https://projects.propublica.org/nonprofits/organizations/363088628' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   /* --------------------------------------------------------------- women --- */
@@ -1359,7 +1362,7 @@ export const ORGS = [
     serviceArea: 'The Chicago region, with giving circles across the North Side, South Side, West Side and western suburbs',
     neighborhoods: [],
     scale: 'Regional',
-    does: 'Raises money and regrants it to Chicago-area organizations working on economic security, freedom from violence and health for women, girls and gender-expansive people.',
+    does: 'Raises money and regrants it to Chicago-area organizations working on economic security, freedom from violence, health and reproductive justice for women, girls and gender-expansive people.',
     short: 'Grants to groups serving women and girls',
     whyItMatters: 'A regrantor, which means it does the diligence on small organizations you would never find yourself and moves money to them — $55 million across 5,500 grants since 1985. The tradeoff is a layer of remove between your gift and the work. Its single-year program ratio dropped from 88 to 77 percent in FY2024, a real drop, and one to watch.',
     evidence: {
@@ -1374,11 +1377,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/363348160',
       programExpenseRatio: 85.2, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 6835065, expenses: 5889259, result: 945806 },
+    financials: { fiscalYear: 'FY2025', revenue: 3266968, expenses: 6513632, result: -3246664 },
     flags: [
+      { kind: 'deficit', note: 'A $3.25M deficit in FY2025 as revenue fell 52%, to $3.27M. Net assets held at about $24.1M, so it can absorb this, but it is a large gap.', source: 'https://projects.propublica.org/nonprofits/organizations/363348160' },
       { kind: 'data-quality', note: 'The single-year program-expense ratio fell to 76.7% in FY2024 from 87.9% in FY2023 — a real move behind the three-year average. No recent single-year grantmaking total is published.', source: 'https://www.charitynavigator.org/ein/363348160' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1414,12 +1418,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/363698770',
       programExpenseRatio: 78.9, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 6702384, expenses: 5107587, result: 1594797 },
+    financials: { fiscalYear: 'FY2025', revenue: 5919637, expenses: 5129981, result: 789656 },
     flags: [
       { kind: 'data-quality', note: 'Publishes no annual report and no yearly service figures; the audited statements contain no program statistics. Treat any per-year number as unverified.', source: 'https://apnaghar.org/' },
       { kind: 'funding-risk', note: '52.3% of revenue is government funding, a concentration risk their own auditor flags.', source: 'https://apnaghar.org/wp-content/uploads/2025/08/Apna-Ghar-Inc.-FY-24-Audited-Financial-Statements-2.pdf' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1441,7 +1445,7 @@ export const ORGS = [
     scale: 'Citywide',
     does: 'Runs a 24-hour hotline, emergency shelter, counseling, and hospital- and court-based advocacy for survivors of domestic violence and their children.',
     short: 'Hotline, shelter and advocacy for domestic violence survivors',
-    whyItMatters: 'Nineteen thousand nights of safe refuge, plus advocates stationed inside Stroger and Northwestern emergency rooms — the place where an injury is often the first disclosure. Its After Hours Court Program filed 1,216 orders of protection, the legal protection that makes it safer to leave. Its program-expense ratio has slid to 68 percent, below the usual benchmark, and its own website still cites a budget less than half its actual size.',
+    whyItMatters: 'Nineteen thousand nights of safe refuge, plus advocates based at Stroger and Northwestern Memorial hospitals — the place where an injury is often the first disclosure. Its After Hours Court Program filed 1,216 orders of protection, the legal protection that makes it safer to leave. Its program-expense ratio has slid to about 64 percent, below the usual benchmark, and its own website still cites a budget less than half its actual size.',
     evidence: {
       claim: '1,334 adults and children received counseling and support; more than 19,000 nights of safe refuge; 4,085 community members reached through training; 1,216 orders of protection filed through the After Hours Court Program',
       period: '2024',
@@ -1454,12 +1458,13 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/362950380',
       programExpenseRatio: 72.5, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2024', revenue: 5378713, expenses: 5032267, result: 346446 },
+    financials: { fiscalYear: 'FY2025', revenue: 4223023, expenses: 5271988, result: -1048965 },
     flags: [
-      { kind: 'data-quality', note: 'The single-year program-expense ratio fell to 67.7% in FY2024, below the usual 70% benchmark, down from 79% in FY2022 — a real downward trend. Their own site also states an operating budget of about $2.1M, roughly 40% of actual FY2024 expenses of $5.03M.', source: 'https://www.charitynavigator.org/ein/362950380' },
+      { kind: 'deficit', note: 'A $1.05M deficit in FY2025 as revenue fell to $4.22M from $5.38M the year before.', source: 'https://projects.propublica.org/nonprofits/organizations/362950380' },
+      { kind: 'data-quality', note: 'The single-year program-expense ratio fell from 79% in FY2022 to 67.7% in FY2024 and about 64% in FY2025, below the usual 70% benchmark. Its homepage also states an operating budget of about $2.1M, roughly 40% of actual FY2025 expenses of $5.27M.', source: 'https://www.cawc.org/wp-content/uploads/2026/06/CAWC-Annual-Report-FY-24-25_FINAL.pdf' },
       { kind: 'entity', note: 'Renamed in 2008 from Chicago Abused Women Coalition, keeping the acronym.', source: 'https://www.cawc.org/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   /* --------------------------------------------------------- environment --- */
@@ -1483,7 +1488,7 @@ export const ORGS = [
     scale: 'Regional',
     does: 'The only organization dedicated solely to the Chicago-Calumet river system, running volunteer cleanups, habitat restoration, water quality advocacy and public education.',
     short: 'Cleanups and restoration for the Chicago River',
-    whyItMatters: 'The river was an industrial sewer within living memory and is now swimmable in places, which happened because a small organization has refused to let it go since 1979. Three thousand volunteers at 92 sites in a single day last May. It also ran four consecutive deficits before barely clearing even in FY2025 — the smallest financial cushion of anything in this guide.',
+    whyItMatters: 'The river was an industrial sewer within living memory and is now healthier than at any time in 150 years, which happened because a small organization has refused to let it go since 1979. Three thousand volunteers at 92 sites in a single day in May 2025. It also ran four consecutive deficits before barely clearing even in FY2025 — the smallest financial cushion of anything in this guide.',
     evidence: {
       claim: 'Roughly 3,000 volunteers at a record 92 sites for the 33rd annual Chicago River Day, May 2025, as reported by CBS News Chicago',
       period: 'May 2025',
@@ -1500,7 +1505,7 @@ export const ORGS = [
     flags: [
       { kind: 'deficit', note: 'Four consecutive deficit years, FY2021 through FY2024 — $24,000, $306,000, $41,000 and $348,000 — before recovering to a $21,964 surplus in FY2025. The smallest financial cushion in this guide.', source: 'https://projects.propublica.org/nonprofits/organizations/363559764' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1536,12 +1541,12 @@ export const ORGS = [
       cnUrl: 'https://www.charitynavigator.org/ein/362649603',
       programExpenseRatio: 82.9, ratioBasis: 'three-year average', ratioYears: 'FY2022–FY2024'
     },
-    financials: { fiscalYear: 'FY2025', revenue: 13073409, expenses: 7877206, result: 5196203 },
+    financials: { fiscalYear: 'FY2025', revenue: 11496900, expenses: 7659942, result: 3836958 },
     flags: [
       { kind: 'link', note: 'Both donate paths are script-driven and neither could be confirmed to render a payment field. Click-test before relying on it.', source: 'https://openlands.org/' },
       { kind: 'deficit', note: 'The apparent FY2023 deficit of $2.82M reflects the deliberate donation of the 71.55-acre Openlands Lakeshore Preserve plus about $1.36M to the Lake County Forest Preserves, completed 30 August 2023.', source: 'https://openlands.org/2023/08/31/openlands-completes-the-transfer-to-donate-the-of-openlands-lakeshore-preserve-to-the-lake-county-forest-preserves/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   },
 
   {
@@ -1554,17 +1559,17 @@ export const ORGS = [
     entityNote: null,
     homepage: 'https://www.urbangrowerscollective.org/',
     donateUrl: 'https://www.urbangrowerscollective.org/make-a-donation',
-    donateNote: null,
+    donateNote: 'This page links out to a Keela donation form that loads by script.',
     founded: 2017,
     foundedNote: 'Founded 2017 by Erika Allen and Laurell Sims. Sims stepped down in February 2024; Allen is now sole CEO.',
     primaryCause: 'environment',
-    causes: ['environment', 'food', 'youth'],
+    causes: ['environment', 'food', 'youth', 'jobs'],
     serviceArea: 'South and West Sides — eight urban farms across 11 acres, a 30-acre farm in Chicago Heights and nine acres at the Green Era Campus',
-    neighborhoods: ['South Chicago', 'Bronzeville', 'Englewood', 'Chicago Heights'],
+    neighborhoods: ['South Chicago', 'Bronzeville', 'Washington Park', 'Chicago Heights'],
     scale: 'Multi-neighborhood',
     does: 'Operates urban farms that grow and distribute fresh produce, runs paid youth employment and farmer training, and operates the Fresh Moves Mobile Market.',
     short: 'Urban farms, youth jobs and a mobile market',
-    whyItMatters: 'Eight farms on the South and West Sides, which is a food access project and a jobs project at once — 205 teenagers were paid to grow food last year. The produce figure is modest next to a food bank’s, and the project measures itself by who controls the growing. Revenue fell 36 percent after pandemic relief ended, and the program ratio has drifted below the usual benchmark.',
+    whyItMatters: 'Eight farms on the South and West Sides, which is a food access project and a jobs project at once — 205 teenagers were paid to grow food last year. The produce figure is modest next to a food bank’s, and the project measures itself by who controls the growing. Revenue dipped after pandemic relief ended and has since recovered, but the program ratio has drifted below the usual benchmark.',
     evidence: {
       claim: 'More than 28,000 pounds of produce harvested and distributed; 205 Chicago youth aged 14 to 19 employed through Youth Corps; 10 urban agriculture interns',
       period: '2025',
@@ -1580,9 +1585,9 @@ export const ORGS = [
     financials: { fiscalYear: 'FY2024', revenue: 4700891, expenses: 4324050, result: 376841 },
     flags: [
       { kind: 'deficit', note: 'A $1.12M deficit in FY2023 after revenue fell 36% from a pandemic-relief peak of $4.43M in FY2021, recovered to a $377,000 surplus in FY2024.', source: 'https://projects.propublica.org/nonprofits/organizations/823336616' },
-      { kind: 'data-quality', note: 'Their 2025 figure of 28,000 pounds and their Our Story page’s “over 23,000 lbs each year” do not agree. The dated figure is used here. The single-year program ratio was 69.1% in FY2024, below the usual benchmark.', source: 'https://www.urbangrowerscollective.org/' }
+      { kind: 'data-quality', note: 'Their Our Story page says “over 23,000 lbs each year”, a figure their impact page dates to the 2023 season; 2025 was 28,000 pounds. The dated figure is used here. The single-year program ratio was 69.1% in FY2024, below the usual benchmark.', source: 'https://www.urbangrowerscollective.org/' }
     ],
-    verified: '2026-09-20'
+    verified: '2026-09-25'
   }
 
 ];

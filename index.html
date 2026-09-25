@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DHYN3S0XDC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DHYN3S0XDC');
+</script>
 <meta name="theme-color" content="#E8F5FC">
 <meta name="color-scheme" content="light">
 <script>document.documentElement.classList.add('js');addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='SCRIPT'&&t.type==='module')document.documentElement.classList.remove('js')},true);</script>
@@ -62,7 +71,10 @@
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M5 21h14M4 7h16"/><path d="M6 7l-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/></svg><span><span class="tile-t">Legal aid</span><span class="tile-n">8 charities</span></span>
         </a></li>
         <li><a class="tile" href="#all-youth" data-cause="youth" style="view-transition-name: cause-youth">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span><span class="tile-t">Violence prevention</span><span class="tile-n">11 charities</span></span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span><span class="tile-t">Violence prevention</span><span class="tile-n">10 charities</span></span>
+        </a></li>
+        <li><a class="tile" href="#all-jobs" data-cause="jobs" style="view-transition-name: cause-jobs">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg><span><span class="tile-t">Jobs</span><span class="tile-n">4 charities</span></span>
         </a></li>
         <li><a class="tile" href="#all-health" data-cause="health" style="view-transition-name: cause-health">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/><path d="M9.5 11h5M12 8.5v5"/></svg><span><span class="tile-t">Health</span><span class="tile-n">6 charities</span></span>
@@ -79,7 +91,7 @@
     </div>
     <div class="wrap trust">
       <div><p class="trust-n">39</p><p class="trust-t">charities, each checked against its IRS filings and Charity Navigator record</p></div>
-      <div><p class="trust-n">$1.25B</p><p class="trust-t">spent a year between them, from a food bank to a single neighborhood pantry</p></div>
+      <div><p class="trust-n">$1.29B</p><p class="trust-t">spent a year between them, from a food bank to a single neighborhood pantry</p></div>
       <div><p class="trust-n">0%</p><p class="trust-t">taken by GiveChi. Every Donate button goes straight to the charity</p></div>
     </div>
   </section>
@@ -91,7 +103,7 @@
   <section class="view view-all" id="all" data-view="all" aria-labelledby="all-h">
     <div class="wrap">
       <h1 class="view-h" id="all-h" tabindex="-1">All 39 charities.</h1>
-      <p class="view-sub">Every charity here was checked on September 20, 2026. Open one for why it matters, its numbers and every caution.</p>
+      <p class="view-sub">Every charity here was checked on September 25, 2026. Open one for why it matters, its numbers and every caution.</p>
       <div class="refine js-only" id="all-refine"></div>
       <div id="all-list">
       <section class="group" id="all-food" aria-labelledby="g-food">
@@ -103,7 +115,11 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>85.7%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-beyond-hunger" data-tip="term-r-beyond-hunger">to programs<span class="sr-only">: what this means for Beyond Hunger</span></button>
+    <div class="tip tip-term" id="term-r-beyond-hunger" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Beyond Hunger spent, about 86 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>85.7%</dd></div>
     <div><dt>spent a year</dt><dd>$5.0M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.gobeyondhunger.org/donate" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Beyond Hunger, opens gobeyondhunger.org in a new tab</span></a>
@@ -115,7 +131,11 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>93.3%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-care-for-real" data-tip="term-r-care-for-real">to programs<span class="sr-only">: what this means for Care for Real</span></button>
+    <div class="tip tip-term" id="term-r-care-for-real" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Care for Real spent, about 93 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>93.3%</dd></div>
     <div><dt>spent a year</dt><dd>$7.1M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://careforreal.org/get-involved/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Care for Real, opens careforreal.org in a new tab</span></a>
@@ -127,7 +147,11 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>87.1%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-common-pantry" data-tip="term-r-common-pantry">to programs<span class="sr-only">: what this means for Common Pantry</span></button>
+    <div class="tip tip-term" id="term-r-common-pantry" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Common Pantry spent, about 87 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>87.1%</dd></div>
     <div><dt>spent a year</dt><dd>$2.5M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.commonpantry.org/donations/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Common Pantry, opens commonpantry.org in a new tab</span></a>
@@ -143,7 +167,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>89.3%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-cradles-to-crayons-chicago" data-tip="term-r-cradles-to-crayons-chicago">to programs<span class="sr-only">: what this means for Cradles to Crayons</span></button>
+    <div class="tip tip-term" id="term-r-cradles-to-crayons-chicago" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Cradles to Crayons spent, about 89 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>89.3%</dd></div>
     <div><dt>spent a year</dt><dd>$50.5M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.cradlestocrayons.org/chicago/donate-now/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Cradles to Crayons, opens cradlestocrayons.org in a new tab</span></a>
@@ -159,7 +187,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>91.8%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-greater-chicago-food-depository" data-tip="term-r-greater-chicago-food-depository">to programs<span class="sr-only">: what this means for Greater Chicago Food Depository</span></button>
+    <div class="tip tip-term" id="term-r-greater-chicago-food-depository" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Greater Chicago Food Depository spent, about 92 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>91.8%</dd></div>
     <div><dt>spent a year</dt><dd>$243M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.chicagosfoodbank.org/get-involved/give/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Greater Chicago Food Depository, opens chicagosfoodbank.org in a new tab</span></a>
@@ -175,7 +207,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>85.8%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-nourishing-hope" data-tip="term-r-nourishing-hope">to programs<span class="sr-only">: what this means for Nourishing Hope</span></button>
+    <div class="tip tip-term" id="term-r-nourishing-hope" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Nourishing Hope spent, about 86 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>85.8%</dd></div>
     <div><dt>spent a year</dt><dd>$20.0M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://nourishinghopechi.org/ways-to-give/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Nourishing Hope, opens nourishinghopechi.org in a new tab</span></a>
@@ -188,15 +224,19 @@
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.afterschoolmatters.org/" data-org="after-school-matters">After School Matters</a></h3>
       <p class="row-does">Paid after-school apprenticeships for high school teens</p>
-      <button class="caution" type="button" popovertarget="tip-r-after-school-matters" data-tip="tip-r-after-school-matters"><span class="caution-t">Cautions: finances, funding risk</span><span class="sr-only">, After School Matters</span></button>
-    <div class="tip" id="tip-r-after-school-matters" popover role="group" aria-label="2 cautions for After School Matters">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2024 deficit of $519,000, about 1.4% of expenses, against $58.9M in net assets.</p></li><li><span class="tip-k">Funding risk</span><p>Heavily dependent on City of Chicago and CPS funding, both under 2026 budget strain. No cut specific to this organization was found.</p></li></ul>
+      <button class="caution" type="button" popovertarget="tip-r-after-school-matters" data-tip="tip-r-after-school-matters"><span class="caution-t">Caution: funding risk</span><span class="sr-only">, After School Matters</span></button>
+    <div class="tip" id="tip-r-after-school-matters" popover role="group" aria-label="1 caution for After School Matters">
+      <ul class="tip-list"><li><span class="tip-k">Funding risk</span><p>Heavily dependent on City of Chicago and CPS funding, both under 2026 budget strain. No cut specific to this organization was found.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="after-school-matters" data-at="w-h">See details and sources<span class="sr-only"> for After School Matters</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>83.2%</dd></div>
-    <div><dt>spent a year</dt><dd>$38.1M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-after-school-matters" data-tip="term-r-after-school-matters">to programs<span class="sr-only">: what this means for After School Matters</span></button>
+    <div class="tip tip-term" id="term-r-after-school-matters" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar After School Matters spent, about 83 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>83.2%</dd></div>
+    <div><dt>spent a year</dt><dd>$40.9M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://afterschoolmatters.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to After School Matters, opens afterschoolmatters.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -207,8 +247,12 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>76.9%</dd></div>
-    <div><dt>spent a year</dt><dd>$5.7M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-bernies-book-bank" data-tip="term-r-bernies-book-bank">to programs<span class="sr-only">: what this means for Bernie’s Book Bank</span></button>
+    <div class="tip tip-term" id="term-r-bernies-book-bank" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Bernie’s Book Bank spent, about 77 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>76.9%</dd></div>
+    <div><dt>spent a year</dt><dd>$6.0M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.berniesbookbank.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Bernie’s Book Bank, opens berniesbookbank.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -218,12 +262,16 @@
       <p class="row-does">Funds library programs taxes do not cover</p>
       <button class="caution" type="button" popovertarget="tip-r-chicago-public-library-foundation" data-tip="tip-r-chicago-public-library-foundation"><span class="caution-t">Caution: finances</span><span class="sr-only">, Chicago Public Library Foundation</span></button>
     <div class="tip" id="tip-r-chicago-public-library-foundation" popover role="group" aria-label="1 caution for Chicago Public Library Foundation">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2024 deficit of $1.36M, absorbed by $38.5M in net assets. Consecutive deficits in FY2018 and FY2019.</p></li></ul>
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2024 deficit of $1.36M, absorbed by $38.5M in net assets. Four consecutive deficits from FY2016 through FY2019.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="chicago-public-library-foundation" data-at="w-h">See details and sources<span class="sr-only"> for Chicago Public Library Foundation</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>62.3%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-chicago-public-library-foundation" data-tip="term-r-chicago-public-library-foundation">to programs<span class="sr-only">: what this means for Chicago Public Library Foundation</span></button>
+    <div class="tip tip-term" id="term-r-chicago-public-library-foundation" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Chicago Public Library Foundation spent, about 62 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>62.3%</dd></div>
     <div><dt>spent a year</dt><dd>$5.9M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://secure3.convio.net/cplf/site/Donation2?mfc_pref=T&amp;df_id=4861&amp;4861.donation=form1" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Chicago Public Library Foundation, opens secure3.convio.net in a new tab</span></a>
@@ -234,12 +282,16 @@
       <p class="row-does">Mentors first-generation students to college and career</p>
       <button class="caution" type="button" popovertarget="tip-r-chicago-scholars" data-tip="tip-r-chicago-scholars"><span class="caution-t">Caution: finances</span><span class="sr-only">, Chicago Scholars</span></button>
     <div class="tip" id="tip-r-chicago-scholars" popover role="group" aria-label="1 caution for Chicago Scholars">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>Two consecutive deficits: $987,000 in FY2023 and $1.06M in FY2024, about $2.04M combined. Also consecutive in FY2019 and FY2020. No adverse news coverage was found; this comes from Form 990 data.</p></li></ul>
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>Three consecutive deficits: $987,000 in FY2023, $1.06M in FY2024 and $2.58M in FY2025, about $4.62M combined; net assets fell to $8.15M. Also consecutive in FY2019 and FY2020. No adverse news coverage was found; this comes from Form 990 data.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="chicago-scholars" data-at="w-h">See details and sources<span class="sr-only"> for Chicago Scholars</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>71.8%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-chicago-scholars" data-tip="term-r-chicago-scholars">to programs<span class="sr-only">: what this means for Chicago Scholars</span></button>
+    <div class="tip tip-term" id="term-r-chicago-scholars" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Chicago Scholars spent, about 72 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>71.8%</dd></div>
     <div><dt>spent a year</dt><dd>$7.6M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://chicagoscholars.donorsupport.co/page/DONATE" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Chicago Scholars, opens chicagoscholars.donorsupport.co in a new tab</span></a>
@@ -255,7 +307,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>76.7%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-literacy-chicago" data-tip="term-r-literacy-chicago">to programs<span class="sr-only">: what this means for Literacy Chicago</span></button>
+    <div class="tip tip-term" id="term-r-literacy-chicago" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Literacy Chicago spent, about 77 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022, FY2024, FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>76.7%</dd></div>
     <div><dt>spent a year</dt><dd>$706K</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://givebutter.com/supportliteracychicago" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Literacy Chicago, opens givebutter.com in a new tab</span></a>
@@ -266,13 +322,17 @@
       <p class="row-does">Coaching and money for community college students</p>
       <button class="caution" type="button" popovertarget="tip-r-one-million-degrees" data-tip="tip-r-one-million-degrees"><span class="caution-t">Caution: finances</span><span class="sr-only">, One Million Degrees</span></button>
     <div class="tip" id="tip-r-one-million-degrees" popover role="group" aria-label="1 caution for One Million Degrees">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2024 deficit of $1.39M, following a FY2023 surplus of $19.2M — consistent with a planned spend-down during scale-up. In April 2026 City Colleges announced a five-year expansion with more than $20M initial funding.</p></li></ul>
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>Deficits of $1.39M in FY2024 and $1.67M in FY2025, following a FY2023 surplus of $19.2M — consistent with a planned spend-down during scale-up, with $22.9M in net assets. In April 2026 City Colleges announced a five-year expansion with more than $20M initial funding.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="one-million-degrees" data-at="w-h">See details and sources<span class="sr-only"> for One Million Degrees</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>63.1%</dd></div>
-    <div><dt>spent a year</dt><dd>$8.6M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-one-million-degrees" data-tip="term-r-one-million-degrees">to programs<span class="sr-only">: what this means for One Million Degrees</span></button>
+    <div class="tip tip-term" id="term-r-one-million-degrees" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar One Million Degrees spent, about 63 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>63.1%</dd></div>
+    <div><dt>spent a year</dt><dd>$10.1M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://onemilliondegrees.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to One Million Degrees, opens onemilliondegrees.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -282,13 +342,17 @@
       <p class="row-does">Bookstores that fund K–12 literacy programs</p>
       <button class="caution" type="button" popovertarget="tip-r-open-books" data-tip="tip-r-open-books"><span class="caution-t">Cautions: finances, labor record</span><span class="sr-only">, Open Books</span></button>
     <div class="tip" id="tip-r-open-books" popover role="group" aria-label="2 cautions for Open Books">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>Closed its Logan Square store on 1 March 2026 citing financial challenges; the executive director pointed to changes in funding and priorities. The most recent Form 990 predates this and shows a surplus, so the current position is not public.</p></li><li><span class="tip-k">Labor record</span><p>Former Logan Square employees publicly criticized management over sudden terminations in March 2026.</p></li></ul>
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>A $402,000 deficit in FY2025 as revenue fell about 22%, to $3.05M; net assets dropped from $2.54M to $2.14M. It then closed its Logan Square store on 1 March 2026, citing financial challenges.</p></li><li><span class="tip-k">Labor record</span><p>Former Logan Square employees publicly criticized management over sudden terminations in March 2026.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="open-books" data-at="w-h">See details and sources<span class="sr-only"> for Open Books</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>82.0%</dd></div>
-    <div><dt>spent a year</dt><dd>$3.4M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-open-books" data-tip="term-r-open-books">to programs<span class="sr-only">: what this means for Open Books</span></button>
+    <div class="tip tip-term" id="term-r-open-books" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Open Books spent, about 82 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>82.0%</dd></div>
+    <div><dt>spent a year</dt><dd>$3.5M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://openbooks.app.neoncrm.com/forms/website-donation" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Open Books, opens openbooks.app.neoncrm.com in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -302,13 +366,17 @@
       <p class="row-does">Coordinates the homelessness response and emergency aid</p>
       <button class="caution" type="button" popovertarget="tip-r-all-chicago" data-tip="tip-r-all-chicago"><span class="caution-t">Cautions: finances, funding risk</span><span class="sr-only">, All Chicago Making Homelessness History</span></button>
     <div class="tip" id="tip-r-all-chicago" popover role="group" aria-label="2 cautions for All Chicago Making Homelessness History">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2023 deficit of $1.3M. Revenue swings between $54.9M and $115.5M year to year because government rental assistance passes through the books.</p></li><li><span class="tip-k">Funding risk</span><p>As the Continuum of Care lead agency it is the pass-through for federal homelessness funding, and proposed HUD changes project roughly $67M in losses for Chicago.</p></li></ul>
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2023 deficit of $1.3M, back to a small surplus in FY2024. Revenue swings between $54.9M and $115.5M year to year because government rental assistance passes through the books.</p></li><li><span class="tip-k">Funding risk</span><p>As the Continuum of Care lead agency it is the pass-through for federal homelessness funding, and HUD is weighing more than $60M in cuts that put an estimated 3,247 Chicagoans at risk. The FY2026 funding rules have since gone back and forth in court.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="all-chicago" data-at="w-h">See details and sources<span class="sr-only"> for All Chicago Making Homelessness History</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>96.8%</dd></div>
-    <div><dt>spent a year</dt><dd>$64.2M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-all-chicago" data-tip="term-r-all-chicago">to programs<span class="sr-only">: what this means for All Chicago Making Homelessness History</span></button>
+    <div class="tip tip-term" id="term-r-all-chicago" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar All Chicago Making Homelessness History spent, about 97 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>96.8%</dd></div>
+    <div><dt>spent a year</dt><dd>$54.6M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://allchicago.org/donate" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to All Chicago Making Homelessness History, opens allchicago.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -319,8 +387,12 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>89.3%</dd></div>
-    <div><dt>spent a year</dt><dd>$13.7M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-breakthrough" data-tip="term-r-breakthrough">to programs<span class="sr-only">: what this means for Breakthrough</span></button>
+    <div class="tip tip-term" id="term-r-breakthrough" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Breakthrough spent, about 89 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>89.3%</dd></div>
+    <div><dt>spent a year</dt><dd>$14.0M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://breakthrough.org/donate-to-breakthrough/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Breakthrough, opens breakthrough.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -331,8 +403,12 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>86.2%</dd></div>
-    <div><dt>spent a year</dt><dd>$5.3M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-chicago-coalition-to-end-homelessness" data-tip="term-r-chicago-coalition-to-end-homelessness">to programs<span class="sr-only">: what this means for Chicago Coalition to End Homelessness</span></button>
+    <div class="tip tip-term" id="term-r-chicago-coalition-to-end-homelessness" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Chicago Coalition to End Homelessness spent, about 86 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>86.2%</dd></div>
+    <div><dt>spent a year</dt><dd>$6.7M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://act.chicagohomeless.org/a/donate" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Chicago Coalition to End Homelessness, opens act.chicagohomeless.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -347,20 +423,32 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>77.0%</dd></div>
-    <div><dt>spent a year</dt><dd>$5.1M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-deborahs-place" data-tip="term-r-deborahs-place">to programs<span class="sr-only">: what this means for Deborah’s Place</span></button>
+    <div class="tip tip-term" id="term-r-deborahs-place" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Deborah’s Place spent, about 77 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>77.0%</dd></div>
+    <div><dt>spent a year</dt><dd>$6.8M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.deborahsplace.org/donate-2/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Deborah’s Place, opens deborahsplace.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
   </li><li class="row" data-id="franciscan-outreach">
     <div class="row-text">
       <h3 class="row-name"><a href="https://franoutreach.org/" data-org="franciscan-outreach">Franciscan Outreach</a></h3>
-      <p class="row-does">Chicago’s largest interim shelters</p>
-      
+      <p class="row-does">Interim shelters, meals and case management</p>
+      <button class="caution" type="button" popovertarget="tip-r-franciscan-outreach" data-tip="tip-r-franciscan-outreach"><span class="caution-t">Caution: audit finding</span><span class="sr-only">, Franciscan Outreach</span></button>
+    <div class="tip" id="tip-r-franciscan-outreach" popover role="group" aria-label="1 caution for Franciscan Outreach">
+      <ul class="tip-list"><li><span class="tip-k">Audit finding</span><p>Its federal single audits for FY2024 and FY2025 both report a material weakness in internal controls.</p></li></ul>
+      <button class="tip-more js-only" type="button" data-org="franciscan-outreach" data-at="w-h">See details and sources<span class="sr-only"> for Franciscan Outreach</span> <span aria-hidden="true">→</span></button>
+    </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>79.2%</dd></div>
-    <div><dt>spent a year</dt><dd>$5.0M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-franciscan-outreach" data-tip="term-r-franciscan-outreach">to programs<span class="sr-only">: what this means for Franciscan Outreach</span></button>
+    <div class="tip tip-term" id="term-r-franciscan-outreach" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Franciscan Outreach spent, about 79 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>79.2%</dd></div>
+    <div><dt>spent a year</dt><dd>$6.7M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://wl.donorperfect.net/weblink/weblink.aspx?name=E358209&amp;id=6" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Franciscan Outreach, opens wl.donorperfect.net in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -368,15 +456,18 @@
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.lacasanorte.org/" data-org="la-casa-norte">La Casa Norte</a></h3>
       <p class="row-does">Shelter and housing for homeless youth and families</p>
-      <button class="caution" type="button" popovertarget="tip-r-la-casa-norte" data-tip="tip-r-la-casa-norte"><span class="caution-t">Caution: finances</span><span class="sr-only">, La Casa Norte</span></button>
-    <div class="tip" id="tip-r-la-casa-norte" popover role="group" aria-label="1 caution for La Casa Norte">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>Two consecutive deficits: $263,000 in FY2022 and $33,000 in FY2023, both small relative to budget. A larger $1.8M deficit in FY2019.</p></li></ul>
+      <button class="caution" type="button" popovertarget="tip-r-la-casa-norte" data-tip="tip-r-la-casa-norte"><span class="caution-t">Cautions: finances, funding risk</span><span class="sr-only">, La Casa Norte</span></button>
+    <div class="tip" id="tip-r-la-casa-norte" popover role="group" aria-label="2 cautions for La Casa Norte">
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>Its FY2024 Form 990 shows a $10.47M deficit and negative net assets of $789,000. The audited consolidated statements explain it as the unwinding of a New Markets Tax Credit financing, in which $12.5M of notes were forgiven: consolidated results were a $5.27M surplus in 2024 and a $403,000 deficit in 2025, with $15.3M in net assets and a clean audit. Earlier deficits were small: $263,000 in FY2022 and $33,000 in FY2023.</p></li><li><span class="tip-k">Funding risk</span><p>66% of 2025 revenue ($6.07M of $9.23M) came from government grants.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="la-casa-norte" data-at="w-h">See details and sources<span class="sr-only"> for La Casa Norte</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd><span aria-hidden="true">—</span><span class="sr-only">not published</span></dd></div>
-    <div><dt>spent a year</dt><dd>$7.9M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-la-casa-norte" data-tip="term-r-la-casa-norte">to programs<span class="sr-only">: what this means for La Casa Norte</span></button>
+    <div class="tip tip-term" id="term-r-la-casa-norte" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>The share of a charity’s spending that goes to its programs, rather than to management and fundraising. La Casa Norte has no published figure.</p>
+    </div></dt><dd><span aria-hidden="true">—</span><span class="sr-only">not published</span></dd></div>
+    <div><dt>spent a year</dt><dd>$21.0M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.lacasanorte.org/donate" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to La Casa Norte, opens lacasanorte.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -384,11 +475,19 @@
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.thenightministry.org/" data-org="the-night-ministry">The Night Ministry</a></h3>
       <p class="row-does">Overnight outreach, street medicine and youth shelter</p>
-      
+      <button class="caution" type="button" popovertarget="tip-r-the-night-ministry" data-tip="tip-r-the-night-ministry"><span class="caution-t">Caution: finances</span><span class="sr-only">, The Night Ministry</span></button>
+    <div class="tip" id="tip-r-the-night-ministry" popover role="group" aria-label="1 caution for The Night Ministry">
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>A $237,000 deficit in FY2025, as revenue fell from $12.06M in FY2023 to $10.61M.</p></li></ul>
+      <button class="tip-more js-only" type="button" data-org="the-night-ministry" data-at="w-h">See details and sources<span class="sr-only"> for The Night Ministry</span> <span aria-hidden="true">→</span></button>
+    </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>71.0%</dd></div>
-    <div><dt>spent a year</dt><dd>$11.3M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-the-night-ministry" data-tip="term-r-the-night-ministry">to programs<span class="sr-only">: what this means for The Night Ministry</span></button>
+    <div class="tip tip-term" id="term-r-the-night-ministry" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar The Night Ministry spent, about 71 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>71.0%</dd></div>
+    <div><dt>spent a year</dt><dd>$10.8M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://thenightministry.org/give/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to The Night Ministry, opens thenightministry.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -407,7 +506,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>77.8%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-chicago-votes-education-fund" data-tip="term-r-chicago-votes-education-fund">to programs<span class="sr-only">: what this means for Chicago Votes Education Fund</span></button>
+    <div class="tip tip-term" id="term-r-chicago-votes-education-fund" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Chicago Votes Education Fund spent, about 78 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>77.8%</dd></div>
     <div><dt>spent a year</dt><dd>$1.5M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://chicagovotesedfund.com/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Chicago Votes Education Fund, opens chicagovotesedfund.com in a new tab</span></a>
@@ -419,8 +522,12 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>71.7%</dd></div>
-    <div><dt>spent a year</dt><dd>$1.8M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-invisible-institute" data-tip="term-r-invisible-institute">to programs<span class="sr-only">: what this means for Invisible Institute</span></button>
+    <div class="tip tip-term" id="term-r-invisible-institute" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Invisible Institute spent, about 72 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>71.7%</dd></div>
+    <div><dt>spent a year</dt><dd>$2.0M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://invisible.institute/donate" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Invisible Institute, opens invisible.institute in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -431,7 +538,11 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>81.1%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-legal-aid-chicago" data-tip="term-r-legal-aid-chicago">to programs<span class="sr-only">: what this means for Legal Aid Chicago</span></button>
+    <div class="tip tip-term" id="term-r-legal-aid-chicago" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Legal Aid Chicago spent, about 81 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>81.1%</dd></div>
     <div><dt>spent a year</dt><dd>$25.7M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://legalaidchicago.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Legal Aid Chicago, opens legalaidchicago.org in a new tab</span></a>
@@ -443,8 +554,11 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd><span aria-hidden="true">—</span><span class="sr-only">not published</span></dd></div>
-    <div><dt>spent a year</dt><dd><span aria-hidden="true">—</span><span class="sr-only">not filed</span></dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-national-immigrant-justice-center" data-tip="term-r-national-immigrant-justice-center">to programs<span class="sr-only">: what this means for National Immigrant Justice Center</span></button>
+    <div class="tip tip-term" id="term-r-national-immigrant-justice-center" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>The share of a charity’s spending that goes to its programs, rather than to management and fundraising. National Immigrant Justice Center has no published figure.</p>
+    </div></dt><dd><span aria-hidden="true">—</span><span class="sr-only">not published</span></dd></div>
+    <div><dt>spent a year</dt><dd>$16.3M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://immigrantjustice.salsalabs.org/donate-26/index.html" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to National Immigrant Justice Center, opens immigrantjustice.salsalabs.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -459,7 +573,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>97.9%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-the-resurrection-project" data-tip="term-r-the-resurrection-project">to programs<span class="sr-only">: what this means for The Resurrection Project</span></button>
+    <div class="tip tip-term" id="term-r-the-resurrection-project" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar The Resurrection Project spent, about 98 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>97.9%</dd></div>
     <div><dt>spent a year</dt><dd>$44.8M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://pro.gofundme.com/give/391084" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to The Resurrection Project, opens pro.gofundme.com in a new tab</span></a>
@@ -467,20 +585,8 @@
   </li></ul>
       </section>
       <section class="group" id="all-youth" aria-labelledby="g-youth">
-        <h2 class="group-h" id="g-youth"><svg class="ico ico-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Violence prevention and youth <span class="group-n">6</span></h2>
-        <ul class="rows"><li class="row" data-id="cara-collective">
-    <div class="row-text">
-      <h3 class="row-name"><a href="https://caracollective.org/" data-org="cara-collective">Cara Collective</a></h3>
-      <p class="row-does">Job training and placement for people facing barriers</p>
-      
-    </div>
-    <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>75.1%</dd></div>
-    <div><dt>spent a year</dt><dd>$16.6M</dd></div>
-  </dl>
-    <a class="row-donate no-js" href="https://caracollective.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Cara Collective, opens caracollective.org in a new tab</span></a>
-    <span class="chev js-only" aria-hidden="true"></span>
-  </li><li class="row" data-id="chicago-childrens-advocacy-center">
+        <h2 class="group-h" id="g-youth"><svg class="ico ico-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Violence prevention and youth <span class="group-n">5</span></h2>
+        <ul class="rows"><li class="row" data-id="chicago-childrens-advocacy-center">
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.chicagocac.org/" data-org="chicago-childrens-advocacy-center">Chicago Children’s Advocacy Center</a></h3>
       <p class="row-does">One place where abused children get help</p>
@@ -491,7 +597,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>77.1%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-chicago-childrens-advocacy-center" data-tip="term-r-chicago-childrens-advocacy-center">to programs<span class="sr-only">: what this means for Chicago Children’s Advocacy Center</span></button>
+    <div class="tip tip-term" id="term-r-chicago-childrens-advocacy-center" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Chicago Children’s Advocacy Center spent, about 77 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>77.1%</dd></div>
     <div><dt>spent a year</dt><dd>$10.5M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.chicagocac.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Chicago Children’s Advocacy Center, opens chicagocac.org in a new tab</span></a>
@@ -499,7 +609,7 @@
   </li><li class="row" data-id="chicago-cred">
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.chicagocred.org/" data-org="chicago-cred">Chicago CRED</a></h3>
-      <p class="row-does">Outreach, therapy and jobs for men at highest risk</p>
+      <p class="row-does">Outreach, therapy and jobs for those at highest risk</p>
       <button class="caution" type="button" popovertarget="tip-r-chicago-cred" data-tip="tip-r-chicago-cred"><span class="caution-t">Caution: finances</span><span class="sr-only">, Chicago CRED</span></button>
     <div class="tip" id="tip-r-chicago-cred" popover role="group" aria-label="1 caution for Chicago CRED">
       <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2024 deficit of $10.24M, on record-high expenses against sharply lower revenue. Consecutive deficits in FY2021 and FY2022, then a large FY2023 surplus.</p></li></ul>
@@ -507,7 +617,10 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd><span aria-hidden="true">—</span><span class="sr-only">not published</span></dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-chicago-cred" data-tip="term-r-chicago-cred">to programs<span class="sr-only">: what this means for Chicago CRED</span></button>
+    <div class="tip tip-term" id="term-r-chicago-cred" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>The share of a charity’s spending that goes to its programs, rather than to management and fundraising. Chicago CRED has no published figure.</p>
+    </div></dt><dd><span aria-hidden="true">—</span><span class="sr-only">not published</span></dd></div>
     <div><dt>spent a year</dt><dd>$36.3M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://secure.givelively.org/donate/chicago-cred-inc" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Chicago CRED, opens secure.givelively.org in a new tab</span></a>
@@ -523,7 +636,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>92.9%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-institute-for-nonviolence-chicago" data-tip="term-r-institute-for-nonviolence-chicago">to programs<span class="sr-only">: what this means for Institute for Nonviolence Chicago</span></button>
+    <div class="tip tip-term" id="term-r-institute-for-nonviolence-chicago" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Institute for Nonviolence Chicago spent, about 93 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>92.9%</dd></div>
     <div><dt>spent a year</dt><dd>$15.7M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.nonviolencechicago.org/donate" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Institute for Nonviolence Chicago, opens nonviolencechicago.org in a new tab</span></a>
@@ -535,7 +652,11 @@
       
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>87.7%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-metropolitan-family-services" data-tip="term-r-metropolitan-family-services">to programs<span class="sr-only">: what this means for Metropolitan Family Services</span></button>
+    <div class="tip tip-term" id="term-r-metropolitan-family-services" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Metropolitan Family Services spent, about 88 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>87.7%</dd></div>
     <div><dt>spent a year</dt><dd>$178M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.metrofamily.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Metropolitan Family Services, opens metrofamily.org in a new tab</span></a>
@@ -544,17 +665,41 @@
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.youth-guidance.org/" data-org="youth-guidance">Youth Guidance</a></h3>
       <p class="row-does">School counseling programs, including Becoming A Man</p>
-      <button class="caution" type="button" popovertarget="tip-r-youth-guidance" data-tip="tip-r-youth-guidance"><span class="caution-t">Caution: finances</span><span class="sr-only">, Youth Guidance</span></button>
-    <div class="tip" id="tip-r-youth-guidance" popover role="group" aria-label="1 caution for Youth Guidance">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>Three consecutive and worsening deficits — $655,000 in FY2023, $6.61M in FY2024 and $10.46M in FY2025, roughly $17.7M cumulative. Revenue fell from $58.99M in FY2022 to $44.26M in FY2025 while expenses rose to a record $54.7M. No reporting of layoffs or leadership change was found and the cause is not public.</p></li></ul>
+      <button class="caution" type="button" popovertarget="tip-r-youth-guidance" data-tip="tip-r-youth-guidance"><span class="caution-t">Cautions: finances, funding risk</span><span class="sr-only">, Youth Guidance</span></button>
+    <div class="tip" id="tip-r-youth-guidance" popover role="group" aria-label="2 cautions for Youth Guidance">
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>Three consecutive and worsening deficits — $655,000 in FY2023, $6.61M in FY2024 and $10.46M in FY2025, roughly $17.7M cumulative. Revenue fell from $58.99M in FY2022 to $44.26M in FY2025 while expenses peaked at $56.1M in FY2024. No reporting of layoffs or leadership change was found and the cause is not public.</p></li><li><span class="tip-k">Funding risk</span><p>In November 2025 the city cut mentoring funding from $9.5M to $4.6M and made school-based group counseling such as Becoming A Man and Working on Womanhood ineligible for city funds, affecting about 1,400 students at 33 schools from January 2026.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="youth-guidance" data-at="w-h">See details and sources<span class="sr-only"> for Youth Guidance</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>82.0%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-youth-guidance" data-tip="term-r-youth-guidance">to programs<span class="sr-only">: what this means for Youth Guidance</span></button>
+    <div class="tip tip-term" id="term-r-youth-guidance" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Youth Guidance spent, about 82 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>82.0%</dd></div>
     <div><dt>spent a year</dt><dd>$54.7M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://give.youth-guidance.org/give/609306" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Youth Guidance, opens give.youth-guidance.org in a new tab</span></a>
+    <span class="chev js-only" aria-hidden="true"></span>
+  </li></ul>
+      </section>
+      <section class="group" id="all-jobs" aria-labelledby="g-jobs">
+        <h2 class="group-h" id="g-jobs"><svg class="ico ico-sm" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Jobs and job training <span class="group-n">1</span></h2>
+        <ul class="rows"><li class="row" data-id="cara-collective">
+    <div class="row-text">
+      <h3 class="row-name"><a href="https://caracollective.org/" data-org="cara-collective">Cara Collective</a></h3>
+      <p class="row-does">Job training and placement for people facing barriers</p>
+      
+    </div>
+    <dl class="figs row-figs">
+    <div><dt><button class="term" type="button" popovertarget="term-r-cara-collective" data-tip="term-r-cara-collective">to programs<span class="sr-only">: what this means for Cara Collective</span></button>
+    <div class="tip tip-term" id="term-r-cara-collective" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Cara Collective spent, about 75 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>75.1%</dd></div>
+    <div><dt>spent a year</dt><dd>$16.6M</dd></div>
+  </dl>
+    <a class="row-donate no-js" href="https://caracollective.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Cara Collective, opens caracollective.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
   </li></ul>
       </section>
@@ -564,11 +709,19 @@
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.eriefamilyhealth.org/" data-org="erie-family-health-centers">Erie Family Health Centers</a></h3>
       <p class="row-does">Community health centers, regardless of ability to pay</p>
-      
+      <button class="caution" type="button" popovertarget="tip-r-erie-family-health-centers" data-tip="tip-r-erie-family-health-centers"><span class="caution-t">Caution: incident</span><span class="sr-only">, Erie Family Health Centers</span></button>
+    <div class="tip" id="tip-r-erie-family-health-centers" popover role="group" aria-label="1 caution for Erie Family Health Centers">
+      <ul class="tip-list"><li><span class="tip-k">Incident</span><p>A breach of its network from 10 December 2025 to 27 January 2026 exposed patient data including Social Security numbers and medical records. Notices went to up to 570,000 people from May 2026.</p></li></ul>
+      <button class="tip-more js-only" type="button" data-org="erie-family-health-centers" data-at="w-h">See details and sources<span class="sr-only"> for Erie Family Health Centers</span> <span aria-hidden="true">→</span></button>
+    </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>86.2%</dd></div>
-    <div><dt>spent a year</dt><dd>$111M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-erie-family-health-centers" data-tip="term-r-erie-family-health-centers">to programs<span class="sr-only">: what this means for Erie Family Health Centers</span></button>
+    <div class="tip tip-term" id="term-r-erie-family-health-centers" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Erie Family Health Centers spent, about 86 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>86.2%</dd></div>
+    <div><dt>spent a year</dt><dd>$122M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.eriefamilyhealth.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Erie Family Health Centers, opens eriefamilyhealth.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -578,13 +731,17 @@
       <p class="row-does">Health center focused on LGBTQ+ patients</p>
       <button class="caution" type="button" popovertarget="tip-r-howard-brown-health" data-tip="tip-r-howard-brown-health"><span class="caution-t">Cautions: finances, labor record</span><span class="sr-only">, Howard Brown Health</span></button>
     <div class="tip" id="tip-r-howard-brown-health" popover role="group" aria-label="2 cautions for Howard Brown Health">
-      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2024 deficit of about $4.9M and three to four years of management-described operating shortfalls. No going-concern warning, against $124.6M in net assets. Down from 11 locations in 2019 to seven.</p></li><li><span class="tip-k">Labor record</span><p>December 2022: 65 positions cut, citing a $12M shortfall. January 2023: roughly 440 employees struck for three days. July 2023: the National Labor Relations Board found unfair labor practices. May 2024: a contract was ratified after the CEO resigned, and two clinics closed. July 2024: 43 more layoffs, about 7% of staff, which the interim CEO described as the third consecutive year of an operating shortfall. November 2024: a $1.108M NLRB settlement covering 55 laid-off workers. A new CEO was named in February 2025 and no labor actions have been found since.</p></li></ul>
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>FY2024 deficit of about $4.9M after three to four years of management-described operating shortfalls, then an $11.2M surplus in FY2025, with $130.6M in net assets. No going-concern warning. Down from 11 locations in 2019 to seven.</p></li><li><span class="tip-k">Labor record</span><p>December 2022: 65 positions cut, citing a $12M shortfall. January 2023: roughly 440 employees struck for three days. July 2023: the National Labor Relations Board found unfair labor practices. May 2024: a contract was ratified after the CEO resigned, and two clinics closed. July 2024: 43 more layoffs, about 7% of staff, which the interim CEO described as the third consecutive year of an operating shortfall. November 2024: a $1.108M NLRB settlement covering 55 laid-off workers. A new CEO was named in February 2025 and no labor actions have been found since.</p></li></ul>
       <button class="tip-more js-only" type="button" data-org="howard-brown-health" data-at="w-h">See details and sources<span class="sr-only"> for Howard Brown Health</span> <span aria-hidden="true">→</span></button>
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>87.9%</dd></div>
-    <div><dt>spent a year</dt><dd>$212M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-howard-brown-health" data-tip="term-r-howard-brown-health">to programs<span class="sr-only">: what this means for Howard Brown Health</span></button>
+    <div class="tip tip-term" id="term-r-howard-brown-health" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Howard Brown Health spent, about 88 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>87.9%</dd></div>
+    <div><dt>spent a year</dt><dd>$206M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://donate.howardbrown.org/campaign/550045/donate" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Howard Brown Health, opens donate.howardbrown.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -603,7 +760,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>78.9%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-apna-ghar" data-tip="term-r-apna-ghar">to programs<span class="sr-only">: what this means for Apna Ghar</span></button>
+    <div class="tip tip-term" id="term-r-apna-ghar" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Apna Ghar spent, about 79 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>78.9%</dd></div>
     <div><dt>spent a year</dt><dd>$5.1M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://apnaghar.networkforgood.com/projects/31230-apna-ghar-donation-page" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Apna Ghar, opens apnaghar.networkforgood.com in a new tab</span></a>
@@ -612,11 +773,19 @@
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.cfw.org/" data-org="chicago-foundation-for-women">Chicago Foundation for Women</a></h3>
       <p class="row-does">Grants to groups serving women and girls</p>
-      
+      <button class="caution" type="button" popovertarget="tip-r-chicago-foundation-for-women" data-tip="tip-r-chicago-foundation-for-women"><span class="caution-t">Caution: finances</span><span class="sr-only">, Chicago Foundation for Women</span></button>
+    <div class="tip" id="tip-r-chicago-foundation-for-women" popover role="group" aria-label="1 caution for Chicago Foundation for Women">
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>A $3.25M deficit in FY2025 as revenue fell 52%, to $3.27M. Net assets held at about $24.1M, so it can absorb this, but it is a large gap.</p></li></ul>
+      <button class="tip-more js-only" type="button" data-org="chicago-foundation-for-women" data-at="w-h">See details and sources<span class="sr-only"> for Chicago Foundation for Women</span> <span aria-hidden="true">→</span></button>
+    </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>85.2%</dd></div>
-    <div><dt>spent a year</dt><dd>$5.9M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-chicago-foundation-for-women" data-tip="term-r-chicago-foundation-for-women">to programs<span class="sr-only">: what this means for Chicago Foundation for Women</span></button>
+    <div class="tip tip-term" id="term-r-chicago-foundation-for-women" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Chicago Foundation for Women spent, about 85 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>85.2%</dd></div>
+    <div><dt>spent a year</dt><dd>$6.5M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.cfw.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Chicago Foundation for Women, opens cfw.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -624,11 +793,19 @@
     <div class="row-text">
       <h3 class="row-name"><a href="https://www.cawc.org/" data-org="cawc">Connections for Abused Women and their Children</a></h3>
       <p class="row-does">Hotline, shelter and advocacy for domestic violence survivors</p>
-      
+      <button class="caution" type="button" popovertarget="tip-r-cawc" data-tip="tip-r-cawc"><span class="caution-t">Caution: finances</span><span class="sr-only">, Connections for Abused Women and their Children</span></button>
+    <div class="tip" id="tip-r-cawc" popover role="group" aria-label="1 caution for Connections for Abused Women and their Children">
+      <ul class="tip-list"><li><span class="tip-k">Finances</span><p>A $1.05M deficit in FY2025 as revenue fell to $4.22M from $5.38M the year before.</p></li></ul>
+      <button class="tip-more js-only" type="button" data-org="cawc" data-at="w-h">See details and sources<span class="sr-only"> for Connections for Abused Women and their Children</span> <span aria-hidden="true">→</span></button>
+    </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>72.5%</dd></div>
-    <div><dt>spent a year</dt><dd>$5.0M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-cawc" data-tip="term-r-cawc">to programs<span class="sr-only">: what this means for Connections for Abused Women and their Children</span></button>
+    <div class="tip tip-term" id="term-r-cawc" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Connections for Abused Women and their Children spent, about 73 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>72.5%</dd></div>
+    <div><dt>spent a year</dt><dd>$5.3M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.cawc.org/donate/" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Connections for Abused Women and their Children, opens cawc.org in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -647,7 +824,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>80.5%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-friends-of-the-chicago-river" data-tip="term-r-friends-of-the-chicago-river">to programs<span class="sr-only">: what this means for Friends of the Chicago River</span></button>
+    <div class="tip tip-term" id="term-r-friends-of-the-chicago-river" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Friends of the Chicago River spent, about 81 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2023–FY2025) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>80.5%</dd></div>
     <div><dt>spent a year</dt><dd>$2.5M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://wl.donorperfect.net/weblink/weblink.aspx?name=E145588&amp;id=139" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Friends of the Chicago River, opens wl.donorperfect.net in a new tab</span></a>
@@ -663,8 +844,12 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>82.9%</dd></div>
-    <div><dt>spent a year</dt><dd>$7.9M</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-openlands" data-tip="term-r-openlands">to programs<span class="sr-only">: what this means for Openlands</span></button>
+    <div class="tip tip-term" id="term-r-openlands" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Openlands spent, about 83 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>82.9%</dd></div>
+    <div><dt>spent a year</dt><dd>$7.7M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://form-renderer-app.donorperfect.io/give/openlands/online-donation-form" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Openlands, opens form-renderer-app.donorperfect.io in a new tab</span></a>
     <span class="chev js-only" aria-hidden="true"></span>
@@ -679,7 +864,11 @@
     </div>
     </div>
     <dl class="figs row-figs">
-    <div><dt>to programs</dt><dd>72.6%</dd></div>
+    <div><dt><button class="term" type="button" popovertarget="term-r-urban-growers-collective" data-tip="term-r-urban-growers-collective">to programs<span class="sr-only">: what this means for Urban Growers Collective</span></button>
+    <div class="tip tip-term" id="term-r-urban-growers-collective" popover role="group" aria-label="What “to programs” means">
+      <p class="tip-h">What “to programs” means</p><p>Of every dollar Urban Growers Collective spent, about 73 cents went to its programs: the services themselves. The rest paid for management and fundraising.</p>
+      <p>This is a three-year average (FY2022–FY2024) from its IRS filings. The median here is 82.0%. It shows how spending is classified, not whether the programs work; the evidence tag answers that.</p>
+    </div></dt><dd>72.6%</dd></div>
     <div><dt>spent a year</dt><dd>$4.3M</dd></div>
   </dl>
     <a class="row-donate no-js" href="https://www.urbangrowerscollective.org/make-a-donation" target="_blank" rel="noopener noreferrer">Donate <span class="arrow" aria-hidden="true">↗</span><span class="sr-only"> to Urban Growers Collective, opens urbangrowerscollective.org in a new tab</span></a>
@@ -694,7 +883,7 @@
   <section class="view view-how" id="how" data-view="how" aria-labelledby="how-h">
     <div class="wrap narrow">
       <h1 class="view-h" id="how-h" tabindex="-1">How we check.</h1>
-      <p class="lede">Each charity was checked on September 20, 2026 against its IRS Form 990, its Charity Navigator record and its own reports, and every donation link was opened to confirm it works. Nothing here is paid for, and nothing is ranked on a single score.</p>
+      <p class="lede">Each charity was checked on September 25, 2026 against its IRS Form 990, its Charity Navigator record and its own reports, and every donation link was opened to confirm it works. Nothing here is paid for, and nothing is ranked on a single score.</p>
 
       <section class="how-block how-made" id="how-made" aria-labelledby="how-made-h">
         <h2 id="how-made-h">How it’s made</h2>
@@ -719,12 +908,12 @@
 
       <section class="how-block" aria-labelledby="how-caution">
         <h2 id="how-caution">Cautions</h2>
-        <p>Every note on the record stays in. The ones that bear most on a gift (finances, funding risk, labor record) show on the cards; the rest wait in each charity’s details.</p>
+        <p>Every note on the record stays in. The ones that bear most on a gift (finances, funding risk, labor record, audit finding, incident) show on the cards; the rest wait in each charity’s details.</p>
       </section>
 
       <section class="how-block" aria-labelledby="how-faq">
         <h2 id="how-faq">Questions</h2>
-        <dl class="faq"><div id="how-we-vetted"><dt>How were these organizations checked?</dt><dd>Each one was checked on September 20, 2026 against its IRS Form 990, its Charity Navigator record and its own reports, and every donation link was opened to confirm it works. A Chicago charity missing from this list has not been judged.</dd></div><div><dt>What do the evidence tags mean?</dt><dd>Randomized trial: the program was tested against a control group, the strongest proof that it works. Independent study: an outside researcher evaluated it. Self-reported: the organization counts its own results.</dd></div><div><dt>How much of my donation reaches programs?</dt><dd>Between 62 and 98 percent here, shown for every charity as a three-year average. It shows how spending is classified, and the evidence tag shows whether the programs work.</dd></div><div><dt>Are donations tax deductible?</dt><dd>For 37 of the 39, yes, if you itemize. Chicago CRED is a private operating foundation with different deduction limits, and gifts to Chicago Votes are deductible only through its Education Fund, which this page links. Each entry lists its EIN.</dd></div><div><dt>Why is there no overall ranking?</dt><dd>Financial ratios, ratings and program evidence measure different things, and one combined score would invent precision. The picker ranks by one priority at a time, and you choose which.</dd></div><div><dt>How current is this information?</dt><dd>Checked on September 20, 2026. Financial figures come from each organization’s latest readable filing: FY2025 for fourteen, FY2024 for nineteen and FY2023 for six.</dd></div></dl>
+        <dl class="faq"><div id="how-we-vetted"><dt>How were these organizations checked?</dt><dd>Each one was checked on September 25, 2026 against its IRS Form 990, its Charity Navigator record and its own reports, and every donation link was opened to confirm it works. A Chicago charity missing from this list has not been judged.</dd></div><div><dt>What do the evidence tags mean?</dt><dd>Randomized trial: the program was tested against a control group, the strongest proof that it works. Independent study: an outside researcher evaluated it. Self-reported: the organization counts its own results.</dd></div><div><dt>How much of my donation reaches programs?</dt><dd>Between 62 and 98 percent here, shown for every charity as a three-year average. It shows how spending is classified, and the evidence tag shows whether the programs work.</dd></div><div><dt>Are donations tax deductible?</dt><dd>For 37 of the 39, yes, if you itemize. Chicago CRED is a private operating foundation with different deduction limits, and gifts to Chicago Votes are deductible only through its Education Fund, which this page links. Each entry lists its EIN.</dd></div><div><dt>Why is there no overall ranking?</dt><dd>Financial ratios, ratings and program evidence measure different things, and one combined score would invent precision. The picker ranks by one priority at a time, and you choose which.</dd></div><div><dt>How current is this information?</dt><dd>Checked on September 25, 2026. Financial figures come from each organization’s latest readable filing: FY2025 for 29 and FY2024 for ten.</dd></div></dl>
       </section>
 
       <section class="how-block" aria-labelledby="how-src">
@@ -739,7 +928,7 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <p class="foot-brand"><span class="brand-word">GiveChi</span><span class="stars" aria-hidden="true"><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0 L14.4 7.843 L22.392 6 L16.8 12 L22.392 18 L14.4 16.157 L12 24 L9.6 16.157 L1.608 18 L7.2 12 L1.608 6 L9.6 7.843 Z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0 L14.4 7.843 L22.392 6 L16.8 12 L22.392 18 L14.4 16.157 L12 24 L9.6 16.157 L1.608 18 L7.2 12 L1.608 6 L9.6 7.843 Z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0 L14.4 7.843 L22.392 6 L16.8 12 L22.392 18 L14.4 16.157 L12 24 L9.6 16.157 L1.608 18 L7.2 12 L1.608 6 L9.6 7.843 Z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0 L14.4 7.843 L22.392 6 L16.8 12 L22.392 18 L14.4 16.157 L12 24 L9.6 16.157 L1.608 18 L7.2 12 L1.608 6 L9.6 7.843 Z"/></svg></span></p>
-    <p>39 charities, checked September 20, 2026. No money taken, no donations processed, nothing collected about you, and no tie to any organization listed.<span class="foot-made">Generated with AI and overseen by Cody Heart. <a href="#how-made">How it’s made</a></span></p>
+    <p>39 charities, checked September 25, 2026. No money taken, no donations processed, and no tie to any organization listed. Visits are counted with Google Analytics.<span class="foot-made">Generated with AI and overseen by Cody Heart. <a href="#how-made">How it’s made</a></span></p>
   </div>
 </footer>
 
@@ -747,7 +936,7 @@
 <dialog class="panel" id="saved" aria-labelledby="saved-h"></dialog>
 <div id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://givechi.org/#website","url":"https://givechi.org/","name":"GiveChi","description":"39 Chicago charities, vetted: what each one does, the evidence behind it, how much reaches programs, and a checked donation link. Takes no cut.","inLanguage":"en-US","author":{"@type":"Person","name":"Cody Heart"}},{"@type":"ItemList","@id":"https://givechi.org/#roster","name":"Vetted Chicago charities, 39 organizations","numberOfItems":39,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"NGO","@id":"https://givechi.org/#greater-chicago-food-depository","name":"Greater Chicago Food Depository","description":"Sources, warehouses and distributes food through more than 850 partner pantries, kitchens and shelters, and helps people enroll in SNAP.","url":"https://www.chicagosfoodbank.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2971864"},"areaServed":{"@type":"Place","name":"Chicago and Cook County"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.chicagosfoodbank.org/get-involved/give/"}}}},{"@type":"ListItem","position":2,"item":{"@type":"NGO","@id":"https://givechi.org/#nourishing-hope","name":"Nourishing Hope","description":"Runs food pantries and home grocery delivery, and pairs them with in-house mental health counseling and case management.","url":"https://nourishinghopechi.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2734184"},"areaServed":{"@type":"Place","name":"Lakeview, Humboldt Park and West Town, with citywide delivery"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://nourishinghopechi.org/ways-to-give/"}}}},{"@type":"ListItem","position":3,"item":{"@type":"NGO","@id":"https://givechi.org/#care-for-real","name":"Care for Real","description":"Operates food pantries four to five days a week alongside a clothing closet, a pet pantry and home delivery for homebound neighbors.","url":"https://careforreal.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"27-1962360"},"areaServed":{"@type":"Place","name":"Edgewater and Rogers Park — ZIPs 60640, 60660, 60626, 60659, 60645"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://careforreal.org/get-involved/donate/"}}}},{"@type":"ListItem","position":4,"item":{"@type":"NGO","@id":"https://givechi.org/#beyond-hunger","name":"Beyond Hunger","description":"Runs a food pantry with home delivery, SNAP application assistance and nutrition education across thirteen ZIP codes.","url":"https://www.gobeyondhunger.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"27-2018997"},"areaServed":{"@type":"Place","name":"13 ZIP codes across Oak Park, River Forest, Forest Park, Berwyn and Chicago’s West Side"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.gobeyondhunger.org/donate"}}}},{"@type":"ListItem","position":5,"item":{"@type":"NGO","@id":"https://givechi.org/#common-pantry","name":"Common Pantry","description":"Runs a client-choice food pantry with groceries, produce and hot meals, plus social services case management.","url":"https://www.commonpantry.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"23-7136034"},"areaServed":{"@type":"Place","name":"North Center and Lincoln Square, North Side"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.commonpantry.org/donations/"}}}},{"@type":"ListItem","position":6,"item":{"@type":"NGO","@id":"https://givechi.org/#cradles-to-crayons-chicago","name":"Cradles to Crayons","description":"Collects new and used children’s clothing and essentials, sorts them at a warehouse, and distributes packages through social service partners.","url":"https://www.cradlestocrayons.org/chicago/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"04-3584367"},"areaServed":{"@type":"Place","name":"Chicagoland, through more than 70 drop-off sites"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.cradlestocrayons.org/chicago/donate-now/"}}}},{"@type":"ListItem","position":7,"item":{"@type":"NGO","@id":"https://givechi.org/#literacy-chicago","name":"Literacy Chicago","description":"Teaches free adult literacy, ESL, GED preparation, citizenship preparation and digital literacy through classes and one-to-one tutoring.","url":"https://www.literacychicago.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2663174"},"areaServed":{"@type":"Place","name":"Chicagoland and Cook County"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://givebutter.com/supportliteracychicago"}}}},{"@type":"ListItem","position":8,"item":{"@type":"NGO","@id":"https://givechi.org/#open-books","name":"Open Books","description":"Sells donated books through community bookstores and uses the proceeds to run K–12 literacy programming and give books away.","url":"https://www.open-books.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"20-4830666"},"areaServed":{"@type":"Place","name":"South and West Sides; bookstores in Pilsen, the West Loop and North Lawndale, plus a mobile store"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://openbooks.app.neoncrm.com/forms/website-donation"}}}},{"@type":"ListItem","position":9,"item":{"@type":"NGO","@id":"https://givechi.org/#bernies-book-bank","name":"Bernie’s Book Bank","description":"Sources and distributes free children’s books so that children from birth through sixth grade build home libraries.","url":"https://www.berniesbookbank.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"27-0914453"},"areaServed":{"@type":"Place","name":"Chicagoland, Greater Milwaukee and the Florida Suncoast; headquartered in Lake Bluff"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.berniesbookbank.org/donate/"}}}},{"@type":"ListItem","position":10,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-public-library-foundation","name":"Chicago Public Library Foundation","description":"Raises private money for Chicago Public Library programs that tax dollars do not cover, including in-branch tutoring and digital access help.","url":"https://cplfoundation.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3480353"},"areaServed":{"@type":"Place","name":"Chicago — all 81 Chicago Public Library branches"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://secure3.convio.net/cplf/site/Donation2?mfc_pref=T&df_id=4861&4861.donation=form1"}}}},{"@type":"ListItem","position":11,"item":{"@type":"NGO","@id":"https://givechi.org/#one-million-degrees","name":"One Million Degrees","description":"Provides academic coaching, financial support and professional mentoring to low-income community college students across City Colleges of Chicago.","url":"https://onemilliondegrees.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"42-1710230"},"areaServed":{"@type":"Place","name":"All seven City Colleges of Chicago campuses"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://onemilliondegrees.org/donate/"}}}},{"@type":"ListItem","position":12,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-scholars","name":"Chicago Scholars","description":"Selects, trains and mentors first-generation Chicago high school students through college admission, graduation and into a first job.","url":"https://www.chicagoscholars.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4117530"},"areaServed":{"@type":"Place","name":"Chicago city limits; students from all 77 community areas"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://chicagoscholars.donorsupport.co/page/DONATE"}}}},{"@type":"ListItem","position":13,"item":{"@type":"NGO","@id":"https://givechi.org/#after-school-matters","name":"After School Matters","description":"Runs paid after-school and summer apprenticeships for Chicago public high school teens in arts, STEM, sports and communications.","url":"https://www.afterschoolmatters.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4409182"},"areaServed":{"@type":"Place","name":"More than 350 program sites across Chicago"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://afterschoolmatters.org/donate/"}}}},{"@type":"ListItem","position":14,"item":{"@type":"NGO","@id":"https://givechi.org/#all-chicago","name":"All Chicago Making Homelessness History","description":"Coordinates Chicago’s homelessness response system and its data, and distributes emergency financial assistance to keep households housed.","url":"https://allchicago.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4272272"},"areaServed":{"@type":"Place","name":"Chicago — lead agency for the Chicago Continuum of Care"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://allchicago.org/donate"}}}},{"@type":"ListItem","position":15,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-coalition-to-end-homelessness","name":"Chicago Coalition to End Homelessness","description":"Organizes, lobbies and litigates on homelessness policy, and runs a legal aid project for people who are homeless. It runs no shelters or housing.","url":"https://chicagohomeless.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3292607"},"areaServed":{"@type":"Place","name":"Chicago and statewide Illinois"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://act.chicagohomeless.org/a/donate"}}}},{"@type":"ListItem","position":16,"item":{"@type":"NGO","@id":"https://givechi.org/#la-casa-norte","name":"La Casa Norte","description":"Runs youth drop-in centers, emergency shelter and housing from short-term through permanent supportive, for young people and families who are homeless.","url":"https://www.lacasanorte.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4041525"},"areaServed":{"@type":"Place","name":"Humboldt Park, Logan Square, Back of the Yards, Brighton Park and Pilsen"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.lacasanorte.org/donate"}}}},{"@type":"ListItem","position":17,"item":{"@type":"NGO","@id":"https://givechi.org/#the-night-ministry","name":"The Night Ministry","description":"Runs overnight street outreach, mobile street medicine and youth shelter and housing for people who are unhoused.","url":"https://www.thenightministry.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3145764"},"areaServed":{"@type":"Place","name":"Chicago — citywide overnight street outreach and mobile health"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://thenightministry.org/give/"}}}},{"@type":"ListItem","position":18,"item":{"@type":"NGO","@id":"https://givechi.org/#deborahs-place","name":"Deborah’s Place","description":"Chicago’s largest provider of permanent supportive housing for unaccompanied women who are homeless, plus interim housing and support services.","url":"https://www.deborahsplace.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3382973"},"areaServed":{"@type":"Place","name":"Chicago — two program sites plus more than 200 housing units citywide"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.deborahsplace.org/donate-2/"}}}},{"@type":"ListItem","position":19,"item":{"@type":"NGO","@id":"https://givechi.org/#breakthrough","name":"Breakthrough","description":"Runs men’s and women’s shelters, transitional and family housing, a fresh food market, youth education, behavioral health and violence prevention in one neighborhood.","url":"https://breakthrough.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3810926"},"areaServed":{"@type":"Place","name":"East Garfield Park — a defined stretch of roughly 40 blocks"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://breakthrough.org/donate-to-breakthrough/"}}}},{"@type":"ListItem","position":20,"item":{"@type":"NGO","@id":"https://givechi.org/#franciscan-outreach","name":"Franciscan Outreach","description":"Operates Chicago’s largest interim shelters, with meal service and case management aimed at moving guests into permanent housing.","url":"https://franoutreach.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2928835"},"areaServed":{"@type":"Place","name":"North Lawndale, East Garfield Park and Pilsen"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://wl.donorperfect.net/weblink/weblink.aspx?name=E358209&id=6"}}}},{"@type":"ListItem","position":21,"item":{"@type":"NGO","@id":"https://givechi.org/#national-immigrant-justice-center","name":"National Immigrant Justice Center","description":"Provides direct legal representation to immigrants, refugees and asylum seekers, including detained people and unaccompanied children, alongside policy advocacy and impact litigation.","url":"https://immigrantjustice.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"93-3878636"},"areaServed":{"@type":"Place","name":"Chicago headquarters, serving clients nationally"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://immigrantjustice.salsalabs.org/donate-26/index.html"}}}},{"@type":"ListItem","position":22,"item":{"@type":"NGO","@id":"https://givechi.org/#the-resurrection-project","name":"The Resurrection Project","description":"Develops and manages affordable housing, and provides immigration legal services, financial wellness counseling and homeownership support.","url":"https://resurrectionproject.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3576073"},"areaServed":{"@type":"Place","name":"Pilsen and surrounding neighborhoods, with some programming statewide"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://pro.gofundme.com/give/391084"}}}},{"@type":"ListItem","position":23,"item":{"@type":"NGO","@id":"https://givechi.org/#legal-aid-chicago","name":"Legal Aid Chicago","description":"Provides free civil legal representation to people in poverty — eviction defense, healthcare and public benefits, consumer debt, employment, immigration and domestic violence protection.","url":"https://legalaidchicago.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2754650"},"areaServed":{"@type":"Place","name":"Chicago and suburban Cook County"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://legalaidchicago.org/donate/"}}}},{"@type":"ListItem","position":24,"item":{"@type":"NGO","@id":"https://givechi.org/#invisible-institute","name":"Invisible Institute","description":"Produces investigative journalism on police accountability and builds public databases of police misconduct records.","url":"https://invisible.institute/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"47-3551981"},"areaServed":{"@type":"Place","name":"Chicago South Side; statewide through Illinois Police Data and nationally through the National Police Index"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://invisible.institute/donate"}}}},{"@type":"ListItem","position":25,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-votes-education-fund","name":"Chicago Votes Education Fund","description":"Registers and educates young and incarcerated voters, and lobbies for Illinois election law reform.","url":"https://chicagovotesedfund.com/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"46-0545127"},"areaServed":{"@type":"Place","name":"Chicago and Cook County, with legislative work statewide"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://chicagovotesedfund.com/donate/"}}}},{"@type":"ListItem","position":26,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-cred","name":"Chicago CRED","description":"Provides 18 to 24 months of paid street outreach engagement, cognitive behavioral therapy, education and job training to men at highest risk of shooting or being shot.","url":"https://www.chicagocred.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"81-3130448"},"areaServed":{"@type":"Place","name":"Roseland, North Lawndale, West Garfield Park and Englewood"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://secure.givelively.org/donate/chicago-cred-inc"}}}},{"@type":"ListItem","position":27,"item":{"@type":"NGO","@id":"https://givechi.org/#institute-for-nonviolence-chicago","name":"Institute for Nonviolence Chicago","description":"Runs street outreach, violence interruption and conflict mediation, with victim support, reentry, workforce readiness and behavioral health services.","url":"https://www.nonviolencechicago.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"81-1098722"},"areaServed":{"@type":"Place","name":"Austin, West Garfield Park, Back of the Yards and parts of Brighton Park"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.nonviolencechicago.org/donate"}}}},{"@type":"ListItem","position":28,"item":{"@type":"NGO","@id":"https://givechi.org/#youth-guidance","name":"Youth Guidance","description":"Places counselors and clinicians inside public schools to run group cognitive behavioral programs — Becoming A Man for boys, Working on Womanhood for girls.","url":"https://www.youth-guidance.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2167032"},"areaServed":{"@type":"Place","name":"Chicago headquarters, plus seven other cities"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://give.youth-guidance.org/give/609306"}}}},{"@type":"ListItem","position":29,"item":{"@type":"NGO","@id":"https://givechi.org/#cara-collective","name":"Cara Collective","description":"Provides job readiness training, transitional employment through its own staffing business, and permanent placement with retention coaching for people facing barriers to work.","url":"https://caracollective.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4268095"},"areaServed":{"@type":"Place","name":"Chicago; its employer-partnership arm operates nationally"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://caracollective.org/donate/"}}}},{"@type":"ListItem","position":30,"item":{"@type":"NGO","@id":"https://givechi.org/#metropolitan-family-services","name":"Metropolitan Family Services","description":"Delivers education, economic stability, mental health and legal services across the Chicago region, and coordinates the Communities Partnering 4 Peace violence intervention network.","url":"https://www.metrofamily.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2167940"},"areaServed":{"@type":"Place","name":"Chicago, DuPage County, Evanston and Skokie and the southwest suburbs; its violence intervention network covers 24 Chicago neighborhoods"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.metrofamily.org/donate/"}}}},{"@type":"ListItem","position":31,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-childrens-advocacy-center","name":"Chicago Children’s Advocacy Center","description":"Co-locates child protection investigators, police, family advocates, medical experts and mental health clinicians in one building so abused children are interviewed and treated once, in one place.","url":"https://www.chicagocac.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4251865"},"areaServed":{"@type":"Place","name":"City of Chicago — a single citywide center"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.chicagocac.org/donate/"}}}},{"@type":"ListItem","position":32,"item":{"@type":"NGO","@id":"https://givechi.org/#howard-brown-health","name":"Howard Brown Health","description":"A federally qualified health center providing primary medical, dental, behavioral health and HIV care, with a focus on LGBTQ+ patients, regardless of ability to pay.","url":"https://howardbrown.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2894128"},"areaServed":{"@type":"Place","name":"Chicago — seven clinics on the North, West and South Sides"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://donate.howardbrown.org/campaign/550045/donate"}}}},{"@type":"ListItem","position":33,"item":{"@type":"NGO","@id":"https://givechi.org/#erie-family-health-centers","name":"Erie Family Health Centers","description":"A federally qualified health center network providing primary medical, dental and behavioral healthcare regardless of ability to pay, including five school-based clinics.","url":"https://www.eriefamilyhealth.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3088628"},"areaServed":{"@type":"Place","name":"14 health centers from Chicago’s West Side to Waukegan, across Cook and Lake counties"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.eriefamilyhealth.org/donate/"}}}},{"@type":"ListItem","position":34,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-foundation-for-women","name":"Chicago Foundation for Women","description":"Raises money and regrants it to Chicago-area organizations working on economic security, freedom from violence and health for women, girls and gender-expansive people.","url":"https://www.cfw.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3348160"},"areaServed":{"@type":"Place","name":"The Chicago region, with giving circles across the North Side, South Side, West Side and western suburbs"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.cfw.org/donate/"}}}},{"@type":"ListItem","position":35,"item":{"@type":"NGO","@id":"https://givechi.org/#apna-ghar","name":"Apna Ghar","description":"Runs a 24-hour crisis line, emergency and transitional housing, counseling, and legal and medical advocacy for immigrant survivors of gender-based violence.","url":"https://apnaghar.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3698770"},"areaServed":{"@type":"Place","name":"Uptown main office, plus Skokie and a South Side office; clients from more than 50 countries, services in more than 20 languages"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://apnaghar.networkforgood.com/projects/31230-apna-ghar-donation-page"}}}},{"@type":"ListItem","position":36,"item":{"@type":"NGO","@id":"https://givechi.org/#cawc","name":"Connections for Abused Women and their Children","description":"Runs a 24-hour hotline, emergency shelter, counseling, and hospital- and court-based advocacy for survivors of domestic violence and their children.","url":"https://www.cawc.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2950380"},"areaServed":{"@type":"Place","name":"Chicago — the Greenhouse Shelter, Humboldt Park outreach, crisis intervention at Stroger and Northwestern Memorial, and services at Haymarket Center"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.cawc.org/donate/"}}}},{"@type":"ListItem","position":37,"item":{"@type":"NGO","@id":"https://givechi.org/#friends-of-the-chicago-river","name":"Friends of the Chicago River","description":"The only organization dedicated solely to the Chicago-Calumet river system, running volunteer cleanups, habitat restoration, water quality advocacy and public education.","url":"https://www.chicagoriver.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3559764"},"areaServed":{"@type":"Place","name":"The 156-mile Chicago-Calumet river system and its watershed"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://wl.donorperfect.net/weblink/weblink.aspx?name=E145588&id=139"}}}},{"@type":"ListItem","position":38,"item":{"@type":"NGO","@id":"https://givechi.org/#openlands","name":"Openlands","description":"Acquires and protects open space, restores natural areas, plants and stewards urban trees, and builds green schoolyards across the Chicago region.","url":"https://openlands.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2649603"},"areaServed":{"@type":"Place","name":"The greater Chicago region and northeastern Illinois, extending into Indiana and Wisconsin"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://form-renderer-app.donorperfect.io/give/openlands/online-donation-form"}}}},{"@type":"ListItem","position":39,"item":{"@type":"NGO","@id":"https://givechi.org/#urban-growers-collective","name":"Urban Growers Collective","description":"Operates urban farms that grow and distribute fresh produce, runs paid youth employment and farmer training, and operates the Fresh Moves Mobile Market.","url":"https://www.urbangrowerscollective.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"82-3336616"},"areaServed":{"@type":"Place","name":"South and West Sides — eight urban farms across 11 acres, a 30-acre farm in Chicago Heights and nine acres at the Green Era Campus"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.urbangrowerscollective.org/make-a-donation"}}}}]},{"@type":"FAQPage","@id":"https://givechi.org/#faq","mainEntity":[{"@type":"Question","name":"How were these organizations checked?","acceptedAnswer":{"@type":"Answer","text":"Each one was checked on September 20, 2026 against its IRS Form 990, its Charity Navigator record and its own reports, and every donation link was opened to confirm it works. A Chicago charity missing from this list has not been judged."}},{"@type":"Question","name":"What do the evidence tags mean?","acceptedAnswer":{"@type":"Answer","text":"Randomized trial: the program was tested against a control group, the strongest proof that it works. Independent study: an outside researcher evaluated it. Self-reported: the organization counts its own results."}},{"@type":"Question","name":"How much of my donation reaches programs?","acceptedAnswer":{"@type":"Answer","text":"Between 62 and 98 percent here, shown for every charity as a three-year average. It shows how spending is classified, and the evidence tag shows whether the programs work."}},{"@type":"Question","name":"Are donations tax deductible?","acceptedAnswer":{"@type":"Answer","text":"For 37 of the 39, yes, if you itemize. Chicago CRED is a private operating foundation with different deduction limits, and gifts to Chicago Votes are deductible only through its Education Fund, which this page links. Each entry lists its EIN."}},{"@type":"Question","name":"Why is there no overall ranking?","acceptedAnswer":{"@type":"Answer","text":"Financial ratios, ratings and program evidence measure different things, and one combined score would invent precision. The picker ranks by one priority at a time, and you choose which."}},{"@type":"Question","name":"How current is this information?","acceptedAnswer":{"@type":"Answer","text":"Checked on September 20, 2026. Financial figures come from each organization’s latest readable filing: FY2025 for fourteen, FY2024 for nineteen and FY2023 for six."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://givechi.org/#website","url":"https://givechi.org/","name":"GiveChi","description":"39 Chicago charities, vetted: what each one does, the evidence behind it, how much reaches programs, and a checked donation link. Takes no cut.","inLanguage":"en-US","author":{"@type":"Person","name":"Cody Heart"}},{"@type":"ItemList","@id":"https://givechi.org/#roster","name":"Vetted Chicago charities, 39 organizations","numberOfItems":39,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"NGO","@id":"https://givechi.org/#greater-chicago-food-depository","name":"Greater Chicago Food Depository","description":"Sources, warehouses and distributes food through more than 850 partner pantries, kitchens and shelters, and helps people enroll in SNAP.","url":"https://www.chicagosfoodbank.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2971864"},"areaServed":{"@type":"Place","name":"Chicago and Cook County"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.chicagosfoodbank.org/get-involved/give/"}}}},{"@type":"ListItem","position":2,"item":{"@type":"NGO","@id":"https://givechi.org/#nourishing-hope","name":"Nourishing Hope","description":"Runs food pantries and home grocery delivery, and pairs them with in-house mental health counseling and case management.","url":"https://nourishinghopechi.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2734184"},"areaServed":{"@type":"Place","name":"Lakeview, Humboldt Park and West Town, with citywide delivery"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://nourishinghopechi.org/ways-to-give/"}}}},{"@type":"ListItem","position":3,"item":{"@type":"NGO","@id":"https://givechi.org/#care-for-real","name":"Care for Real","description":"Operates food pantries four days a week alongside a clothing closet, a pet pantry and home delivery for homebound neighbors.","url":"https://careforreal.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"27-1962360"},"areaServed":{"@type":"Place","name":"Edgewater and Rogers Park — ZIPs 60640, 60660, 60626, 60659, 60645"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://careforreal.org/get-involved/donate/"}}}},{"@type":"ListItem","position":4,"item":{"@type":"NGO","@id":"https://givechi.org/#beyond-hunger","name":"Beyond Hunger","description":"Runs a food pantry with home delivery, SNAP application assistance and nutrition education across thirteen ZIP codes.","url":"https://www.gobeyondhunger.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"27-2018997"},"areaServed":{"@type":"Place","name":"13 ZIP codes across Oak Park, River Forest, Forest Park, Berwyn, other near-west suburbs and Chicago’s Austin and Galewood"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.gobeyondhunger.org/donate"}}}},{"@type":"ListItem","position":5,"item":{"@type":"NGO","@id":"https://givechi.org/#common-pantry","name":"Common Pantry","description":"Runs a client-choice food pantry with groceries, produce and hot meals, plus social services case management.","url":"https://www.commonpantry.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"23-7136034"},"areaServed":{"@type":"Place","name":"North Center and Lincoln Square, North Side"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.commonpantry.org/donations/"}}}},{"@type":"ListItem","position":6,"item":{"@type":"NGO","@id":"https://givechi.org/#cradles-to-crayons-chicago","name":"Cradles to Crayons","description":"Collects new and used children’s clothing and essentials, sorts them at a warehouse, and distributes packages through social service partners.","url":"https://www.cradlestocrayons.org/chicago/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"04-3584367"},"areaServed":{"@type":"Place","name":"Chicagoland, through more than 70 drop-off sites"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.cradlestocrayons.org/chicago/donate-now/"}}}},{"@type":"ListItem","position":7,"item":{"@type":"NGO","@id":"https://givechi.org/#literacy-chicago","name":"Literacy Chicago","description":"Teaches free adult literacy, ESL, GED preparation, citizenship preparation and digital literacy through classes and one-to-one tutoring.","url":"https://www.literacychicago.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2663174"},"areaServed":{"@type":"Place","name":"Chicagoland and Cook County"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://givebutter.com/supportliteracychicago"}}}},{"@type":"ListItem","position":8,"item":{"@type":"NGO","@id":"https://givechi.org/#open-books","name":"Open Books","description":"Sells donated books through community bookstores and uses the proceeds to run K–12 literacy programming and give books away.","url":"https://www.open-books.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"20-4830666"},"areaServed":{"@type":"Place","name":"South and West Sides; bookstores in Pilsen and the West Loop, a free program site in North Lawndale, plus a mobile store"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://openbooks.app.neoncrm.com/forms/website-donation"}}}},{"@type":"ListItem","position":9,"item":{"@type":"NGO","@id":"https://givechi.org/#bernies-book-bank","name":"Bernie’s Book Bank","description":"Sources and distributes free children’s books so that children from birth through sixth grade build home libraries.","url":"https://www.berniesbookbank.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"27-0914453"},"areaServed":{"@type":"Place","name":"Chicagoland, Greater Milwaukee and the Florida Suncoast; headquartered in Lake Bluff"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.berniesbookbank.org/donate/"}}}},{"@type":"ListItem","position":10,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-public-library-foundation","name":"Chicago Public Library Foundation","description":"Raises private money for Chicago Public Library programs that tax dollars do not cover, including in-branch tutoring and digital access help.","url":"https://cplfoundation.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3480353"},"areaServed":{"@type":"Place","name":"Chicago — all 81 Chicago Public Library branches"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://secure3.convio.net/cplf/site/Donation2?mfc_pref=T&df_id=4861&4861.donation=form1"}}}},{"@type":"ListItem","position":11,"item":{"@type":"NGO","@id":"https://givechi.org/#one-million-degrees","name":"One Million Degrees","description":"Provides academic coaching, financial support and professional mentoring to low-income community college students across City Colleges of Chicago.","url":"https://onemilliondegrees.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"42-1710230"},"areaServed":{"@type":"Place","name":"All seven City Colleges of Chicago campuses"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://onemilliondegrees.org/donate/"}}}},{"@type":"ListItem","position":12,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-scholars","name":"Chicago Scholars","description":"Selects, trains and mentors first-generation Chicago high school students through college admission, graduation and into a first job.","url":"https://www.chicagoscholars.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4117530"},"areaServed":{"@type":"Place","name":"Chicago city limits; students from all 77 community areas"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://chicagoscholars.donorsupport.co/page/DONATE"}}}},{"@type":"ListItem","position":13,"item":{"@type":"NGO","@id":"https://givechi.org/#after-school-matters","name":"After School Matters","description":"Runs paid after-school and summer apprenticeships for teens at Chicago high schools in arts, STEM, sports and communications.","url":"https://www.afterschoolmatters.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4409182"},"areaServed":{"@type":"Place","name":"More than 350 program sites across Chicago"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://afterschoolmatters.org/donate/"}}}},{"@type":"ListItem","position":14,"item":{"@type":"NGO","@id":"https://givechi.org/#all-chicago","name":"All Chicago Making Homelessness History","description":"Coordinates Chicago’s homelessness response system and its data, and distributes emergency financial assistance to keep households housed.","url":"https://allchicago.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4272272"},"areaServed":{"@type":"Place","name":"Chicago — lead agency for the Chicago Continuum of Care"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://allchicago.org/donate"}}}},{"@type":"ListItem","position":15,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-coalition-to-end-homelessness","name":"Chicago Coalition to End Homelessness","description":"Organizes, lobbies and litigates on homelessness policy, and runs a legal aid project for people who are homeless. It runs no shelters or housing.","url":"https://chicagohomeless.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3292607"},"areaServed":{"@type":"Place","name":"Chicago and statewide Illinois"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://act.chicagohomeless.org/a/donate"}}}},{"@type":"ListItem","position":16,"item":{"@type":"NGO","@id":"https://givechi.org/#la-casa-norte","name":"La Casa Norte","description":"Runs youth drop-in centers, emergency shelter and housing from short-term through permanent supportive, for young people and families who are homeless.","url":"https://www.lacasanorte.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4041525"},"areaServed":{"@type":"Place","name":"Humboldt Park, Logan Square, Back of the Yards and Brighton Park"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.lacasanorte.org/donate"}}}},{"@type":"ListItem","position":17,"item":{"@type":"NGO","@id":"https://givechi.org/#the-night-ministry","name":"The Night Ministry","description":"Runs overnight street outreach, mobile street medicine and youth shelter and housing for people who are unhoused.","url":"https://www.thenightministry.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3145764"},"areaServed":{"@type":"Place","name":"Chicago — citywide overnight street outreach and mobile health"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://thenightministry.org/give/"}}}},{"@type":"ListItem","position":18,"item":{"@type":"NGO","@id":"https://givechi.org/#deborahs-place","name":"Deborah’s Place","description":"Chicago’s largest provider of permanent supportive housing for unaccompanied women who are homeless, plus interim housing and support services.","url":"https://www.deborahsplace.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3382973"},"areaServed":{"@type":"Place","name":"Chicago — two program sites plus more than 200 housing units citywide"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.deborahsplace.org/donate-2/"}}}},{"@type":"ListItem","position":19,"item":{"@type":"NGO","@id":"https://givechi.org/#breakthrough","name":"Breakthrough","description":"Runs men’s and women’s shelters, transitional and family housing, a fresh food market, youth education, behavioral health and violence prevention in one neighborhood.","url":"https://breakthrough.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3810926"},"areaServed":{"@type":"Place","name":"East Garfield Park — a defined stretch of roughly 40 blocks"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://breakthrough.org/donate-to-breakthrough/"}}}},{"@type":"ListItem","position":20,"item":{"@type":"NGO","@id":"https://givechi.org/#franciscan-outreach","name":"Franciscan Outreach","description":"Operates interim shelters on the West and Southwest Sides, with meal service and case management aimed at moving guests into permanent housing.","url":"https://franoutreach.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2928835"},"areaServed":{"@type":"Place","name":"North Lawndale, East Garfield Park and Pilsen"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://wl.donorperfect.net/weblink/weblink.aspx?name=E358209&id=6"}}}},{"@type":"ListItem","position":21,"item":{"@type":"NGO","@id":"https://givechi.org/#national-immigrant-justice-center","name":"National Immigrant Justice Center","description":"Provides direct legal representation to immigrants, refugees and asylum seekers, including detained people and unaccompanied children, alongside policy advocacy and impact litigation.","url":"https://immigrantjustice.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"93-3878636"},"areaServed":{"@type":"Place","name":"Chicago headquarters, serving clients nationally"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://immigrantjustice.salsalabs.org/donate-26/index.html"}}}},{"@type":"ListItem","position":22,"item":{"@type":"NGO","@id":"https://givechi.org/#the-resurrection-project","name":"The Resurrection Project","description":"Develops and manages affordable housing, and provides immigration legal services, financial wellness counseling and homeownership support.","url":"https://resurrectionproject.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3576073"},"areaServed":{"@type":"Place","name":"Pilsen and surrounding neighborhoods, with some programming statewide"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://pro.gofundme.com/give/391084"}}}},{"@type":"ListItem","position":23,"item":{"@type":"NGO","@id":"https://givechi.org/#legal-aid-chicago","name":"Legal Aid Chicago","description":"Provides free civil legal representation to people in poverty — eviction defense, healthcare and public benefits, consumer debt, employment, immigration and domestic violence protection.","url":"https://legalaidchicago.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2754650"},"areaServed":{"@type":"Place","name":"Chicago and suburban Cook County"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://legalaidchicago.org/donate/"}}}},{"@type":"ListItem","position":24,"item":{"@type":"NGO","@id":"https://givechi.org/#invisible-institute","name":"Invisible Institute","description":"Produces investigative journalism on police accountability and builds public databases of police misconduct records.","url":"https://invisible.institute/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"47-3551981"},"areaServed":{"@type":"Place","name":"Chicago South Side; statewide through Illinois Police Data and nationally through the National Police Index"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://invisible.institute/donate"}}}},{"@type":"ListItem","position":25,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-votes-education-fund","name":"Chicago Votes Education Fund","description":"Registers and educates young and incarcerated voters, and lobbies for Illinois election law reform.","url":"https://chicagovotesedfund.com/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"46-0545127"},"areaServed":{"@type":"Place","name":"Chicago and Cook County, with legislative work statewide"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://chicagovotesedfund.com/donate/"}}}},{"@type":"ListItem","position":26,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-cred","name":"Chicago CRED","description":"Provides 18 to 24 months of paid street outreach engagement, cognitive behavioral therapy, education and job training to men and women at highest risk of shooting or being shot.","url":"https://www.chicagocred.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"81-3130448"},"areaServed":{"@type":"Place","name":"Roseland, North Lawndale, West Garfield Park and Englewood"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://secure.givelively.org/donate/chicago-cred-inc"}}}},{"@type":"ListItem","position":27,"item":{"@type":"NGO","@id":"https://givechi.org/#institute-for-nonviolence-chicago","name":"Institute for Nonviolence Chicago","description":"Runs street outreach, violence interruption and conflict mediation, with victim support, reentry, workforce readiness and behavioral health services.","url":"https://www.nonviolencechicago.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"81-1098722"},"areaServed":{"@type":"Place","name":"Austin, West Garfield Park, Back of the Yards and parts of Brighton Park"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.nonviolencechicago.org/donate"}}}},{"@type":"ListItem","position":28,"item":{"@type":"NGO","@id":"https://givechi.org/#youth-guidance","name":"Youth Guidance","description":"Places counselors and clinicians inside public schools to run group cognitive behavioral programs — Becoming A Man for boys, Working on Womanhood for girls.","url":"https://www.youth-guidance.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2167032"},"areaServed":{"@type":"Place","name":"Chicago headquarters, plus seven other cities"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://give.youth-guidance.org/give/609306"}}}},{"@type":"ListItem","position":29,"item":{"@type":"NGO","@id":"https://givechi.org/#cara-collective","name":"Cara Collective","description":"Provides job readiness training, transitional employment through its own staffing business, and permanent placement with retention coaching for people facing barriers to work.","url":"https://caracollective.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4268095"},"areaServed":{"@type":"Place","name":"Chicago; its employer-partnership arm operates nationally"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://caracollective.org/donate/"}}}},{"@type":"ListItem","position":30,"item":{"@type":"NGO","@id":"https://givechi.org/#metropolitan-family-services","name":"Metropolitan Family Services","description":"Delivers education, economic stability, mental health and legal services across the Chicago region, and coordinates the Communities Partnering 4 Peace violence intervention network.","url":"https://www.metrofamily.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2167940"},"areaServed":{"@type":"Place","name":"Chicago, DuPage County, Evanston and Skokie and the southwest suburbs; its violence intervention network covers 27 Chicago community areas"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.metrofamily.org/donate/"}}}},{"@type":"ListItem","position":31,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-childrens-advocacy-center","name":"Chicago Children’s Advocacy Center","description":"Co-locates child protection investigators, police, family advocates, medical experts and mental health clinicians in one building so abused children are interviewed and treated once, in one place.","url":"https://www.chicagocac.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-4251865"},"areaServed":{"@type":"Place","name":"City of Chicago — its main center, plus CAN Hope in East Garfield Park for adult survivors, opened October 2025"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.chicagocac.org/donate/"}}}},{"@type":"ListItem","position":32,"item":{"@type":"NGO","@id":"https://givechi.org/#howard-brown-health","name":"Howard Brown Health","description":"A federally qualified health center providing primary medical, dental, behavioral health and HIV care, with a focus on LGBTQ+ patients, regardless of ability to pay.","url":"https://howardbrown.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2894128"},"areaServed":{"@type":"Place","name":"Chicago — seven clinics on the North, West and South Sides"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://donate.howardbrown.org/campaign/550045/donate"}}}},{"@type":"ListItem","position":33,"item":{"@type":"NGO","@id":"https://givechi.org/#erie-family-health-centers","name":"Erie Family Health Centers","description":"A federally qualified health center network providing primary medical, dental and behavioral healthcare regardless of ability to pay, including five school-based clinics.","url":"https://www.eriefamilyhealth.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3088628"},"areaServed":{"@type":"Place","name":"14 health centers from Chicago’s West Side to Waukegan, across Cook and Lake counties"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.eriefamilyhealth.org/donate/"}}}},{"@type":"ListItem","position":34,"item":{"@type":"NGO","@id":"https://givechi.org/#chicago-foundation-for-women","name":"Chicago Foundation for Women","description":"Raises money and regrants it to Chicago-area organizations working on economic security, freedom from violence, health and reproductive justice for women, girls and gender-expansive people.","url":"https://www.cfw.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3348160"},"areaServed":{"@type":"Place","name":"The Chicago region, with giving circles across the North Side, South Side, West Side and western suburbs"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.cfw.org/donate/"}}}},{"@type":"ListItem","position":35,"item":{"@type":"NGO","@id":"https://givechi.org/#apna-ghar","name":"Apna Ghar","description":"Runs a 24-hour crisis line, emergency and transitional housing, counseling, and legal and medical advocacy for immigrant survivors of gender-based violence.","url":"https://apnaghar.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3698770"},"areaServed":{"@type":"Place","name":"Uptown main office, plus Skokie and a South Side office; clients from more than 50 countries, services in more than 20 languages"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://apnaghar.networkforgood.com/projects/31230-apna-ghar-donation-page"}}}},{"@type":"ListItem","position":36,"item":{"@type":"NGO","@id":"https://givechi.org/#cawc","name":"Connections for Abused Women and their Children","description":"Runs a 24-hour hotline, emergency shelter, counseling, and hospital- and court-based advocacy for survivors of domestic violence and their children.","url":"https://www.cawc.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2950380"},"areaServed":{"@type":"Place","name":"Chicago — the Greenhouse Shelter, Humboldt Park outreach, crisis intervention at Stroger and Northwestern Memorial, and services at Haymarket Center"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.cawc.org/donate/"}}}},{"@type":"ListItem","position":37,"item":{"@type":"NGO","@id":"https://givechi.org/#friends-of-the-chicago-river","name":"Friends of the Chicago River","description":"The only organization dedicated solely to the Chicago-Calumet river system, running volunteer cleanups, habitat restoration, water quality advocacy and public education.","url":"https://www.chicagoriver.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-3559764"},"areaServed":{"@type":"Place","name":"The 156-mile Chicago-Calumet river system and its watershed"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://wl.donorperfect.net/weblink/weblink.aspx?name=E145588&id=139"}}}},{"@type":"ListItem","position":38,"item":{"@type":"NGO","@id":"https://givechi.org/#openlands","name":"Openlands","description":"Acquires and protects open space, restores natural areas, plants and stewards urban trees, and builds green schoolyards across the Chicago region.","url":"https://openlands.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"36-2649603"},"areaServed":{"@type":"Place","name":"The greater Chicago region and northeastern Illinois, extending into Indiana and Wisconsin"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://form-renderer-app.donorperfect.io/give/openlands/online-donation-form"}}}},{"@type":"ListItem","position":39,"item":{"@type":"NGO","@id":"https://givechi.org/#urban-growers-collective","name":"Urban Growers Collective","description":"Operates urban farms that grow and distribute fresh produce, runs paid youth employment and farmer training, and operates the Fresh Moves Mobile Market.","url":"https://www.urbangrowerscollective.org/","identifier":{"@type":"PropertyValue","propertyID":"EIN","value":"82-3336616"},"areaServed":{"@type":"Place","name":"South and West Sides — eight urban farms across 11 acres, a 30-acre farm in Chicago Heights and nine acres at the Green Era Campus"},"potentialAction":{"@type":"DonateAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.urbangrowerscollective.org/make-a-donation"}}}}]},{"@type":"FAQPage","@id":"https://givechi.org/#faq","mainEntity":[{"@type":"Question","name":"How were these organizations checked?","acceptedAnswer":{"@type":"Answer","text":"Each one was checked on September 25, 2026 against its IRS Form 990, its Charity Navigator record and its own reports, and every donation link was opened to confirm it works. A Chicago charity missing from this list has not been judged."}},{"@type":"Question","name":"What do the evidence tags mean?","acceptedAnswer":{"@type":"Answer","text":"Randomized trial: the program was tested against a control group, the strongest proof that it works. Independent study: an outside researcher evaluated it. Self-reported: the organization counts its own results."}},{"@type":"Question","name":"How much of my donation reaches programs?","acceptedAnswer":{"@type":"Answer","text":"Between 62 and 98 percent here, shown for every charity as a three-year average. It shows how spending is classified, and the evidence tag shows whether the programs work."}},{"@type":"Question","name":"Are donations tax deductible?","acceptedAnswer":{"@type":"Answer","text":"For 37 of the 39, yes, if you itemize. Chicago CRED is a private operating foundation with different deduction limits, and gifts to Chicago Votes are deductible only through its Education Fund, which this page links. Each entry lists its EIN."}},{"@type":"Question","name":"Why is there no overall ranking?","acceptedAnswer":{"@type":"Answer","text":"Financial ratios, ratings and program evidence measure different things, and one combined score would invent precision. The picker ranks by one priority at a time, and you choose which."}},{"@type":"Question","name":"How current is this information?","acceptedAnswer":{"@type":"Answer","text":"Checked on September 25, 2026. Financial figures come from each organization’s latest readable filing: FY2025 for 29 and FY2024 for ten."}}]}]}</script>
 <script type="module" src="js/app.js"></script>
 </body>
 </html>

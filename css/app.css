@@ -49,7 +49,7 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
   max-width: var(--measure-q); margin-bottom: var(--s-10); text-wrap: balance;
 }
 .q em { font-style: normal; color: var(--blue-deep); }
-.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-3); }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-3); }
 .tile-t, .card-name, .panel-name, .row-name, .saved-text h3, .view-h, .q, .how-block h2, .block-h, .saved-h, .group-h { overflow-wrap: break-word; hyphens: auto; min-width: 0; }
 .tile {
   display: flex; flex-direction: column; justify-content: space-between; gap: var(--s-5);
@@ -102,7 +102,7 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .card-does { margin-top: var(--s-2); color: var(--ink-2); font-size: var(--t-sm); }
 .card-why { margin-top: var(--s-4); padding-top: var(--s-4); border-top: var(--hair) solid var(--line); font-size: var(--t-sm); font-weight: var(--w-strong); }
 .figs { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); margin-top: var(--s-4); }
-.figs div { display: flex; flex-direction: column-reverse; }
+.figs > div { display: flex; flex-direction: column-reverse; }
 .figs dt { font-size: var(--t-xs); color: var(--ink-3); }
 .figs dd { font-family: var(--display); font-size: var(--t-fig); line-height: 1; letter-spacing: var(--tr-display); }
 .form-warn { display: block; margin-top: var(--s-2); font-size: var(--t-xs); color: var(--ink-2); }
@@ -156,6 +156,20 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .tip-k { display: flex; align-items: center; gap: var(--s-2); font-size: var(--t-xs); font-weight: var(--w-strong); color: var(--caution); }
 .tip-k::before { content: ""; flex: none; width: var(--dot); height: var(--dot); border-radius: 50%; background: currentColor; }
 .tip-list p { margin-top: var(--s-1); }
+.tip-h { font-size: var(--t-xs); font-weight: var(--w-strong); color: var(--ink-2); }
+.tip-term { font-weight: var(--w-read); letter-spacing: normal; text-align: left; }
+.tip-term p + p { margin-top: var(--s-2); }
+.tip-term .tip-h + p { margin-top: var(--s-1); }
+
+/* A figure's label that explains itself: the dotted underline says so. */
+.term {
+  padding: 0; border: 0; background: none; cursor: help; text-align: left;
+  font: inherit; color: inherit;
+  text-decoration: underline dotted; text-decoration-thickness: var(--hair); text-underline-offset: var(--underline);
+}
+.term:hover, .term.is-open { color: var(--ink); text-decoration-style: solid; }
+.row .term { position: relative; z-index: 1; }   /* above the row's stretched link */
+
 .tip-more {
   align-self: flex-start; margin-top: var(--s-4); padding: 0; border: 0; background: none;
   font-size: var(--t-sm); font-weight: var(--w-strong); color: var(--blue-deep);
@@ -192,7 +206,7 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .row:has(.row-name a:focus-visible) { box-shadow: inset 0 0 0 var(--ring) var(--focus); }
 .row-does { margin-top: var(--s-1); font-size: var(--t-xs); color: var(--ink-2); }
 .row-figs { margin-top: 0; }
-.row-figs div { min-width: var(--s-20); align-items: flex-end; }
+.row-figs > div { min-width: var(--s-20); align-items: flex-end; }
 .row-figs dd { font-size: var(--t-xl); }
 .row-donate { position: relative; }
 .chev { width: var(--s-2); height: var(--s-2); border-right: var(--chev-w) solid var(--ink-3); border-top: var(--chev-w) solid var(--ink-3); transform: rotate(45deg); }
@@ -351,7 +365,7 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
   .refine { margin: var(--s-5) 0 var(--s-6); }
   .refine .pill, .refine .pill select { width: 100%; }
   .row { grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-3); padding: var(--s-4); }
-  .row-figs div:nth-child(2) { display: none; }
+  .row-figs > div:nth-child(2) { display: none; }
   html:not(.js) .row { grid-template-columns: minmax(0, 1fr); }
   .tiers li { grid-template-columns: minmax(0, 1fr); gap: var(--s-2); }
   .panel { inset: auto 0 0 0; width: 100%; height: calc(100% - var(--s-6)); border-radius: var(--r-card) var(--r-card) 0 0; }
