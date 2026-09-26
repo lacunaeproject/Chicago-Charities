@@ -60,6 +60,9 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .org-logo.is-dark { background: var(--blue-ink); border-color: var(--blue-ink); }
 .row-photo.org-logo { padding: var(--s-2); }
 .card-photo.org-logo { padding: var(--s-6) var(--s-10); }
+.card-id { display: flex; align-items: center; gap: var(--s-3); margin-top: var(--s-4); }
+.card-id .card-name { margin-top: 0; }
+.card-logo { flex: none; width: calc(var(--logo-h) * 1.5); height: var(--logo-h); padding: var(--s-1) var(--s-2); border-radius: var(--r-sm); }
 .panel-id { display: flex; align-items: center; gap: var(--s-4); }
 .panel-logo { flex: none; width: calc(var(--logo-h) * 2); height: var(--logo-h); border: 0; justify-items: start; }
 .panel-logo.is-dark { padding: var(--s-1) var(--s-2); border-radius: var(--r-sm); }

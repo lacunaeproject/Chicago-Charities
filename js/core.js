@@ -208,7 +208,7 @@ export function card(o, i, priority) {
   return `<article class="card${i === 0 ? ' is-first' : ''}" aria-labelledby="c-${esc(o.id)}">
     ${orgPhoto(o, 'card-photo', '(max-width: 960px) 100vw, 360px')}
     <div class="card-top"><span class="badge">${i === 0 ? star() + ' Best fit' : `No. ${i + 1}`}</span>${saveButton(o, 'save save-icon')}</div>
-    <h3 class="card-name" id="c-${esc(o.id)}"><a href="${esc(o.homepage)}" data-org="${esc(o.id)}">${esc(o.name)}</a></h3>
+    <div class="card-id">${o.photo && LOGOS[o.id] ? logo(o, 'card-logo') : ''}<h3 class="card-name" id="c-${esc(o.id)}"><a href="${esc(o.homepage)}" data-org="${esc(o.id)}">${esc(o.name)}</a></h3></div>
     <p class="card-does">${esc(o.short)}</p>
     <p class="card-why">${esc(reason(o, priority))}</p>
     ${figures(o, 'figs', 'c')}
