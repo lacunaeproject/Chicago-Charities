@@ -6,7 +6,8 @@
 
    Run: node build.mjs */
 
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { EVENTS, STANDING, EVENTS_CHECKED } from './data/events.js';
 import {
   ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT,
@@ -236,6 +237,18 @@ const jsonld = JSON.stringify(SCHEMA).replace(/</g, '\\u003c');
 
 /* --- the page -------------------------------------------------------------------------- */
 
+/* --- versioned assets ------------------------------------------------------------ */
+/* GitHub Pages lets browsers cache files for ten minutes, so right after a
+   deploy a returning visitor could run new HTML against old modules, and one
+   missing export stops the whole app. Every script and stylesheet URL carries
+   a hash of their contents, and an import map pins the modules' own imports
+   to the same version, so one deploy's files are only ever used together. */
+
+const ASSETS = ['js', 'data', 'css'].flatMap((d) => readdirSync(new URL(`./${d}/`, import.meta.url)).filter((f) => /\.(js|css)$/.test(f)).sort().map((f) => `${d}/${f}`));
+const V = createHash('sha256').update(ASSETS.map((f) => readFileSync(new URL('./' + f, import.meta.url))).join('\0')).digest('hex').slice(0, 10);
+const v = (f) => `${f}?v=${V}`;
+const importMap = JSON.stringify({ imports: Object.fromEntries(ASSETS.filter((f) => f.endsWith('.js')).map((f) => [`./${f}`, `./${v(f)}`])) });
+
 const html = `<!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -252,7 +265,7 @@ const html = `<!DOCTYPE html>
 </script>
 <meta name="theme-color" content="#E8F5FC">
 <meta name="color-scheme" content="light">
-<script>document.documentElement.classList.add('js');addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='SCRIPT'&&t.type==='module')document.documentElement.classList.remove('js')},true);</script>
+<script>document.documentElement.classList.add('js');addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='SCRIPT'&&t.type==='module')document.documentElement.classList.remove('js')},true);addEventListener('load',function(){var r=document.documentElement;if(!r.classList.contains('app-ready'))r.classList.remove('js')});</script>
 <title>${esc(SITE.name)}</title>
 <meta name="description" content="${esc(DESCRIPTION)}">
 <meta name="author" content="${esc(SITE.steward)}">
@@ -266,14 +279,15 @@ const html = `<!DOCTYPE html>
 <link rel="mask-icon" href="mask-icon.svg" color="#E4002B">
 <link rel="preload" href="fonts/league-gothic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/app.css">
-<link rel="modulepreload" href="js/core.js">
-<link rel="modulepreload" href="js/saved.js">
-<link rel="modulepreload" href="data/orgs.js">
-<link rel="modulepreload" href="data/meta.js">
-<link rel="modulepreload" href="data/events.js">
+<link rel="stylesheet" href="${v('css/tokens.css')}">
+<link rel="stylesheet" href="${v('css/base.css')}">
+<link rel="stylesheet" href="${v('css/app.css')}">
+<script type="importmap">${importMap}</script>
+<link rel="modulepreload" href="${v('js/core.js')}">
+<link rel="modulepreload" href="${v('js/saved.js')}">
+<link rel="modulepreload" href="${v('data/orgs.js')}">
+<link rel="modulepreload" href="${v('data/meta.js')}">
+<link rel="modulepreload" href="${v('data/events.js')}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -309,7 +323,7 @@ ${how}
 <div id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <script type="application/ld+json">${jsonld}</script>
-<script type="module" src="js/app.js"></script>
+<script type="module" src="${v('js/app.js')}"></script>
 </body>
 </html>
 `;
