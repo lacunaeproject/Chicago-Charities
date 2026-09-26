@@ -163,7 +163,7 @@ export const ORGS = [
     primaryCause: 'food',
     causes: ['food'],
     serviceArea: '13 ZIP codes across Oak Park, River Forest, Forest Park, Berwyn, other near-west suburbs and Chicago’s Austin and Galewood',
-    neighborhoods: ['Oak Park', 'River Forest', 'Forest Park', 'Berwyn', 'West Side'],
+    neighborhoods: ['Oak Park', 'River Forest', 'Forest Park', 'Berwyn', 'Austin'],
     scale: 'Regional',
     does: 'Runs a food pantry with home delivery, SNAP application assistance and nutrition education across thirteen ZIP codes.',
     short: 'Food pantry and home delivery in 13 ZIP codes',

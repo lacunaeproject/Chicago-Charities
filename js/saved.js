@@ -75,3 +75,18 @@ export function reminder(every, list = ids, now = new Date()) {
     'END:VEVENT', 'END:VCALENDAR'
   ].map(fold).join('\r\n') + '\r\n';
 }
+
+/* One event from the calendar, as an all-day entry (times are the
+   charity's own words, so they go in the notes rather than being parsed). */
+const nextDay = (iso) => { const d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() + 1); return stamp(d); };
+export function eventIcs(ev, orgName, now = new Date()) {
+  const utc = now.toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+  const notes = [ev.time && `When: ${ev.time}`, `With ${orgName}`, ev.signup ? 'Registration required.' : '', `Details: ${ev.url}`].filter(Boolean).join('\n');
+  return [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//GiveChi//Show up in person//EN', 'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT', `UID:givechi-${ev.org}-${ev.start}@givechi.org`, `DTSTAMP:${utc}`,
+    `DTSTART;VALUE=DATE:${ev.start.replace(/-/g, '')}`, `DTEND;VALUE=DATE:${nextDay(ev.end || ev.start)}`,
+    `SUMMARY:${icsText(ev.title)}`, `LOCATION:${icsText(ev.place || 'Chicago')}`, `URL:${ev.url}`, `DESCRIPTION:${icsText(notes)}`,
+    'END:VEVENT', 'END:VCALENDAR'
+  ].map(fold).join('\r\n') + '\r\n';
+}

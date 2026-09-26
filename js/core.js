@@ -5,6 +5,7 @@
 
 import { ORGS } from '../data/orgs.js';
 import { LOGOS } from '../data/logos.js';
+import { AREAS, SIDES, MAP } from '../data/areas.js';
 import { CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT } from '../data/meta.js';
 
 export { ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT };
@@ -39,7 +40,24 @@ export const plural = (n, one, many = one + 's') => `${n} ${n === 1 ? one : many
 export const byId = new Map(ORGS.map((o) => [o.id, o]));
 export const causeOf = (id) => CAUSES.find((c) => c.id === id);
 export const inCause = (c) => ORGS.filter((o) => o.causes.includes(c));
-export const NEIGHBORHOODS = [...new Set(ORGS.flatMap((o) => o.neighborhoods))].sort();
+/* Places. Entries name neighborhoods the way people say them; the filter
+   and the map speak the city's 77 community areas, so each neighborhood
+   name maps to the area (or areas) it lies in. Names with no area are
+   suburbs. */
+export { AREAS, SIDES, MAP };
+const HOOD_AREAS = {
+  'Back of the Yards': ['New City'], 'Bronzeville': ['Douglas', 'Grand Boulevard'], 'Lakeview': ['Lake View'],
+  'Little Village': ['South Lawndale'], 'Pilsen': ['Lower West Side'], 'West Loop': ['Near West Side']
+};
+const AREA_NAMES = new Set(AREAS.map((a) => a.name));
+const areasOf = (hood) => HOOD_AREAS[hood] || (AREA_NAMES.has(hood) ? [hood] : []);
+export const SUBURBS = [...new Set(ORGS.flatMap((o) => o.neighborhoods))].filter((h) => !areasOf(h).length).sort();
+export const AREA_LIST = AREAS.map((a) => a.name).sort((a, b) => a.localeCompare(b));
+export const NEIGHBORHOODS = [...AREA_LIST, ...SUBURBS];
+/* An old link's neighborhood (near=Pilsen) lands on its area. */
+export const placeOf = (p) => (NEIGHBORHOODS.includes(p) ? p : HOOD_AREAS[p] ? HOOD_AREAS[p][0] : null);
+/* Works there by name, as opposed to citywide. */
+export const worksIn = (o, place) => o.neighborhoods.some((h) => h === place || areasOf(h).includes(place));
 const sortKey = (o) => o.name.replace(/^(The|A)\s+/i, '').toLowerCase();
 
 const SPEND_RANKED = ORGS.filter((o) => o.financials && o.financials.expenses > 0)
@@ -82,7 +100,8 @@ const RANK = {
 
 /* A neighborhood matches an organization that lists it, or one that works
    across the whole city or wider: those serve it too. */
-export const servesHood = (o, hood) => !hood || o.neighborhoods.includes(hood) || WIDE.has(o.scale);
+export const citywide = (o) => WIDE.has(o.scale);
+export const servesHood = (o, hood) => !hood || worksIn(o, hood) || WIDE.has(o.scale);
 
 export function rank({ cause = null, priority = 'proven', hood = null } = {}) {
   return ORGS.filter((o) => (!cause || o.causes.includes(cause)) && servesHood(o, hood))

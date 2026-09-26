@@ -7,9 +7,10 @@
    Run: node build.mjs */
 
 import { writeFileSync } from 'node:fs';
+import { EVENTS, STANDING, EVENTS_CHECKED } from './data/events.js';
 import {
   ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT,
-  esc, money, longDate, inCause, icon, stars, row, external, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
+  esc, money, longDate, inCause, icon, stars, row, external, logo, byId, AREAS, SIDES, MAP, worksIn, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
 } from './js/core.js';
 
 const N = ORGS.length;
@@ -35,6 +36,50 @@ const tiles = CAUSES.map((c) => `
           ${icon(c.id)}<span><span class="tile-t">${esc(c.short)}</span><span class="tile-n">${inCause(c.id).length} charities</span></span>
         </a></li>`).join('');
 
+/* --- your side of town: the 77 community areas --------------------------------- */
+
+const named = (a) => ORGS.some((o) => worksIn(o, a.name));
+const local = `
+    <section class="wrap local js-only" aria-labelledby="local-h">
+      <div class="local-map">
+        <svg viewBox="0 0 ${MAP.w} ${MAP.h}" role="img" aria-labelledby="local-map-t"><title id="local-map-t">Map of Chicago’s 77 community areas. Shaded areas are named by at least one charity here.</title>${AREAS.map((a) => `<path d="${a.d}" data-area="${esc(a.name)}"${named(a) ? ' class="is-named"' : ''}><title>${esc(a.name)}</title></path>`).join('')}</svg>
+        <p class="fine">Shaded: a charity here names the area. Boundaries: City of Chicago.</p>
+      </div>
+      <div class="local-side">
+        <h2 class="local-h" id="local-h">Your side of town.</h2>
+        <p class="local-sub">Tap your community area, or choose it here, to see who works there by name, and who works across the whole city.</p>
+        <label class="pill local-pick">${icon('local')}<span class="sr-only">Community area</span>
+          <select id="local-area"><option value="">Choose a community area</option>${SIDES.map((s) => `<optgroup label="${esc(s)}">${AREAS.filter((a) => a.side === s).sort((a, b) => a.name.localeCompare(b.name)).map((a) => `<option value="${esc(a.name)}">${esc(a.name)}</option>`).join('')}</optgroup>`).join('')}</select></label>
+        <div class="local-out" id="local-out"></div>
+      </div>
+    </section>`;
+
+/* --- show up in person: dated events and standing shifts --------------------- */
+/* Every date is the charity's own, checked on its site. The page is built
+   with all of them; script hides any whose day has passed. */
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const dayOf = (iso) => { const [y, m, d] = iso.split('-').map(Number); return { m: MON[m - 1], d, y }; };
+const evRow = (ev, i) => {
+  const o = byId.get(ev.org), a = dayOf(ev.start), b = ev.end && dayOf(ev.end);
+  return `<li class="ev-item" data-ends="${esc(ev.until || ev.end || ev.start)}">
+        <p class="ev-date"><span class="ev-m">${a.m}</span><span class="ev-d">${a.d}${b ? `<span class="ev-to">–${b.m === a.m ? '' : b.m + ' '}${b.d}</span>` : ''}</span></p>
+        <div class="ev-text">
+          <h3 class="ev-title">${esc(ev.title)}</h3>
+          <div class="ev-org">${logo(o, 'ev-logo')}<a href="${esc(o.homepage)}" data-org="${esc(o.id)}">${esc(o.name)}</a></div>
+          <p class="ev-meta">${[ev.time, ev.place].filter(Boolean).map(esc).join(' · ')}${ev.signup ? ' · Sign-up required' : ''}</p>
+        </div>
+        <div class="ev-go">${external(ev.url, ev.signup ? 'Sign up' : 'Details', `: ${esc(ev.title)}`)}<button class="btn btn-sm js-only" type="button" data-ev="${i}">Add to calendar<span class="sr-only">: ${esc(ev.title)}</span></button></div>
+      </li>`;
+};
+const events = EVENTS.length || STANDING.length ? `
+    <section class="wrap inperson" id="in-person" aria-labelledby="inperson-h">
+      <h2 class="local-h" id="inperson-h">Show up in person.</h2>
+      <p class="local-sub">Walks, cleanups, plantings and volunteer shifts run by charities on this list. Dates are from each charity’s own site, checked ${esc(longDate(EVENTS_CHECKED))}; confirm before you go.</p>
+      ${EVENTS.length ? `<ol class="ev-list">${EVENTS.map(evRow).join('')}</ol><button class="link ev-more js-only" type="button" hidden>Show more dates</button><p class="ev-none" hidden>No dated events are coming up right now. The standing shifts below run all year.</p>` : ''}
+      ${STANDING.length ? `<h3 class="block-h ev-standing-h">Any week</h3>
+      <ul class="ev-standing">${STANDING.map((s) => { const o = byId.get(s.org); return `<li>${logo(o, 'ev-logo')}<div><p class="ev-title"><a href="${esc(o.homepage)}" data-org="${esc(o.id)}">${esc(o.name)}</a>: ${esc(s.what)}</p><p class="ev-meta">${[s.when, s.place].filter(Boolean).map(esc).join(' · ')} · ${external(s.url, 'How to join', `: ${esc(o.name)}`)}</p></div></li>`; }).join('')}</ul>` : ''}
+    </section>` : '';
+
 const home = `
   <section class="view view-home" id="home" data-view="home" aria-labelledby="home-h">
     <div class="sky">
@@ -51,6 +96,8 @@ const home = `
       <div><p class="trust-n">${esc(money(TOTAL_SPEND))}</p><p class="trust-t">spent a year between them, from a food bank to a single neighborhood pantry</p></div>
       <div><p class="trust-n">0%</p><p class="trust-t">taken by GiveChi. Every Donate button goes straight to the charity</p></div>
     </div>
+    ${local}
+    ${events}
   </section>`;
 
 /* --- the results view: script-only, filled by app.js ------------------------ */
@@ -226,6 +273,7 @@ const html = `<!DOCTYPE html>
 <link rel="modulepreload" href="js/saved.js">
 <link rel="modulepreload" href="data/orgs.js">
 <link rel="modulepreload" href="data/meta.js">
+<link rel="modulepreload" href="data/events.js">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

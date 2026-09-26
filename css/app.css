@@ -69,6 +69,52 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .row-photo { width: var(--thumb-w); height: var(--thumb); border-radius: var(--r-md); overflow: hidden; flex: none; }
 .row-photo .ico { width: var(--ico-sm); height: var(--ico-sm); }
 
+/* Your side of town: the 77 community areas beside what works there. */
+.local { display: grid; grid-template-columns: minmax(0, var(--map-w)) minmax(0, 1fr); gap: var(--s-8) var(--s-12); align-items: start; padding-top: var(--s-16); padding-bottom: var(--s-16); border-top: var(--hair) solid var(--line); }
+.local-map svg { display: block; width: 100%; height: auto; }
+.local-map path { fill: var(--white); stroke: var(--line-strong); stroke-width: .6; stroke-linejoin: round; cursor: pointer; transition: fill var(--dur-fast) var(--ease); }
+.local-map path.is-named { fill: var(--blue-soft); }
+.local-map path:hover { fill: var(--sky-200); }
+.local-map path.is-on { fill: var(--blue); }
+.local-h { font-family: var(--display); font-weight: var(--w-read); font-size: var(--t-view); line-height: var(--lh-heading); letter-spacing: var(--tr-display); }
+.local-sub { margin-top: var(--s-3); max-width: var(--measure); color: var(--ink-2); }
+.local-pick { margin-top: var(--s-5); max-width: 100%; }
+.local-pick select { min-width: 0; max-width: 100%; text-overflow: ellipsis; }
+.local-name { margin-top: var(--s-8); font-size: var(--t-xl); font-weight: var(--w-heavy); letter-spacing: var(--tr-tight); }
+.local-name span { display: block; font-size: var(--t-sm); font-weight: var(--w-label); letter-spacing: normal; color: var(--blue-deep); }
+.local-list { margin-top: var(--s-4); border-radius: var(--r-card); background: var(--white); box-shadow: var(--shadow-2); overflow: hidden; }
+.local-list li + li { border-top: var(--hair) solid var(--line); }
+.local-list a { display: flex; align-items: center; gap: var(--s-4); padding: var(--s-3) var(--s-4); color: var(--ink); text-decoration: none; }
+.local-list a:hover { background: var(--sky-50); }
+.local-logo { flex: none; width: var(--thumb-w-sm); height: var(--thumb-sm); padding: var(--s-1); border-radius: var(--r-sm); }
+.local-org { display: block; font-weight: var(--w-strong); }
+.local-does { display: block; font-size: var(--t-xs); color: var(--ink-2); }
+.local-none, .local-wide { margin-top: var(--s-4); color: var(--ink-2); }
+.local-out .btn { margin-top: var(--s-4); }
+
+/* Show up in person: a date, what it is, who runs it, and how to go. */
+.inperson { padding-top: var(--s-16); padding-bottom: var(--s-16); border-top: var(--hair) solid var(--line); }
+.ev-list { margin-top: var(--s-8); border-radius: var(--r-card); background: var(--white); box-shadow: var(--shadow-2); overflow: hidden; }
+.ev-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--s-4) var(--s-6); align-items: center; padding: var(--s-5) var(--s-6); }
+.ev-item + .ev-item { border-top: var(--hair) solid var(--line); }
+.ev-item[hidden] { display: none; }
+.ev-date { display: flex; flex-direction: column; align-items: center; width: var(--thumb); line-height: 1; color: var(--blue-deep); }
+.ev-m { font-size: var(--t-xs); font-weight: var(--w-heavy); letter-spacing: var(--tr-caps); text-transform: uppercase; }
+.ev-d { font-family: var(--display); font-size: var(--t-fig); letter-spacing: var(--tr-display); color: var(--ink); white-space: nowrap; }
+.ev-to { font-size: var(--t-md); }
+.ev-title { font-size: var(--t-md); font-weight: var(--w-strong); line-height: var(--lh-snug); }
+.ev-org { display: flex; align-items: center; gap: var(--s-2); margin-top: var(--s-2); font-size: var(--t-sm); }
+.ev-org a, .ev-title a { color: var(--ink); }
+.ev-logo { flex: none; width: var(--s-16); height: var(--s-7); padding: var(--hair); border: 0; background: transparent; }
+.ev-logo.is-dark { background: var(--blue-ink); border-radius: var(--r-sm); }
+.ev-meta { margin-top: var(--s-1); font-size: var(--t-xs); color: var(--ink-2); }
+.ev-go { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--s-2) var(--s-4); font-size: var(--t-sm); font-weight: var(--w-strong); }
+.ev-none { margin-top: var(--s-6); color: var(--ink-2); }
+.ev-more { margin-top: var(--s-4); font-size: var(--t-sm); }
+.ev-standing-h { margin-top: var(--s-10); }
+.ev-standing { margin-top: var(--s-3); }
+.ev-standing li { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-3) 0; border-top: var(--hair) solid var(--line); }
+
 /* The flag, as a sign-off: its two blue stripes and four red stars. */
 .flagband { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--s-5); padding-top: var(--s-8); }
 .flagband::before, .flagband::after { content: ""; height: var(--keel); border-radius: var(--keel); background: var(--blue); box-shadow: 0 var(--s-2) 0 var(--blue); transform: translateY(calc(-1 * var(--s-1))); }
@@ -389,6 +435,8 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 
 /* --- narrow screens ------------------------------------------------------------------------------ */
 @media (max-width: 960px) {
+  .local { grid-template-columns: minmax(0, 1fr); }
+  .local-map { max-width: var(--map-w); }
   /* In rem, so large text drops to one column before a word can overflow. */
   .tiles { grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--tile-col)), 1fr)); }
   .tile { min-height: var(--tile-min-sm); padding: var(--s-4); }
@@ -396,12 +444,14 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
   .trust { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
 }
 @media (max-width: 720px) {
+  .ev-item { grid-template-columns: auto minmax(0, 1fr); padding: var(--s-4); }
+  .ev-go { grid-column: 2; justify-content: flex-start; }
   .how-made { padding: var(--s-5); }
   .nav-links { display: none; }
   .splash { padding-top: var(--s-6); padding-bottom: var(--s-12); }
   .q { margin-bottom: var(--s-6); }
   .refine { margin: var(--s-5) 0 var(--s-6); }
-  .refine .pill, .refine .pill select { width: 100%; }
+  .refine .pill, .refine .pill select, .local-pick, .local-pick select { width: 100%; }
   .row { grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--s-3); padding: var(--s-4); }
   .row-photo { width: var(--thumb-w-sm); height: var(--thumb-sm); }
   .row-figs > div:nth-child(2) { display: none; }

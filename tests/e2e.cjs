@@ -242,6 +242,35 @@ const active = (p) => p.evaluate(() => { const a = document.activeElement; retur
     await load(p, '#/all?org=youth-guidance');
     ok('details: no gift example or volunteer block where none is published', await p.evaluate(() => !document.querySelector('#detail .gift-eg') && !document.querySelector('#detail #v-h')));
 
+    // Your side of town: the map, the select and the filtered list agree.
+    await load(p, '#/');
+    ok('the map draws all 77 community areas', (await p.$$eval('.local-map path[data-area]', (x) => x.length)) === 77);
+    await p.click('.local-map path[data-area="Lower West Side"]'); await settle(p, 300);
+    const lw = await p.evaluate(() => ({ sel: document.querySelector('#local-area').value, on: document.querySelector('.local-map path.is-on')?.dataset.area, names: [...document.querySelectorAll('.local-org')].map((e) => e.textContent), link: document.querySelector('#local-out .btn').getAttribute('href') }));
+    ok('tapping an area selects it and names who works there', lw.sel === 'Lower West Side' && lw.on === 'Lower West Side' && lw.names.includes('The Resurrection Project'), JSON.stringify(lw));
+    await p.selectOption('#local-area', 'Auburn Gresham'); await settle(p, 300);
+    ok('choosing an area from the list moves the map', await p.evaluate(() => document.querySelector('.local-map path.is-on')?.dataset.area === 'Auburn Gresham'));
+    await load(p, '#/all?near=Pilsen');
+    ok('an old neighborhood link lands on its community area', await p.evaluate(() => document.querySelector('#a-near').value === 'Lower West Side' && !document.querySelector('.row[data-id="open-books"]').hidden));
+
+    // Show up in person: past days drop off by the reader's date; the rest page in eights.
+    {
+      const c2 = await b.newContext({ viewport: { width: 1280, height: 900 } });
+      const q = await c2.newPage();
+      await q.clock.setFixedTime(new Date('2026-11-01T12:00:00'));
+      await q.goto(BASE + '#/'); await settle(q, 400);
+      const ev = await q.evaluate(() => { const shown = [...document.querySelectorAll('.ev-item:not([hidden])')]; return { n: shown.length, first: shown[0]?.dataset.ends, more: !document.querySelector('.ev-more').hidden }; });
+      ok('events whose day has passed are hidden', ev.first >= '2026-11-01' && ev.n > 0 && ev.n <= 8, JSON.stringify(ev));
+      await q.clock.setFixedTime(new Date('2026-09-25T12:00:00'));
+      await q.reload(); await settle(q, 400);
+      await q.click('.ev-more'); await settle(q, 200);
+      ok('Show more dates reveals the rest', await q.evaluate(() => document.querySelectorAll('.ev-item:not([hidden])').length === document.querySelectorAll('.ev-item').length && document.querySelector('.ev-more').hidden));
+      const [evdl] = await Promise.all([q.waitForEvent('download'), q.click('.ev-item [data-ev]')]);
+      const evics = require('fs').readFileSync(await evdl.path(), 'utf8');
+      ok('Add to calendar downloads the event, all day, with its place', /DTSTART;VALUE=DATE:2026\d{4}/.test(evics) && /LOCATION:/.test(evics) && /SUMMARY:/.test(evics), evics.slice(0, 160));
+      await c2.close();
+    }
+
     // Photographs of the charities' own work: they load, carry alt text and a credit.
     await load(p, '#/all?org=common-pantry'); await p.waitForFunction(() => document.querySelector('#detail .panel-photo img')?.complete);
     ok('a charity shows its own photo in its details, credited', /Common Pantry/.test(await p.$eval('#detail .panel-photo figcaption', (e) => e.textContent)) && await p.$eval('#detail .panel-photo img', (i) => i.naturalWidth > 0 && i.alt.length > 20));

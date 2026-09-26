@@ -10,10 +10,11 @@
    home, ?give=<ids> (a shared list is open). */
 
 import {
-  ORGS, CAUSES, SITE, PRIORITIES, SORTS, NEIGHBORHOODS, byId, causeOf, rank, card, detail, savedItem, icon, esc, plural
+  ORGS, CAUSES, SITE, PRIORITIES, SORTS, AREA_LIST, SUBURBS, AREAS, placeOf, worksIn, citywide, logo, byId, causeOf, rank, card, detail, savedItem, icon, esc, plural
 } from './core.js';
 import * as saved from './saved.js';
 import { announce } from './announce.js';
+import { EVENTS } from '../data/events.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -120,14 +121,17 @@ function render({ moved = false } = {}) {
 /* --- results ------------------------------------------------------------------------ */
 
 const priorityOf = (id) => PRIORITIES.find((p) => p.id === id) ? id : 'proven';
-const hoodOf = (h) => (NEIGHBORHOODS.includes(h) ? h : null);
+const hoodOf = (h) => placeOf(h);
 
+const optionList = (options, value) => options.map((o) => o.group
+  ? `<optgroup label="${esc(o.group)}">${optionList(o.options, value)}</optgroup>`
+  : `<option value="${esc(o[0])}"${o[0] === value ? ' selected' : ''}>${esc(o[1])}</option>`).join('');
 function select(id, label, options, value, ico, name) {
   return `<label class="pill"${name ? ` style="view-transition-name: ${name}"` : ''}>${icon(ico)}<span class="sr-only">${label}</span>
-    <select id="${id}">${options.map(([v, t]) => `<option value="${esc(v)}"${v === value ? ' selected' : ''}>${esc(t)}</option>`).join('')}</select></label>`;
+    <select id="${id}">${optionList(options, value)}</select></label>`;
 }
 const causeOptions = (anyLabel) => [['any', anyLabel], ...CAUSES.map((c) => [c.id, c.short])];
-const hoodOptions = [['', 'Anywhere in Chicago'], ...NEIGHBORHOODS.map((n) => [n, n])];
+const hoodOptions = [['', 'Anywhere in Chicago'], { group: 'Chicago community areas', options: AREA_LIST.map((n) => [n, n]) }, { group: 'Nearby suburbs', options: SUBURBS.map((n) => [n, n]) }];
 
 function renderFit(r) {
   const cause = r.cause === 'any' ? null : r.cause;
@@ -480,6 +484,67 @@ document.addEventListener('click', (e) => {
     const target = a.getAttribute('href');
     closePanel(a.closest('dialog'), () => { history.pushState({ app: true }, '', target); render({ moved: true }); });
   }
+});
+
+/* --- your side of town --------------------------------------------------------------------------- */
+/* The map and the select drive one another: tap an area or choose it, and
+   the panel names the charities that work there by name, counts the ones
+   that work citywide, and links to the list filtered to that area. */
+
+const localSel = $('#local-area'), localOut = $('#local-out');
+const sideOfArea = new Map(AREAS.map((a) => [a.name, a.side]));
+function showArea(name) {
+  $$('.local-map path.is-on').forEach((p) => p.classList.remove('is-on'));
+  if (!name) { localOut.innerHTML = ''; return; }
+  $(`.local-map path[data-area="${CSS.escape(name)}"]`)?.classList.add('is-on');
+  const named = ORGS.filter((o) => worksIn(o, name));
+  const wide = ORGS.filter((o) => !worksIn(o, name) && citywide(o)).length;
+  const total = named.length + wide;
+  localOut.innerHTML = `
+    <p class="local-name">${esc(name)} <span>${esc(sideOfArea.get(name))}</span></p>
+    ${named.length
+      ? `<ul class="local-list">${named.map((o) => `<li><a href="${esc(o.homepage)}" data-org="${esc(o.id)}">${logo(o, 'local-logo')}<span><span class="local-org">${esc(o.name)}</span><span class="local-does">${esc(o.short)}</span></span></a></li>`).join('')}</ul>`
+      : `<p class="local-none">No charity here names ${esc(name)} yet.</p>`}
+    <p class="local-wide">${named.length ? 'Plus' : 'But'} ${plural(wide, 'charity', 'charities')} that work${wide === 1 ? 's' : ''} across the whole city.</p>
+    <a class="btn btn-dark btn-sm" href="${href({ view: 'all', params: { near: name } })}">See all ${total} for ${esc(name)}</a>`;
+  announce(`${name}, ${sideOfArea.get(name)}. ${plural(named.length, 'charity names', 'charities name')} it; ${wide} more work citywide.`);
+}
+if (localSel) {
+  localSel.addEventListener('change', () => showArea(localSel.value));
+  $('.local-map svg').addEventListener('click', (e) => {
+    const p = e.target.closest('path[data-area]');
+    if (!p) return;
+    localSel.value = p.dataset.area;
+    showArea(p.dataset.area);
+    localOut.scrollIntoView({ block: 'nearest', behavior: reduced() ? 'auto' : 'smooth' });
+  });
+}
+
+/* --- show up in person ------------------------------------------------------------------------- */
+/* Built with every event; a day that has passed hides here, by the reader's
+   own date. Add to calendar builds the file in the browser. */
+{
+  const d = new Date(), today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const items = $$('.ev-item');
+  const ahead = items.filter((li) => li.dataset.ends >= today);
+  const FIRST = 8;
+  items.forEach((li) => { li.hidden = !ahead.includes(li) || ahead.indexOf(li) >= FIRST; });
+  const none = $('.ev-none'), more = $('.ev-more');
+  if (none) none.hidden = ahead.length > 0;
+  if (more && ahead.length > FIRST) {
+    more.hidden = false;
+    more.textContent = `Show ${ahead.length - FIRST} more dates`;
+    more.onclick = () => { ahead.forEach((li) => { li.hidden = false; }); more.hidden = true; ahead[FIRST].querySelector('a')?.focus(); };
+  }
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-ev]');
+  if (!b) return;
+  const ev = EVENTS[Number(b.dataset.ev)], o = byId.get(ev.org);
+  const a = Object.assign(document.createElement('a'), { href: 'data:text/calendar;charset=utf-8,' + encodeURIComponent(saved.eventIcs(ev, o.name)), download: `givechi-${ev.org}-${ev.start}.ics` });
+  document.body.appendChild(a); a.click(); a.remove();
+  const msg = `${ev.title} downloaded. Open it to add it to your calendar.`;
+  announce(msg); toast(msg);
 });
 
 /* --- start ----------------------------------------------------------------------------------------- */

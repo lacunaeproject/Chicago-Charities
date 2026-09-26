@@ -82,6 +82,7 @@
   --tr-display: .004em;
   --tr-tight:  -0.02em;
   --tr-name:   -0.015em;
+  --tr-caps:   .08em;   /* a small all-caps label, like a date's month */
 
   --measure:   36em;    /* a paragraph */
   --measure-q: 13ch;    /* the splash question: three lines */
@@ -132,7 +133,8 @@
   --thumb-w:     112px;
   --thumb-sm:    44px;
   --thumb-w-sm:  80px;
-  --logo-h:      44px;   /* a logo beside the name in the details */
+  --logo-h:      44px;
+  --map-w:       30rem;  /* the community area map */   /* a logo beside the name in the details */
   --ratio-card:  16 / 9; /* a charity's photo on its card and in its details */
   --dot:      7px;
   --chev:     7px;
