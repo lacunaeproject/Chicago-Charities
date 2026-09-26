@@ -242,14 +242,15 @@ const active = (p) => p.evaluate(() => { const a = document.activeElement; retur
     await load(p, '#/all?org=youth-guidance');
     ok('details: no gift example or volunteer block where none is published', await p.evaluate(() => !document.querySelector('#detail .gift-eg') && !document.querySelector('#detail #v-h')));
 
-    // Photographs: they load, carry alt text and a credit, and every one is in the credits.
-    await load(p, '#/');
-    const hero = await p.$eval('.photo-hero img', (i) => ({ ok: i.complete && i.naturalWidth > 0, alt: i.alt, cap: i.closest('figure').querySelector('figcaption').textContent }));
-    ok('home photo loads, with alt text and a credited caption', hero.ok && hero.alt.length > 20 && /Photo: .+, CC BY/.test(hero.cap), JSON.stringify(hero));
+    // Photographs of the charities' own work: they load, carry alt text and a credit.
     await load(p, '#/all?org=common-pantry'); await p.waitForFunction(() => document.querySelector('#detail .panel-photo img')?.complete);
     ok('a charity shows its own photo in its details, credited', /Common Pantry/.test(await p.$eval('#detail .panel-photo figcaption', (e) => e.textContent)) && await p.$eval('#detail .panel-photo img', (i) => i.naturalWidth > 0 && i.alt.length > 20));
-    ok('a charity without a free-licensed photo shows a plain tile, not a borrowed picture', await p.evaluate(() => !!document.querySelector('.row[data-id="care-for-real"] .org-ph') && !document.querySelector('.row[data-id="care-for-real"] img')));
-    ok('every photograph is credited under How we check', (await p.$$eval('#how-photos .credits li', (x) => x.length)) === 8);
+    ok('every charity in the list shows its own logo', await p.evaluate(() => [...document.querySelectorAll('.row')].every((r) => r.querySelector('.org-logo img[src="img/logos/' + r.dataset.id + '.webp"]'))));
+    await p.evaluate(() => [...document.querySelectorAll('.row .org-logo img')].forEach((i) => { i.loading = 'eager'; }));
+    await p.waitForFunction(() => [...document.querySelectorAll('.row .org-logo img')].every((i) => i.complete));
+    ok('every logo file loads', await p.evaluate(() => [...document.querySelectorAll('.row .org-logo img')].every((i) => i.naturalWidth > 0)));
+    ok('the logos are credited as their owners\' and endorse nothing', /no charity listed here endorses/.test(await p.$eval('#how-photos', (e) => e.textContent)));
+    ok('every photograph is credited under How we check', (await p.$$eval('#how-photos .credits li', (x) => x.length)) === 7);
     await ctx.close();
 
     // 200% text at 320: a long card still fits and scrolls inside.

@@ -9,7 +9,7 @@
 import { writeFileSync } from 'node:fs';
 import {
   ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT,
-  esc, money, longDate, inCause, icon, stars, row, external, photo, PHOTOS, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
+  esc, money, longDate, inCause, icon, stars, row, external, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
 } from './js/core.js';
 
 const N = ORGS.length;
@@ -39,13 +39,8 @@ const home = `
   <section class="view view-home" id="home" data-view="home" aria-labelledby="home-h">
     <div class="sky">
       <div class="wrap splash">
-        <div class="splash-top">
-          <div class="splash-text">
-            <p class="promise">${N} Chicago charities, checked against their filings</p>
-            <h1 class="q" id="home-h" tabindex="-1">What do you want your gift to <em>help with?</em></h1>
-          </div>
-          ${photo('home', 'photo-hero', '(max-width: 720px) 100vw, 560px', true)}
-        </div>
+        <p class="promise">${N} Chicago charities, checked against their filings</p>
+        <h1 class="q" id="home-h" tabindex="-1">What do you want your gift to <em>help with?</em></h1>
         <ul class="tiles">${tiles}
         </ul>
         <p class="unsure"><a class="link" href="#all" data-cause="any">Not sure yet? Show me the strongest evidence across every cause</a></p>
@@ -161,9 +156,10 @@ const how = `
       </section>
 
       <section class="how-block" id="how-photos" aria-labelledby="how-photos-h">
-        <h2 id="how-photos-h">Photographs</h2>
-        <p>Every photograph is from Wikimedia Commons under a free license: the charities’ own work where a free-licensed photo of it exists, and the city itself on the home page. Each is resized or cropped for this site and shared under its original license.</p>
-        <ul class="sources credits">${[...ORGS.filter((o) => o.photo).map((o) => ({ ...o.photo, place: o.photo.caption })), ...Object.values(PHOTOS)].map((p) => `<li><span>${esc(p.place)}</span><span class="src-via">${external(p.source, esc(p.artist), `, photo of ${esc(p.place)} on Wikimedia Commons`)}, ${p.licenseUrl ? external(p.licenseUrl, esc(p.license), ' license') : esc(p.license.toLowerCase())}</span></li>`).join('')}</ul>
+        <h2 id="how-photos-h">Photographs and logos</h2>
+        <p>Each photograph shows a charity’s own work and is from Wikimedia Commons under a free license. Each is cropped for this site and shared under its original license.</p>
+        <p>Each charity’s logo is its own, taken from its own website and shown only to identify it. Logos belong to their organizations, and no charity listed here endorses or sponsors GiveChi.</p>
+        <ul class="sources credits">${ORGS.filter((o) => o.photo).map((o) => ({ ...o.photo, place: o.photo.caption })).map((p) => `<li><span>${esc(p.place)}</span><span class="src-via">${external(p.source, esc(p.artist), `, photo of ${esc(p.place)} on Wikimedia Commons`)}, ${p.licenseUrl ? external(p.licenseUrl, esc(p.license), ' license') : esc(p.license.toLowerCase())}</span></li>`).join('')}</ul>
       </section>
     </div>
   </section>`;
@@ -230,8 +226,6 @@ const html = `<!DOCTYPE html>
 <link rel="modulepreload" href="js/saved.js">
 <link rel="modulepreload" href="data/orgs.js">
 <link rel="modulepreload" href="data/meta.js">
-<link rel="modulepreload" href="data/photos.js">
-<link rel="preload" as="image" href="img/photos/hero-1280.webp" imagesrcset="img/photos/hero-640.webp 640w, img/photos/hero-1280.webp 1280w" imagesizes="(max-width: 720px) 100vw, 560px">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
