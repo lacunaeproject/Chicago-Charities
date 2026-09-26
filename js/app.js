@@ -10,7 +10,7 @@
    home, ?give=<ids> (a shared list is open). */
 
 import {
-  ORGS, CAUSES, SITE, PRIORITIES, SORTS, NEIGHBORHOODS, byId, causeOf, rank, card, detail, savedItem, icon, esc, plural
+  ORGS, CAUSES, SITE, PRIORITIES, SORTS, NEIGHBORHOODS, byId, causeOf, rank, card, detail, savedItem, icon, esc, plural, photo
 } from './core.js';
 import * as saved from './saved.js';
 import { announce } from './announce.js';
@@ -29,7 +29,7 @@ function parse(hash = location.hash) {
   // Hashes the page uses without script, and old anchors.
   if (!h || h === 'home' || h === 'main') return { view: 'home', params: new URLSearchParams() };
   if (h === 'all') return { view: 'all', params: new URLSearchParams() };
-  if (h === 'how' || h === 'how-we-vetted' || h === 'how-made' || h === 'how-safe' || h === 'how-small') return { view: 'how', params: new URLSearchParams(), anchor: h === 'how' ? null : h };
+  if (h === 'how' || h === 'how-we-vetted' || h === 'how-made' || h === 'how-safe' || h === 'how-small' || h === 'how-photos') return { view: 'how', params: new URLSearchParams(), anchor: h === 'how' ? null : h };
   const g = h.match(/^all-([a-z]+)$/);
   if (g && causeOf(g[1])) return { view: 'fit', cause: g[1], params: new URLSearchParams() };
   if (!h.startsWith('/')) return null;               // an ordinary in-page anchor
@@ -141,6 +141,7 @@ function renderFit(r) {
   const head = n === 0 ? 'No good fits yet.' : `${WORD[n]} good fit${n === 1 ? '' : 's'}${c ? ` for <em>${esc(c.short.toLowerCase())}</em>` : ''}.`;
 
   $('#fit-body').innerHTML = `<div class="fit-in">
+    <div class="fit-top"><div class="fit-head">
     <h1 class="view-h" id="fit-h" tabindex="-1">${head}</h1>
     <div class="refine" role="group" aria-label="Your answers">
       ${select('f-cause', 'Cause', causeOptions('Every cause'), r.cause || 'any', c ? c.id : 'any', `cause-${c ? c.id : 'any'}`)}
@@ -148,6 +149,7 @@ function renderFit(r) {
       ${select('f-near', 'Neighborhood', hoodOptions, hood || '', 'local')}
       <a class="link" href="#/" data-home>Start over</a>
     </div>
+    </div>${photo(c ? c.id : 'any', 'photo-card', '(max-width: 720px) 100vw, 320px')}</div>
     ${n ? `<div class="cards">${top.map((o, i) => card(o, i, priority)).join('')}</div>` : `<div class="fit-empty"><p>Nothing ${c ? `in ${esc(c.short.toLowerCase())} ` : ''}lists ${esc(hood)} or works citywide.</p><p><button class="link" type="button" data-clear-near>Show charities anywhere in Chicago</button></p></div>`}
     <div class="after">
       ${all.length > n ? `<a class="link" href="${href({ view: 'all', params: { cause, sort: priority, near: hood } })}">See all ${all.length} that fit</a>` : ''}

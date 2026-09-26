@@ -43,6 +43,22 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .splash { padding-top: var(--s-14); padding-bottom: var(--s-16); }
 .promise { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-5); font-size: var(--t-md); font-weight: var(--w-label); color: var(--blue-deep); }
 .promise::before { content: ""; flex: none; width: var(--s-7); height: var(--keel); border-radius: var(--keel); background: var(--blue); box-shadow: 0 var(--s-2) 0 var(--blue); transform: translateY(calc(-1 * var(--s-1))); }
+/* The question and a photograph of the city, side by side; stacked on a phone. */
+.splash-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, var(--photo-hero)); align-items: end; gap: var(--s-6) var(--s-10); margin-bottom: var(--s-10); }
+.splash-top .q { margin-bottom: 0; }
+.photo img { display: block; width: 100%; height: auto; border-radius: var(--r-card); background: var(--sky-200); box-shadow: var(--shadow-1); }
+.photo figcaption { margin-top: var(--s-2); font-size: var(--t-xs); line-height: var(--lh-snug); color: var(--ink-3); }
+.photo-by a { color: inherit; text-decoration: underline; text-decoration-thickness: var(--hair); text-underline-offset: var(--underline); }
+.photo-by a:hover { color: var(--blue-deep); }
+.fit-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, var(--photo-card)); align-items: end; gap: var(--s-4) var(--s-10); margin-bottom: var(--s-8); }
+.fit-top .refine { margin-bottom: 0; }
+.photo-card img { aspect-ratio: 3 / 2; object-fit: cover; }
+.photo-hero img { aspect-ratio: var(--ratio-hero); object-fit: cover; object-position: 72% 50%; }
+
+/* The flag, as a sign-off: its two blue stripes and four red stars. */
+.flagband { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--s-5); padding-top: var(--s-8); }
+.flagband::before, .flagband::after { content: ""; height: var(--keel); border-radius: var(--keel); background: var(--blue); box-shadow: 0 var(--s-2) 0 var(--blue); transform: translateY(calc(-1 * var(--s-1))); }
+
 .q {
   font-family: var(--display); font-weight: var(--w-read); font-size: var(--t-hero);
   line-height: var(--lh-heading); letter-spacing: var(--tr-display);
@@ -245,7 +261,8 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .foot-in { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4) var(--s-8); padding-top: var(--s-8); padding-bottom: var(--s-10); color: var(--ink-2); font-size: var(--t-sm); }
 .foot-in p:last-child { flex: 1 1 var(--measure-note); min-width: 0; max-width: var(--measure); }
 .foot-made { display: block; margin-top: var(--s-2); color: var(--ink); font-weight: var(--w-label); }
-.foot-brand { display: inline-flex; align-items: center; gap: var(--s-3); color: var(--ink); }
+.foot-brand { display: inline-flex; flex-direction: column; gap: var(--s-1); color: var(--ink); }
+.foot-city { font-size: var(--t-xs); font-weight: var(--w-label); color: var(--blue-deep); }
 
 /* --- panels (details, saved) ---------------------------------------------------------------- */
 .panel {
@@ -369,6 +386,9 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
   .nav-links { display: none; }
   .splash { padding-top: var(--s-6); padding-bottom: var(--s-12); }
   .q { margin-bottom: var(--s-6); }
+  .splash-top, .fit-top { grid-template-columns: minmax(0, 1fr); margin-bottom: var(--s-6); }
+  .photo-hero img, .photo-card img { aspect-ratio: var(--ratio-strip); object-fit: cover; }
+  .fit-top .photo { order: -1; }
   .refine { margin: var(--s-5) 0 var(--s-6); }
   .refine .pill, .refine .pill select { width: 100%; }
   .row { grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-3); padding: var(--s-4); }

@@ -9,7 +9,7 @@
 import { writeFileSync } from 'node:fs';
 import {
   ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT,
-  esc, money, longDate, inCause, icon, stars, row, external, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
+  esc, money, longDate, inCause, icon, stars, row, external, photo, PHOTOS, TOTAL_SPEND, RATIO_MEDIAN, CAUTION_KINDS
 } from './js/core.js';
 
 const N = ORGS.length;
@@ -39,8 +39,13 @@ const home = `
   <section class="view view-home" id="home" data-view="home" aria-labelledby="home-h">
     <div class="sky">
       <div class="wrap splash">
-        <p class="promise">${N} Chicago charities, checked against their filings</p>
-        <h1 class="q" id="home-h" tabindex="-1">What do you want your gift to <em>help with?</em></h1>
+        <div class="splash-top">
+          <div class="splash-text">
+            <p class="promise">${N} Chicago charities, checked against their filings</p>
+            <h1 class="q" id="home-h" tabindex="-1">What do you want your gift to <em>help with?</em></h1>
+          </div>
+          ${photo('home', 'photo-hero', '(max-width: 720px) 100vw, 560px', true)}
+        </div>
         <ul class="tiles">${tiles}
         </ul>
         <p class="unsure"><a class="link" href="#all" data-cause="any">Not sure yet? Show me the strongest evidence across every cause</a></p>
@@ -154,6 +159,12 @@ const how = `
         <ul class="sources">${SOURCES.map((s) => `<li><span>${esc(s.label)}</span>${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.via)}<span class="sr-only">, opens in a new tab</span></a>` : `<span class="src-via">${esc(s.via)}</span>`}</li>`).join('')}</ul>
         <p class="fine">If a link is dead or a figure is wrong, it gets fixed.${SITE.contact ? ` Write to ${esc(SITE.contact)}.` : ''}</p>
       </section>
+
+      <section class="how-block" id="how-photos" aria-labelledby="how-photos-h">
+        <h2 id="how-photos-h">Photographs</h2>
+        <p>Every photograph is of a Chicago place, from Wikimedia Commons under a free license. Each is resized for this site and shared under its original license.</p>
+        <ul class="sources credits">${Object.values(PHOTOS).map((p) => `<li><span>${esc(p.place)}</span><span class="src-via">${external(p.source, esc(p.artist), `, photo of ${esc(p.place)} on Wikimedia Commons`)}, ${p.licenseUrl ? external(p.licenseUrl, esc(p.license), ' license') : esc(p.license.toLowerCase())}</span></li>`).join('')}</ul>
+      </section>
     </div>
   </section>`;
 
@@ -219,6 +230,8 @@ const html = `<!DOCTYPE html>
 <link rel="modulepreload" href="js/saved.js">
 <link rel="modulepreload" href="data/orgs.js">
 <link rel="modulepreload" href="data/meta.js">
+<link rel="modulepreload" href="data/photos.js">
+<link rel="preload" as="image" href="img/photos/hero-1280.webp" imagesrcset="img/photos/hero-640.webp 640w, img/photos/hero-1280.webp 1280w" imagesizes="(max-width: 720px) 100vw, 560px">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -242,8 +255,9 @@ ${how}
 </main>
 
 <footer class="foot">
+  <div class="wrap flagband" aria-hidden="true">${stars()}</div>
   <div class="wrap foot-in">
-    <p class="foot-brand"><span class="brand-word">${esc(SITE.masthead)}</span>${stars()}</p>
+    <p class="foot-brand"><span class="brand-word">${esc(SITE.masthead)}</span><span class="foot-city">Made in Chicago, for Chicago</span></p>
     <p>${N} charities, checked ${esc(VERIFIED)}. No money taken, no donations processed, and no tie to any organization listed. Visits are counted with Google Analytics.<span class="foot-made">Generated with AI and overseen by ${esc(SITE.steward)}. <a href="#how-made">How it’s made</a></span></p>
   </div>
 </footer>

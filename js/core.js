@@ -5,8 +5,9 @@
 
 import { ORGS } from '../data/orgs.js';
 import { CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT } from '../data/meta.js';
+import { PHOTOS } from '../data/photos.js';
 
-export { ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT };
+export { ORGS, CAUSES, EVIDENCE_TIERS, FLAG_LABELS, VERIFIED_AS_OF, FAQ, SOURCES, SITE, BEACON_CAVEAT, PHOTOS };
 
 /* --- formats ----------------------------------------------------------- */
 
@@ -128,6 +129,17 @@ const ICON = {
 export const icon = (k, cls = 'ico') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ICON[k] || ''}</svg>`;
 const STAR_PATH = 'M12 0 L14.4 7.843 L22.392 6 L16.8 12 L22.392 18 L14.4 16.157 L12 24 L9.6 16.157 L1.608 18 L7.2 12 L1.608 6 L9.6 7.843 Z';
 export const star = () => `<svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${STAR_PATH}"/></svg>`;
+/* A photograph of a Chicago place, captioned with the place and credited
+   where it appears. The full credit list is under How we check. */
+export function photo(key, cls, sizes, eager = false) {
+  const ph = PHOTOS[key];
+  if (!ph) return '';
+  const base = `img/photos/${ph.file}`;
+  return `<figure class="photo ${cls}">
+      <img src="${base}-1280.webp" srcset="${base}-640.webp 640w, ${base}-1280.webp 1280w" sizes="${sizes}" width="${ph.w}" height="${ph.h}" alt="${esc(ph.alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async">
+      <figcaption>${esc(ph.place)}<span class="photo-by"> · Photo: ${esc(ph.artist)}, ${ph.licenseUrl ? `<a href="${esc(ph.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(ph.license)}<span class="sr-only">, opens in a new tab</span></a>` : esc(ph.license.toLowerCase())}</span></figcaption>
+    </figure>`;
+}
 export const stars = (n = 4) => `<span class="stars" aria-hidden="true">${star().repeat(n)}</span>`;
 
 /* --- small parts --------------------------------------------------------- */

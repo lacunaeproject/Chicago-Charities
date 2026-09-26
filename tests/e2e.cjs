@@ -241,6 +241,14 @@ const active = (p) => p.evaluate(() => { const a = document.activeElement; retur
     ok('details: gift example with its source, recurring note, volunteer link', /\$25\s+provides a week’s worth of diapers/.test(help.gift) && /Source/.test(help.gift) && /recurring gifts/.test(help.dest) && help.vol === 'https://www.cawc.org/volunteer/', JSON.stringify(help));
     await load(p, '#/all?org=youth-guidance');
     ok('details: no gift example or volunteer block where none is published', await p.evaluate(() => !document.querySelector('#detail .gift-eg') && !document.querySelector('#detail #v-h')));
+
+    // Photographs: they load, carry alt text and a credit, and every one is in the credits.
+    await load(p, '#/');
+    const hero = await p.$eval('.photo-hero img', (i) => ({ ok: i.complete && i.naturalWidth > 0, alt: i.alt, cap: i.closest('figure').querySelector('figcaption').textContent }));
+    ok('home photo loads, with alt text and a credited caption', hero.ok && hero.alt.length > 20 && /Photo: .+, CC BY/.test(hero.cap), JSON.stringify(hero));
+    await load(p, '#/fit/environment'); await p.waitForFunction(() => document.querySelector('.photo-card img')?.complete);
+    ok('each cause shows its own photograph', /Montrose Point/.test(await p.$eval('.photo-card figcaption', (e) => e.textContent)) && await p.$eval('.photo-card img', (i) => i.naturalWidth > 0));
+    ok('every photograph is credited under How we check', (await p.$$eval('#how-photos .credits li', (x) => x.length)) === 11);
     await ctx.close();
 
     // 200% text at 320: a long card still fits and scrolls inside.
