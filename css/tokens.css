@@ -129,7 +129,9 @@
   --ico-xs:   18px;
   --star:     12px;
   --photo-hero: 34rem;   /* the splash photograph beside the question */
-  --photo-card: 20rem;   /* a cause's photograph beside its results */
+  --thumb:       64px;   /* a charity's photo in the full list */
+  --thumb-sm:    48px;
+  --ratio-card:  16 / 9; /* a charity's photo on its card and in its details */
   --ratio-strip: 2 / 1;  /* a photograph on a phone, kept short */
   --ratio-hero: 5 / 4;   /* the splash photograph, framed on the trains */
   --dot:      7px;

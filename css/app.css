@@ -50,10 +50,18 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .photo figcaption { margin-top: var(--s-2); font-size: var(--t-xs); line-height: var(--lh-snug); color: var(--ink-3); }
 .photo-by a { color: inherit; text-decoration: underline; text-decoration-thickness: var(--hair); text-underline-offset: var(--underline); }
 .photo-by a:hover { color: var(--blue-deep); }
-.fit-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, var(--photo-card)); align-items: end; gap: var(--s-4) var(--s-10); margin-bottom: var(--s-8); }
-.fit-top .refine { margin-bottom: 0; }
-.photo-card img { aspect-ratio: 3 / 2; object-fit: cover; }
 .photo-hero img { aspect-ratio: var(--ratio-hero); object-fit: cover; object-position: 72% 50%; }
+
+/* A charity's own photograph, or the quiet tile that stands in for one. */
+.org-photo img { display: block; width: 100%; height: 100%; object-fit: cover; background: var(--sky-200); }
+.org-ph { display: grid; place-items: center; background: var(--sky-100); color: var(--blue-deep); }
+.org-ph .ico { opacity: .55; }
+.card-photo { margin-bottom: var(--s-5); aspect-ratio: var(--ratio-card); border-radius: var(--r-md); overflow: hidden; }
+.panel-photo { margin-bottom: var(--s-5); }
+.panel-photo img { aspect-ratio: var(--ratio-card); height: auto; border-radius: var(--r-md); }
+.panel-photo figcaption { margin-top: var(--s-2); font-size: var(--t-xs); line-height: var(--lh-snug); color: var(--ink-3); }
+.row-photo { width: var(--thumb); height: var(--thumb); border-radius: var(--r-md); overflow: hidden; flex: none; }
+.row-photo .ico { width: var(--ico-sm); height: var(--ico-sm); }
 
 /* The flag, as a sign-off: its two blue stripes and four red stars. */
 .flagband { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--s-5); padding-top: var(--s-8); }
@@ -209,7 +217,7 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
 .group-n { color: var(--ink-3); font-weight: var(--w-label); }
 .rows { border-radius: var(--r-card); background: var(--white); box-shadow: var(--shadow-2); overflow: hidden; }
 .row {
-  position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: var(--s-6); align-items: center;
+  position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: var(--s-4) var(--s-6); align-items: center;
   padding: var(--s-4) var(--s-6); border-top: var(--hair) solid var(--line); transition: background var(--dur-fast);
 }
 .row:first-child { border-top: 0; }
@@ -386,14 +394,14 @@ html:not(.js) .view + .view { border-top: var(--hair) solid var(--line); }
   .nav-links { display: none; }
   .splash { padding-top: var(--s-6); padding-bottom: var(--s-12); }
   .q { margin-bottom: var(--s-6); }
-  .splash-top, .fit-top { grid-template-columns: minmax(0, 1fr); margin-bottom: var(--s-6); }
-  .photo-hero img, .photo-card img { aspect-ratio: var(--ratio-strip); object-fit: cover; }
-  .fit-top .photo { order: -1; }
+  .splash-top { grid-template-columns: minmax(0, 1fr); margin-bottom: var(--s-6); }
+  .photo-hero img { aspect-ratio: var(--ratio-strip); object-fit: cover; }
   .refine { margin: var(--s-5) 0 var(--s-6); }
   .refine .pill, .refine .pill select { width: 100%; }
-  .row { grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-3); padding: var(--s-4); }
+  .row { grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--s-3); padding: var(--s-4); }
+  .row-photo { width: var(--thumb-sm); height: var(--thumb-sm); }
   .row-figs > div:nth-child(2) { display: none; }
-  html:not(.js) .row { grid-template-columns: minmax(0, 1fr); }
+  html:not(.js) .row { grid-template-columns: auto minmax(0, 1fr); }
   .tiers li { grid-template-columns: minmax(0, 1fr); gap: var(--s-2); }
   .panel { inset: auto 0 0 0; width: 100%; height: calc(100% - var(--s-6)); border-radius: var(--r-card) var(--r-card) 0 0; }
   @keyframes slide-in { from { transform: translateY(100%); } }

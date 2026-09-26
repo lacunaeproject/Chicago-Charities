@@ -162,8 +162,8 @@ const how = `
 
       <section class="how-block" id="how-photos" aria-labelledby="how-photos-h">
         <h2 id="how-photos-h">Photographs</h2>
-        <p>Every photograph is of a Chicago place, from Wikimedia Commons under a free license. Each is resized for this site and shared under its original license.</p>
-        <ul class="sources credits">${Object.values(PHOTOS).map((p) => `<li><span>${esc(p.place)}</span><span class="src-via">${external(p.source, esc(p.artist), `, photo of ${esc(p.place)} on Wikimedia Commons`)}, ${p.licenseUrl ? external(p.licenseUrl, esc(p.license), ' license') : esc(p.license.toLowerCase())}</span></li>`).join('')}</ul>
+        <p>Every photograph is from Wikimedia Commons under a free license: the charities’ own work where a free-licensed photo of it exists, and the city itself on the home page. Each is resized or cropped for this site and shared under its original license.</p>
+        <ul class="sources credits">${[...ORGS.filter((o) => o.photo).map((o) => ({ ...o.photo, place: o.photo.caption })), ...Object.values(PHOTOS)].map((p) => `<li><span>${esc(p.place)}</span><span class="src-via">${external(p.source, esc(p.artist), `, photo of ${esc(p.place)} on Wikimedia Commons`)}, ${p.licenseUrl ? external(p.licenseUrl, esc(p.license), ' license') : esc(p.license.toLowerCase())}</span></li>`).join('')}</ul>
       </section>
     </div>
   </section>`;

@@ -50,8 +50,9 @@ land on the exact view.
     build.mjs           renders index.html from the data and js/core.js
     data/orgs.js        the 39 organizations: the single source of truth
     data/meta.js        causes, evidence tiers, flag labels, FAQ, sources, site metadata
-    data/photos.js      photographs of Chicago places, with place, alt text, author and license
-    img/photos/         those photographs, resized to WebP (640 and 1280 wide); credited under How we check
+    data/photos.js      the home page photograph, with place, alt text, author and license
+    img/photos/         that photograph, resized to WebP (640 and 1280 wide)
+    img/orgs/           charities' own work, free-licensed, 16:9 WebP; credited in each entry's photo field
     js/core.js          shared by the build and the browser: ranking and all markup
     js/app.js           the router, views, panels, caution cards and saved list
     js/saved.js         the saved list (localStorage) and share links

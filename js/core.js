@@ -140,6 +140,23 @@ export function photo(key, cls, sizes, eager = false) {
       <figcaption>${esc(ph.place)}<span class="photo-by"> · Photo: ${esc(ph.artist)}, ${ph.licenseUrl ? `<a href="${esc(ph.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(ph.license)}<span class="sr-only">, opens in a new tab</span></a>` : esc(ph.license.toLowerCase())}</span></figcaption>
     </figure>`;
 }
+/* A charity's own work, photographed: free-licensed images of its programs,
+   people or place (see data/orgs.js). Where none exists, a quiet tile with
+   the cause's icon keeps the layout even without borrowing someone else's
+   picture (in the list only; a card or panel without a photo simply has
+   none). `credit` adds the author and license under it. */
+const licenseLink = (ph) => ph.licenseUrl
+  ? `<a href="${esc(ph.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(ph.license)}<span class="sr-only">, opens in a new tab</span></a>`
+  : esc(ph.license.toLowerCase());
+export function orgPhoto(o, cls, sizes, credit = false) {
+  const ph = o.photo;
+  if (!ph) return `<div class="org-ph ${cls}" aria-hidden="true">${icon(o.primaryCause, 'ico')}</div>`;
+  const base = `img/orgs/${o.id}`;
+  return `<figure class="org-photo ${cls}">
+      <img src="${base}-1280.webp" srcset="${base}-640.webp 640w, ${base}-1280.webp 1280w" sizes="${sizes}" width="${ph.w}" height="${ph.h}" alt="${esc(ph.alt)}" loading="lazy" decoding="async">
+      ${credit ? `<figcaption>${esc(ph.caption)}<span class="photo-by"> · Photo: ${esc(ph.artist)}, ${licenseLink(ph)}</span></figcaption>` : ''}
+    </figure>`;
+}
 export const stars = (n = 4) => `<span class="stars" aria-hidden="true">${star().repeat(n)}</span>`;
 
 /* --- small parts --------------------------------------------------------- */
@@ -194,6 +211,7 @@ const figures = (o, cls = 'figs', ctx = 'f') => `<dl class="${cls}">
 
 export function card(o, i, priority) {
   return `<article class="card${i === 0 ? ' is-first' : ''}" aria-labelledby="c-${esc(o.id)}">
+    ${o.photo ? orgPhoto(o, 'card-photo', '(max-width: 960px) 100vw, 360px') : ''}
     <div class="card-top"><span class="badge">${i === 0 ? star() + ' Best fit' : `No. ${i + 1}`}</span>${saveButton(o, 'save save-icon')}</div>
     <h3 class="card-name" id="c-${esc(o.id)}"><a href="${esc(o.homepage)}" data-org="${esc(o.id)}">${esc(o.name)}</a></h3>
     <p class="card-does">${esc(o.short)}</p>
@@ -209,6 +227,7 @@ export function card(o, i, priority) {
 
 export function row(o) {
   return `<li class="row" data-id="${esc(o.id)}">
+    ${orgPhoto(o, 'row-photo', '96px')}
     <div class="row-text">
       <h3 class="row-name"><a href="${esc(o.homepage)}" data-org="${esc(o.id)}">${esc(o.name)}</a></h3>
       <p class="row-does">${esc(o.short)}</p>
@@ -268,6 +287,7 @@ export function detail(o) {
     <button class="panel-close" type="button" data-close>${icon('close', 'ico ico-sm')}<span class="sr-only">Close details</span></button>
   </div>
   <div class="panel-body">
+    ${o.photo ? orgPhoto(o, 'panel-photo', '(max-width: 720px) 100vw, 560px', true) : ''}
     <h2 class="panel-name" id="detail-h" tabindex="-1">${esc(o.name)}</h2>
     <p class="panel-does">${esc(o.does)}</p>
     <div class="panel-go">${donateLink(o)}${saveButton(o, 'btn save save-btn')}</div>
